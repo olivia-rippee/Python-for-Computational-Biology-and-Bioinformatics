@@ -1,0 +1,665 @@
+Command line: /cvmfs/main.galaxyproject.org/deps/_conda/envs/__spades@3.12.0/bin/spades.py	-o	/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working	--disable-gzip-output	--careful	-t	7	-m	288	-k	55	--pe1-fr	--pe1-12	fastq.gz:/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/inputs/dataset_41142245.dat	
+
+System information:
+  SPAdes version: 3.12.0
+  Python version: 3.8.1
+  OS: Linux-3.10.0-957.27.2.el7.x86_64-x86_64-with-glibc2.10
+
+Output dir: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working
+Mode: read error correction and assembling
+Debug mode is turned OFF
+
+Dataset parameters:
+  Multi-cell mode (you should set '--sc' flag if input data was obtained with MDA (single-cell) technology or --meta flag if processing metagenomic dataset)
+  Reads:
+    Library number: 1, library type: paired-end
+      orientation: fr
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: ['/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/inputs/dataset_41142245.dat']
+      single reads: not specified
+      merged reads: not specified
+Read error correction parameters:
+  Iterations: 1
+  PHRED offset will be auto-detected
+  Corrected reads will NOT be compressed
+Assembly parameters:
+  k: [55]
+  Repeat resolution is enabled
+  Mismatch careful mode is turned ON
+  MismatchCorrector will be used
+  Coverage cutoff is turned OFF
+Other parameters:
+  Dir for temp files: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/tmp
+  Threads: 7
+  Memory limit (in Gb): 288
+
+
+======= SPAdes pipeline started. Log can be found here: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/spades.log
+
+== Splitting /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/inputs/dataset_41142245.dat into left and right reads (in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input directory)
+
+===== Read error correction started. 
+
+
+== Running read error correction tool: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-hammer /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/corrected/configs/config.info
+
+  0:00:00.000     4M / 4M    INFO    General                 (main.cpp                  :  75)   Starting BayesHammer, built from N/A, git revision N/A
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  76)   Loading config from /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/corrected/configs/config.info
+  0:00:00.005     4M / 4M    INFO    General                 (main.cpp                  :  78)   Maximum # of threads to use (adjusted due to OMP capabilities): 7
+  0:00:00.005     4M / 4M    INFO    General                 (memory_limit.cpp          :  49)   Memory limit set to 288 Gb
+  0:00:00.005     4M / 4M    INFO    General                 (main.cpp                  :  86)   Trying to determine PHRED offset
+  0:00:00.007     4M / 4M    INFO    General                 (main.cpp                  :  92)   Determined value is 33
+  0:00:00.008     4M / 4M    INFO    General                 (hammer_tools.cpp          :  36)   Hamming graph threshold tau=1, k=21, subkmer positions = [ 0 10 ]
+  0:00:00.008     4M / 4M    INFO    General                 (main.cpp                  : 113)   Size of aux. kmer data 24 bytes
+     === ITERATION 0 begins ===
+  0:00:00.012     4M / 4M    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:00:00.013     4M / 4M    INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 112 files using 7 threads. This might take a while.
+  0:00:00.015     4M / 4M    INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 51198
+  0:00:00.015     4M / 4M    INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 13.7141 Gb
+  0:00:00.015     4M / 4M    INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 599186
+  0:00:00.050     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             :  97)   Processing /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq
+  0:00:38.899     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 1981333 reads
+  0:01:11.615     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 4026426 reads
+  0:01:11.616     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             :  97)   Processing /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+  0:01:44.055     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 6205408 reads
+  0:02:14.437     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             : 107)   Processed 8052852 reads
+  0:02:14.438     6G / 6G    INFO   K-mer Splitting          (kmer_data.cpp             : 112)   Total 8052852 reads processed
+  0:02:15.053    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:02:21.502    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 50703080 kmers in total.
+  0:02:21.502    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:02:24.639    28M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:02:28.948    36M / 6G    INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:02:31.024    36M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 23519192 bytes occupied (3.71089 bits per kmer).
+  0:02:31.046    36M / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 356)   Arranging kmers in hash map order
+  0:02:35.942   812M / 6G    INFO    General                 (main.cpp                  : 148)   Clustering Hamming graph.
+  0:05:39.211   812M / 6G    INFO    General                 (main.cpp                  : 155)   Extracting clusters
+  0:06:21.520   812M / 6G    INFO    General                 (main.cpp                  : 167)   Clustering done. Total clusters: 18527259
+  0:06:21.613   424M / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 376)   Collecting K-mer information, this takes a while.
+  0:06:22.511     1G / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 382)   Processing /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq
+  0:08:09.357     1G / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 382)   Processing /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+  0:09:53.460     1G / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 389)   Collection done, postprocessing.
+  0:09:53.830     1G / 6G    INFO   K-mer Counting           (kmer_data.cpp             : 403)   There are 50703080 kmers in total. Among them 40750432 (80.3707%) are singletons.
+  0:09:53.830     1G / 6G    INFO    General                 (main.cpp                  : 173)   Subclustering Hamming graph
+  0:11:49.981     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 649)   Subclustering done. Total 1104 non-read kmers were generated.
+  0:11:49.981     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 650)   Subclustering statistics:
+  0:11:49.981     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 651)     Total singleton hamming clusters: 12991364. Among them 2769164 (21.3154%) are good
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 652)     Total singleton subclusters: 8597. Among them 8134 (94.6144%) are good
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 653)     Total non-singleton subcluster centers: 5705787. Among them 5012612 (87.8514%) are good
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 654)     Average size of non-trivial subcluster: 6.60971 kmers
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 655)     Average number of sub-clusters per non-singleton cluster: 1.03224
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 656)     Total solid k-mers: 7789910
+  0:11:49.982     1G / 6G    INFO   Hamming Subclustering    (kmer_cluster.cpp          : 657)     Substitution probabilities: [4,4]((0.943156,0.0182538,0.0156721,0.0229186),(0.0226708,0.95465,0.00773662,0.0149424),(0.0146615,0.00760315,0.954826,0.0229098),(0.0227059,0.0155144,0.0181155,0.943664))
+  0:11:50.062     1G / 6G    INFO    General                 (main.cpp                  : 178)   Finished clustering.
+  0:11:50.062     1G / 6G    INFO    General                 (main.cpp                  : 197)   Starting solid k-mers expansion in 7 threads.
+  0:13:25.413     1G / 6G    INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 0 produced 826535 new k-mers.
+  0:14:59.553     1G / 6G    INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 1 produced 76889 new k-mers.
+  0:16:34.938     1G / 6G    INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 2 produced 2401 new k-mers.
+  0:18:13.125     1G / 6G    INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 3 produced 75 new k-mers.
+  0:19:49.591     1G / 6G    INFO    General                 (main.cpp                  : 218)   Solid k-mers iteration 4 produced 0 new k-mers.
+  0:19:49.593     1G / 6G    INFO    General                 (main.cpp                  : 222)   Solid k-mers finalized
+  0:19:49.593     1G / 6G    INFO    General                 (hammer_tools.cpp          : 220)   Starting read correction in 7 threads.
+  0:19:49.594     1G / 6G    INFO    General                 (hammer_tools.cpp          : 233)   Correcting pair of reads: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq and /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+  0:19:55.794     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 0 of 700000 reads.
+  0:19:59.384     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 0
+  0:20:07.897     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 0
+  0:20:12.815     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 1 of 700000 reads.
+  0:20:17.323     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 1
+  0:20:25.390     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 1
+  0:20:31.036     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 2 of 700000 reads.
+  0:20:35.582     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 2
+  0:20:43.578     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 2
+  0:20:48.799     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 3 of 700000 reads.
+  0:20:53.111     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 3
+  0:21:01.066     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 3
+  0:21:06.073     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 4 of 700000 reads.
+  0:21:10.516     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 4
+  0:21:18.380     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 4
+  0:21:23.388     2G / 6G    INFO    General                 (hammer_tools.cpp          : 168)   Prepared batch 5 of 526426 reads.
+  0:21:33.399     2G / 6G    INFO    General                 (hammer_tools.cpp          : 175)   Processed batch 5
+  0:21:40.221     2G / 6G    INFO    General                 (hammer_tools.cpp          : 185)   Written batch 5
+  0:21:41.138     1G / 6G    INFO    General                 (hammer_tools.cpp          : 274)   Correction done. Changed 1310999 bases in 832707 reads.
+  0:21:41.138     1G / 6G    INFO    General                 (hammer_tools.cpp          : 275)   Failed to correct 32857 bases out of 757483640.
+  0:21:41.754    28M / 6G    INFO    General                 (main.cpp                  : 255)   Saving corrected dataset description to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/corrected/corrected.yaml
+  0:21:41.784    28M / 6G    INFO    General                 (main.cpp                  : 262)   All done. Exiting.
+
+== Dataset description file was created: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/corrected/corrected.yaml
+
+
+===== Read error correction finished. 
+
+
+===== Assembling started.
+
+
+== Running assembler: K55
+
+  0:00:00.000     4M / 4M    INFO    General                 (main.cpp                  :  74)   Loaded config from /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/K55/configs/config.info
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  74)   Loaded config from /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/K55/configs/careful_mode.info
+  0:00:00.001     4M / 4M    INFO    General                 (memory_limit.cpp          :  49)   Memory limit set to 288 Gb
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  87)   Starting SPAdes, built from N/A, git revision N/A
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  88)   Maximum k-mer length: 128
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  89)   Assembling dataset (/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/dataset.info) with K=55
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  90)   Maximum # of threads to use (adjusted due to OMP capabilities): 7
+  0:00:00.001     4M / 4M    INFO    General                 (launch.hpp                :  51)   SPAdes started
+  0:00:00.001     4M / 4M    INFO    General                 (launch.hpp                :  58)   Starting from stage: construction
+  0:00:00.002     4M / 4M    INFO    General                 (launch.hpp                :  65)   Two-step RR enabled: 0
+  0:00:00.002     4M / 4M    INFO    General                 (launch.hpp                :  76)   Will need read mapping, kmer mapper will be attached
+  0:00:00.002     4M / 4M    INFO   StageManager             (stage.cpp                 : 132)   STAGE == de Bruijn graph construction
+  0:00:00.007     4M / 4M    INFO    General                 (read_converter.hpp        :  77)   Converting reads to binary format for library #0 (takes a while)
+  0:00:00.008     4M / 4M    INFO    General                 (read_converter.hpp        :  78)   Converting paired reads
+  0:00:00.524    96M / 100M  INFO    General                 (binary_converter.hpp      :  93)   16384 reads processed
+  0:00:00.742   108M / 108M  INFO    General                 (binary_converter.hpp      :  93)   32768 reads processed
+  0:00:01.190   124M / 124M  INFO    General                 (binary_converter.hpp      :  93)   65536 reads processed
+  0:00:02.083   164M / 164M  INFO    General                 (binary_converter.hpp      :  93)   131072 reads processed
+  0:00:03.735   240M / 240M  INFO    General                 (binary_converter.hpp      :  93)   262144 reads processed
+  0:00:07.295   396M / 396M  INFO    General                 (binary_converter.hpp      :  93)   524288 reads processed
+  0:00:22.812   636M / 636M  INFO    General                 (binary_converter.hpp      :  93)   1048576 reads processed
+  0:00:44.611   636M / 636M  INFO    General                 (binary_converter.hpp      :  93)   2097152 reads processed
+  0:01:26.025   112M / 636M  INFO    General                 (binary_converter.hpp      : 117)   3755073 reads written
+  0:01:26.200     4M / 636M  INFO    General                 (read_converter.hpp        :  87)   Converting single reads
+  0:01:26.648   148M / 636M  INFO    General                 (binary_converter.hpp      :  93)   16384 reads processed
+  0:01:26.738   152M / 636M  INFO    General                 (binary_converter.hpp      :  93)   32768 reads processed
+  0:01:26.942   160M / 636M  INFO    General                 (binary_converter.hpp      :  93)   65536 reads processed
+  0:01:27.429   180M / 636M  INFO    General                 (binary_converter.hpp      :  93)   131072 reads processed
+  0:01:28.465   192M / 636M  INFO    General                 (binary_converter.hpp      : 117)   181205 reads written
+  0:01:28.722     4M / 636M  INFO    General                 (read_converter.hpp        :  95)   Converting merged reads
+  0:01:29.096   144M / 636M  INFO    General                 (binary_converter.hpp      : 117)   0 reads written
+  0:01:29.248     4M / 636M  INFO    General                 (construction.cpp          : 111)   Max read length 101
+  0:01:29.248     4M / 636M  INFO    General                 (construction.cpp          : 117)   Average read length 98.0162
+  0:01:29.248     4M / 636M  INFO    General                 (stage.cpp                 : 101)   PROCEDURE == k+1-mer counting
+  0:01:29.274     4M / 636M  INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 49 files using 7 threads. This might take a while.
+  0:01:29.297     4M / 636M  INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 51198
+  0:01:29.297     4M / 636M  INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 13.7141 Gb
+  0:01:29.297     4M / 636M  INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 684784
+  0:01:46.181     4G / 4G    INFO    General                 (kmer_splitters.hpp        : 289)   Processed 10721049 reads
+  0:01:53.900     4G / 4G    INFO    General                 (kmer_splitters.hpp        : 289)   Processed 15382702 reads
+  0:01:53.900     4G / 4G    INFO    General                 (kmer_splitters.hpp        : 295)   Adding contigs from previous K
+  0:01:54.598    28M / 4G    INFO    General                 (kmer_splitters.hpp        : 308)   Used 15382702 reads
+  0:01:54.598    28M / 4G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:01:58.565    28M / 4G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 7635340 kmers in total.
+  0:01:58.565    28M / 4G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:01:59.848    28M / 4G    INFO    General                 (stage.cpp                 : 101)   PROCEDURE == Extension index construction
+  0:01:59.864    28M / 4G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:01:59.864    28M / 4G    INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 112 files using 7 threads. This might take a while.
+  0:01:59.891    28M / 4G    INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 51198
+  0:01:59.891    28M / 4G    INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 13.713 Gb
+  0:01:59.891    28M / 4G    INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 299593
+  0:02:09.271     6G / 6G    INFO    General                 (kmer_splitters.hpp        : 380)   Processed 7635340 kmers
+  0:02:09.274     6G / 6G    INFO    General                 (kmer_splitters.hpp        : 385)   Used 7635340 kmers.
+  0:02:09.406    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:02:16.551    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 7665687 kmers in total.
+  0:02:16.551    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:02:18.409    28M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:02:19.291    28M / 6G    INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:02:19.858    28M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 3562888 bytes occupied (3.71827 bits per kmer).
+  0:02:19.873    36M / 6G    INFO   DeBruijnExtensionIndexBu (kmer_extension_index_build:  99)   Building k-mer extensions from k+1-mers
+  0:02:21.283    36M / 6G    INFO   DeBruijnExtensionIndexBu (kmer_extension_index_build: 103)   Building k-mer extensions from k+1-mers finished.
+  0:02:21.285    36M / 6G    INFO    General                 (stage.cpp                 : 101)   PROCEDURE == Condensing graph
+  0:02:21.428    36M / 6G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 355)   Extracting unbranching paths
+  0:02:23.077    72M / 6G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 374)   Extracting unbranching paths finished. 582929 sequences extracted
+  0:02:24.081    72M / 6G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 310)   Collecting perfect loops
+  0:02:24.491    72M / 6G    INFO   UnbranchingPathExtractor (debruijn_graph_constructor: 343)   Collecting perfect loops finished. 3 loops collected
+  0:02:25.248   216M / 6G    INFO    General                 (stage.cpp                 : 101)   PROCEDURE == Filling coverage indices (PHM)
+  0:02:25.248   216M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:02:25.248   216M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:02:25.894   224M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 3544112 bytes occupied (3.71338 bits per kmer).
+  0:02:25.934   256M / 6G    INFO    General                 (construction.cpp          : 388)   Collecting k-mer coverage information from reads, this takes a while.
+  0:02:42.487   256M / 6G    INFO    General                 (construction.cpp          : 508)   Filling coverage and flanking coverage from PHM
+  0:02:44.185   256M / 6G    INFO    General                 (construction.cpp          : 464)   Processed 1165857 edges
+  0:02:44.335   204M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == EC Threshold Finding
+  0:02:44.335   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 181)   Kmer coverage valley at: 6
+  0:02:44.335   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 201)   K-mer histogram maximum: 121
+  0:02:44.335   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 237)   Estimated median coverage: 121. Coverage mad: 32.6172
+  0:02:44.335   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 259)   Fitting coverage model
+  0:02:44.529   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 2
+  0:02:44.846   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 4
+  0:02:45.919   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 8
+  0:02:49.188   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 16
+  0:02:55.127   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 32
+  0:03:07.064   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 295)   ... iteration 64
+  0:03:16.425   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 309)   Fitted mean coverage: 110.985. Fitted coverage std. dev: 35.5817
+  0:03:16.431   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 334)   Probability of erroneous kmer at valley: 0.449414
+  0:03:16.431   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 358)   Preliminary threshold calculated as: 13
+  0:03:16.431   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 362)   Threshold adjusted to: 13
+  0:03:16.431   204M / 6G    INFO    General                 (kmer_coverage_model.cpp   : 375)   Estimated genome size (ignoring repeats): 2812025
+  0:03:16.431   204M / 6G    INFO    General                 (genomic_info_filler.cpp   : 112)   Mean coverage was calculated as 110.985
+  0:03:16.431   204M / 6G    INFO    General                 (genomic_info_filler.cpp   : 127)   EC coverage threshold value was calculated as 13
+  0:03:16.431   204M / 6G    INFO    General                 (genomic_info_filler.cpp   : 128)   Trusted kmer low bound: 0
+  0:03:16.431   204M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Gap Closer
+  0:03:16.431   204M / 6G    INFO    General                 (graph_pack.hpp            : 101)   Index refill
+  0:03:16.455   204M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:03:16.456   204M / 6G    INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 112 files using 7 threads. This might take a while.
+  0:03:16.481   204M / 6G    INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 51198
+  0:03:16.481   204M / 6G    INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 13.7048 Gb
+  0:03:16.481   204M / 6G    INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 299593
+  0:03:21.189     6G / 6G    INFO    General                 (edge_index_builders.hpp   :  77)   Processed 1165857 edges
+  0:03:21.189     6G / 6G    INFO    General                 (edge_index_builders.hpp   :  82)   Used 1165857 sequences.
+  0:03:21.261   204M / 6G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:03:24.649   204M / 6G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 7635340 kmers in total.
+  0:03:24.649   204M / 6G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:03:25.681   204M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:03:26.618   208M / 6G    INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:03:27.255   208M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 3548760 bytes occupied (3.71825 bits per kmer).
+  0:03:27.470   384M / 6G    INFO    General                 (edge_index_builders.hpp   : 107)   Collecting edge information from graph, this takes a while.
+  0:03:28.387   384M / 6G    INFO    General                 (edge_index.hpp            :  92)   Index refilled
+  0:03:28.394   384M / 6G    INFO    General                 (gap_closer.cpp            : 159)   Preparing shift maps
+  0:03:29.494   436M / 6G    INFO    General                 (gap_closer.cpp            : 119)   Processing paired reads (takes a while)
+  0:03:39.926   476M / 6G    INFO    General                 (gap_closer.cpp            : 138)   Used 3755073 paired reads
+  0:03:39.926   476M / 6G    INFO    General                 (gap_closer.cpp            : 140)   Merging paired indices
+  0:03:41.080   416M / 6G    INFO   GapCloser                (gap_closer.cpp            : 346)   Closing short gaps
+  0:03:43.833   416M / 6G    INFO   GapCloser                (gap_closer.cpp            : 380)   Closing short gaps complete: filled 447 gaps after checking 1154 candidates
+  0:03:44.385   388M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Raw Simplification
+  0:03:44.479   208M / 6G    INFO    General                 (simplification.cpp        : 128)   PROCEDURE == InitialCleaning
+  0:03:44.479   208M / 6G    INFO    General                 (simplification.cpp        :  62)   Most init cleaning disabled on main iteration
+  0:03:44.479   208M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Self conjugate edge remover
+  0:03:44.604   208M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Self conjugate edge remover triggered 0 times
+  0:03:44.604   208M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Simplification
+  0:03:44.604   208M / 6G    INFO    General                 (simplification.cpp        : 357)   Graph simplification started
+  0:03:44.604   208M / 6G    INFO    General                 (graph_simplification.hpp  : 634)   Creating parallel br instance
+  0:03:44.604   208M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 1
+  0:03:44.604   208M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.054   192M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 278914 times
+  0:03:50.054   192M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.307   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 625 times
+  0:03:50.307   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.381   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 118 times
+  0:03:50.382   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 2
+  0:03:50.382   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.386   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 37 times
+  0:03:50.386   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.398   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 21 times
+  0:03:50.398   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.423   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 102 times
+  0:03:50.423   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 3
+  0:03:50.423   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.425   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 13 times
+  0:03:50.425   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.443   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 33 times
+  0:03:50.443   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.446   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 22 times
+  0:03:50.446   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 4
+  0:03:50.446   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.493   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 2 times
+  0:03:50.493   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.505   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 17 times
+  0:03:50.505   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.505   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 8 times
+  0:03:50.505   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 5
+  0:03:50.506   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.506   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.506   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.510   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 9 times
+  0:03:50.510   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.510   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 3 times
+  0:03:50.510   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 6
+  0:03:50.510   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.511   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.511   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 2 times
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 0 times
+  0:03:50.512   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 7
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 0 times
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.512   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 2 times
+  0:03:50.512   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 8
+  0:03:50.513   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.513   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.513   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 3 times
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 1 times
+  0:03:50.514   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 9
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.514   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 2 times
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 0 times
+  0:03:50.515   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 10
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 0 times
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.515   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 0 times
+  0:03:50.516   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 11
+  0:03:50.516   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.535   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.535   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.560   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 1 times
+  0:03:50.560   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.578   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 0 times
+  0:03:50.579   184M / 6G    INFO    General                 (simplification.cpp        : 362)   PROCEDURE == Simplification cycle, iteration 12
+  0:03:50.579   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:03:50.580   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:03:50.580   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:03:50.581   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 0 times
+  0:03:50.581   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Low coverage edge remover
+  0:03:50.581   184M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Low coverage edge remover triggered 0 times
+  0:03:50.581   184M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Gap Closer
+  0:03:50.582   184M / 6G    INFO    General                 (graph_pack.hpp            : 101)   Index refill
+  0:03:50.594   184M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 301)   Building kmer index
+  0:03:50.594   184M / 6G    INFO    General                 (kmer_index_builder.hpp    : 117)   Splitting kmer instances into 112 files using 7 threads. This might take a while.
+  0:03:50.612   184M / 6G    INFO    General                 (file_limit.hpp            :  32)   Open file limit set to 51198
+  0:03:50.612   184M / 6G    INFO    General                 (kmer_splitters.hpp        :  89)   Memory available for splitting buffers: 13.7057 Gb
+  0:03:50.612   184M / 6G    INFO    General                 (kmer_splitters.hpp        :  97)   Using cell size of 299593
+  0:03:56.892     6G / 6G    INFO    General                 (edge_index_builders.hpp   :  77)   Processed 63474 edges
+  0:03:56.892     6G / 6G    INFO    General                 (edge_index_builders.hpp   :  82)   Used 63474 sequences.
+  0:03:56.956   180M / 6G    INFO    General                 (kmer_index_builder.hpp    : 120)   Starting k-mer counting.
+  0:04:02.989   180M / 6G    INFO    General                 (kmer_index_builder.hpp    : 127)   K-mer counting done. There are 4153426 kmers in total.
+  0:04:02.989   180M / 6G    INFO    General                 (kmer_index_builder.hpp    : 133)   Merging temporary buckets.
+  0:04:04.194   180M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 314)   Building perfect hash indices
+  0:04:04.745   184M / 6G    INFO    General                 (kmer_index_builder.hpp    : 150)   Merging final buckets.
+  0:04:05.174   184M / 6G    INFO   K-mer Index Building     (kmer_index_builder.hpp    : 336)   Index built. Total 1934072 bytes occupied (3.72526 bits per kmer).
+  0:04:05.328   280M / 6G    INFO    General                 (edge_index_builders.hpp   : 107)   Collecting edge information from graph, this takes a while.
+  0:04:05.675   280M / 6G    INFO    General                 (edge_index.hpp            :  92)   Index refilled
+  0:04:05.680   280M / 6G    INFO    General                 (gap_closer.cpp            : 159)   Preparing shift maps
+  0:04:05.847   288M / 6G    INFO    General                 (gap_closer.cpp            : 119)   Processing paired reads (takes a while)
+  0:04:15.265   296M / 6G    INFO    General                 (gap_closer.cpp            : 138)   Used 3755073 paired reads
+  0:04:15.265   296M / 6G    INFO    General                 (gap_closer.cpp            : 140)   Merging paired indices
+  0:04:15.481   284M / 6G    INFO   GapCloser                (gap_closer.cpp            : 346)   Closing short gaps
+  0:04:15.745   284M / 6G    INFO   GapCloser                (gap_closer.cpp            : 380)   Closing short gaps complete: filled 17 gaps after checking 196 candidates
+  0:04:15.802   280M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Simplification Cleanup
+  0:04:15.802   280M / 6G    INFO    General                 (simplification.cpp        : 196)   PROCEDURE == Post simplification
+  0:04:15.802   280M / 6G    INFO    General                 (graph_simplification.hpp  : 453)   Disconnection of relatively low covered edges disabled
+  0:04:15.802   280M / 6G    INFO    General                 (graph_simplification.hpp  : 489)   Complex tip clipping disabled
+  0:04:15.803   280M / 6G    INFO    General                 (graph_simplification.hpp  : 634)   Creating parallel br instance
+  0:04:15.803   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:04:15.828   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:04:15.832   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:04:15.857   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 0 times
+  0:04:15.857   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Tip clipper
+  0:04:15.880   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Tip clipper triggered 0 times
+  0:04:15.880   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Bulge remover
+  0:04:15.918   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Bulge remover triggered 0 times
+  0:04:15.918   280M / 6G    INFO    General                 (simplification.cpp        : 330)   Disrupting self-conjugate edges
+  0:04:15.998   280M / 6G    INFO   Simplification           (parallel_processing.hpp   : 165)   Running Removing isolated edges
+  0:04:19.214   144M / 6G    INFO   Simplification           (parallel_processing.hpp   : 167)   Removing isolated edges triggered 30690 times
+  0:04:19.215   144M / 6G    INFO    General                 (simplification.cpp        : 470)   Counting average coverage
+  0:04:19.216   144M / 6G    INFO    General                 (simplification.cpp        : 476)   Average coverage = 113.119
+  0:04:19.216   144M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Mismatch Correction
+  0:04:19.216   144M / 6G    INFO    General                 (graph_pack.hpp            : 109)   Normalizing k-mer map. Total 80196 kmers to process
+  0:04:19.341   136M / 6G    INFO    General                 (graph_pack.hpp            : 111)   Normalizing done
+  0:04:39.677   136M / 6G    INFO    General                 (mismatch_shall_not_pass.hp: 189)   Finished collecting potential mismatches positions
+  0:04:39.718   136M / 6G    INFO    General                 (mismatch_shall_not_pass.hp: 290)   All edges processed
+  0:04:39.719   136M / 6G    INFO    General                 (mismatch_correction.cpp   :  27)   Corrected 0 nucleotides
+  0:04:39.725   136M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Contig Output
+  0:04:39.725   136M / 6G    INFO    General                 (contig_output_stage.cpp   :  40)   Writing GFA to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/assembly_graph_with_scaffolds.gfa
+  0:04:39.816   136M / 6G    INFO    General                 (contig_output.hpp         :  22)   Outputting contigs to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/before_rr.fasta
+  0:04:40.013   136M / 6G    INFO    General                 (contig_output_stage.cpp   :  51)   Outputting FastG graph to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/assembly_graph.fastg
+  0:04:40.417   136M / 6G    INFO    General                 (contig_output.hpp         :  22)   Outputting contigs to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/simplified_contigs.fasta
+  0:04:40.645   136M / 6G    INFO    General                 (contig_output.hpp         :  22)   Outputting contigs to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/intermediate_contigs.fasta
+  0:04:40.850   136M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Paired Information Counting
+  0:04:40.858   136M / 6G    INFO    General                 (graph_pack.hpp            : 109)   Normalizing k-mer map. Total 80196 kmers to process
+  0:04:40.858   136M / 6G    INFO    General                 (graph_pack.hpp            : 111)   Normalizing done
+  0:04:40.859   136M / 6G    INFO    General                 (pair_info_count.cpp       : 320)   Min edge length for estimation: 49153
+  0:04:40.860   136M / 6G    INFO    General                 (pair_info_count.cpp       : 331)   Estimating insert size for library #0
+  0:04:40.860   136M / 6G    INFO    General                 (pair_info_count.cpp       : 190)   Estimating insert size (takes a while)
+  0:04:41.056   264M / 6G    INFO    General                 (pair_info_count.cpp       :  39)   Selecting usual mapper
+  0:05:09.148   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 200000 reads
+  0:05:09.645   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 400000 reads
+  0:05:09.856   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 600000 reads
+  0:05:10.709   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 800000 reads
+  0:05:11.966   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1000000 reads
+  0:05:12.863   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1200000 reads
+  0:05:40.343   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 2200000 reads
+  0:06:05.282   264M / 6G    INFO    General                 (sequence_mapper_notifier.h:  98)   Total 3755073 reads processed
+  0:06:07.126   264M / 6G    INFO    General                 (pair_info_count.cpp       : 209)   Edge pairs: 67108864 (rough upper limit)
+  0:06:07.126   264M / 6G    INFO    General                 (pair_info_count.cpp       : 213)   1810022 paired reads (48.202% of all) aligned to long edges
+  0:06:07.153   136M / 6G    INFO    General                 (pair_info_count.cpp       : 354)     Insert size = 183.8, deviation = 33.8803, left quantile = 138, right quantile = 215, read length = 101
+  0:06:07.228   328M / 6G    INFO    General                 (pair_info_count.cpp       : 371)   Filtering data for library #0
+  0:06:07.240   328M / 6G    INFO    General                 (pair_info_count.cpp       :  39)   Selecting usual mapper
+  0:06:35.149   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 200000 reads
+  0:06:35.568   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 400000 reads
+  0:06:35.974   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 600000 reads
+  0:06:36.844   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 800000 reads
+  0:06:37.786   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1000000 reads
+  0:06:38.893   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1200000 reads
+  0:07:08.015   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 2200000 reads
+  0:07:32.141   328M / 6G    INFO    General                 (sequence_mapper_notifier.h:  98)   Total 3755073 reads processed
+  0:07:32.148   328M / 6G    INFO    General                 (pair_info_count.cpp       : 383)   Mapping library #0
+  0:07:32.148   328M / 6G    INFO    General                 (pair_info_count.cpp       : 385)   Mapping paired reads (takes a while)
+  0:07:32.148   328M / 6G    INFO    General                 (pair_info_count.cpp       : 289)   Left insert size quantile 138, right insert size quantile 215, filtering threshold 2, rounding threshold 0
+  0:07:32.181   340M / 6G    INFO    General                 (pair_info_count.cpp       :  39)   Selecting usual mapper
+  0:08:00.977   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 200000 reads
+  0:08:01.146   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 400000 reads
+  0:08:01.683   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 600000 reads
+  0:08:02.306   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 800000 reads
+  0:08:03.486   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1000000 reads
+  0:08:04.564   340M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 1200000 reads
+  0:08:32.539   344M / 6G    INFO    General                 (sequence_mapper_notifier.h:  80)   Processed 2200000 reads
+  0:08:56.964   344M / 6G    INFO    General                 (sequence_mapper_notifier.h:  98)   Total 3755073 reads processed
+  0:08:56.989   140M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Distance Estimation
+  0:08:56.989   140M / 6G    INFO    General                 (distance_estimation.cpp   : 173)   Processing library #0
+  0:08:56.989   140M / 6G    INFO    General                 (distance_estimation.cpp   : 149)   Weight Filter Done
+  0:08:56.989   140M / 6G    INFO   DistanceEstimator        (distance_estimation.hpp   : 116)   Using SIMPLE distance estimator
+  0:08:57.051   140M / 6G    INFO    General                 (distance_estimation.cpp   :  34)   Filtering info
+  0:08:57.051   140M / 6G    INFO    General                 (pair_info_filters.hpp     : 242)   Start filtering; index size: 10932
+  0:08:57.060   140M / 6G    INFO    General                 (pair_info_filters.hpp     : 263)   Done filtering
+  0:08:57.060   140M / 6G    INFO    General                 (distance_estimation.cpp   : 156)   Refining clustered pair information
+  0:08:57.067   140M / 6G    INFO    General                 (distance_estimation.cpp   : 158)   The refining of clustered pair information has been finished
+  0:08:57.068   140M / 6G    INFO    General                 (distance_estimation.cpp   : 160)   Improving paired information
+  0:08:57.122   156M / 6G    INFO   PairInfoImprover         (pair_info_improver.hpp    : 103)   Paired info stats: missing = 211; contradictional = 250
+  0:08:57.179   156M / 6G    INFO   PairInfoImprover         (pair_info_improver.hpp    : 103)   Paired info stats: missing = 8; contradictional = 8
+  0:08:57.179   156M / 6G    INFO    General                 (distance_estimation.cpp   : 103)   Filling scaffolding index
+  0:08:57.179   156M / 6G    INFO   DistanceEstimator        (distance_estimation.hpp   : 116)   Using SMOOTHING distance estimator
+  0:08:57.219   156M / 6G    INFO    General                 (distance_estimation.cpp   :  34)   Filtering info
+  0:08:57.221   156M / 6G    INFO    General                 (pair_info_filters.hpp     : 242)   Start filtering; index size: 2943
+  0:08:57.224   156M / 6G    INFO    General                 (pair_info_filters.hpp     : 263)   Done filtering
+  0:08:57.224   156M / 6G    INFO    General                 (distance_estimation.cpp   : 182)   Clearing raw paired index
+  0:08:57.228   156M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Repeat Resolving
+  0:08:57.228   156M / 6G    INFO    General                 (repeat_resolving.cpp      :  69)   Using Path-Extend repeat resolving
+  0:08:57.228   156M / 6G    INFO    General                 (launcher.cpp              : 477)   ExSPAnder repeat resolving tool started
+  0:08:57.243   160M / 6G    INFO    General                 (launcher.cpp              : 392)   Creating main extenders, unique edge length = 2000
+  0:08:57.244   160M / 6G    INFO    General                 (extenders_logic.cpp       : 275)   Estimated coverage of library #0 is 113.119
+  0:08:57.244   160M / 6G    INFO    General                 (extenders_logic.cpp       : 275)   Estimated coverage of library #0 is 113.119
+  0:08:57.246   160M / 6G    INFO    General                 (extenders_logic.cpp       : 472)   Using 1 paired-end library
+  0:08:57.246   160M / 6G    INFO    General                 (extenders_logic.cpp       : 473)   Using 1 paired-end scaffolding library
+  0:08:57.247   160M / 6G    INFO    General                 (extenders_logic.cpp       : 474)   Using 0 single read libraries
+  0:08:57.247   160M / 6G    INFO    General                 (launcher.cpp              : 420)   Total number of extenders is 3
+  0:08:57.247   160M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 0 paths from 984 (0%)
+  0:08:57.648   164M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 99 paths from 984 (10%)
+  0:08:57.652   164M / 6G    INFO    General                 (path_extender.hpp         : 883)   Processed 128 paths from 984 (13%)
+  0:08:57.667   164M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 198 paths from 984 (20%)
+  0:08:57.670   164M / 6G    INFO    General                 (path_extender.hpp         : 883)   Processed 256 paths from 984 (26%)
+  0:08:57.672   164M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 297 paths from 984 (30%)
+  0:08:57.677   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 396 paths from 984 (40%)
+  0:08:57.682   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 495 paths from 984 (50%)
+  0:08:57.683   168M / 6G    INFO    General                 (path_extender.hpp         : 883)   Processed 512 paths from 984 (52%)
+  0:08:57.695   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 594 paths from 984 (60%)
+  0:08:57.715   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 693 paths from 984 (70%)
+  0:08:57.745   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 792 paths from 984 (80%)
+  0:08:57.746   168M / 6G    INFO    General                 (path_extender.hpp         : 885)   Processed 891 paths from 984 (90%)
+  0:08:57.746   168M / 6G    INFO    General                 (launcher.cpp              : 234)   Finalizing paths
+  0:08:57.746   168M / 6G    INFO    General                 (launcher.cpp              : 236)   Deduplicating paths
+  0:08:57.750   168M / 6G    INFO    General                 (launcher.cpp              : 240)   Paths deduplicated
+  0:08:57.750   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 295)   Removing overlaps
+  0:08:57.751   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 298)   Sorting paths
+  0:08:57.751   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 305)   Marking overlaps
+  0:08:57.751   168M / 6G    INFO   OverlapRemover           (pe_resolver.hpp           : 130)   Marking start/end overlaps
+  0:08:57.753   168M / 6G    INFO   OverlapRemover           (pe_resolver.hpp           : 133)   Marking remaining overlaps
+  0:08:57.755   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 308)   Splitting paths
+  0:08:57.757   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 313)   Deduplicating paths
+  0:08:57.758   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 315)   Overlaps removed
+  0:08:57.759   168M / 6G    INFO    General                 (launcher.cpp              : 257)   Paths finalized
+  0:08:57.760   168M / 6G    INFO    General                 (launcher.cpp              : 427)   Closing gaps in paths
+  0:08:57.762   168M / 6G    INFO    General                 (launcher.cpp              : 455)   Gap closing completed
+  0:08:57.764   168M / 6G    INFO    General                 (launcher.cpp              : 286)   Traversing tandem repeats
+  0:08:57.769   168M / 6G    INFO    General                 (launcher.cpp              : 296)   Traversed 0 loops
+  0:08:57.769   168M / 6G    INFO    General                 (launcher.cpp              : 234)   Finalizing paths
+  0:08:57.769   168M / 6G    INFO    General                 (launcher.cpp              : 236)   Deduplicating paths
+  0:08:57.769   168M / 6G    INFO    General                 (launcher.cpp              : 240)   Paths deduplicated
+  0:08:57.769   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 295)   Removing overlaps
+  0:08:57.770   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 298)   Sorting paths
+  0:08:57.770   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 305)   Marking overlaps
+  0:08:57.770   168M / 6G    INFO   OverlapRemover           (pe_resolver.hpp           : 130)   Marking start/end overlaps
+  0:08:57.771   168M / 6G    INFO   OverlapRemover           (pe_resolver.hpp           : 133)   Marking remaining overlaps
+  0:08:57.772   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 308)   Splitting paths
+  0:08:57.772   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 313)   Deduplicating paths
+  0:08:57.772   168M / 6G    INFO   PEResolver               (pe_resolver.hpp           : 315)   Overlaps removed
+  0:08:57.773   168M / 6G    INFO    General                 (launcher.cpp              : 257)   Paths finalized
+  0:08:57.776   168M / 6G    INFO    General                 (launcher.cpp              : 529)   ExSPAnder repeat resolving tool finished
+  0:08:57.824   164M / 6G    INFO   StageManager             (stage.cpp                 : 132)   STAGE == Contig Output
+  0:08:57.824   164M / 6G    INFO    General                 (contig_output_stage.cpp   :  40)   Writing GFA to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/assembly_graph_with_scaffolds.gfa
+  0:08:57.919   160M / 6G    INFO    General                 (contig_output.hpp         :  22)   Outputting contigs to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/before_rr.fasta
+  0:08:58.120   160M / 6G    INFO    General                 (contig_output_stage.cpp   :  51)   Outputting FastG graph to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/assembly_graph.fastg
+  0:08:58.531   160M / 6G    INFO    General                 (contig_output_stage.cpp   :  20)   Outputting FastG paths to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/final_contigs.paths
+  0:08:58.741   160M / 6G    INFO    General                 (contig_output_stage.cpp   :  20)   Outputting FastG paths to /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working//K55/scaffolds.paths
+  0:08:58.970   160M / 6G    INFO    General                 (launch.hpp                : 149)   SPAdes finished
+  0:08:59.334    32M / 6G    INFO    General                 (main.cpp                  : 109)   Assembling time: 0 hours 8 minutes 59 seconds
+
+===== Assembling finished. Used k-mer sizes: 55 
+
+
+===== Mismatch correction started.
+
+== Processing of contigs
+
+
+== Running contig polishing tool: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-corrector-core /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/contigs/configs/corrector.info /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta
+
+
+== Dataset description file was created: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/contigs/configs/corrector.info
+
+/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/contigs/configs/log.properties  0:00:00.000     4M / 4M    INFO    General                 (main.cpp                  :  58)   Starting MismatchCorrector, built from N/A, git revision N/A
+  0:00:00.002     4M / 4M    INFO    General                 (main.cpp                  :  59)   Maximum # of threads to use (adjusted due to OMP capabilities): 7
+  0:00:00.002     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 195)   Splitting assembly...
+  0:00:00.002     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 196)   Assembly file: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta
+  0:00:08.614     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 203)   Processing paired sublib of number 0
+  0:00:08.614     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 206)   /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+  0:00:08.617     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 140)   Running bwa index ...: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa index -a is /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta
+[bwa_index] Pack FASTA... 0.05 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 1.35 seconds elapse.
+[bwa_index] Update BWT... 0.02 sec
+[bwa_index] Pack forward-only FASTA... 0.03 sec
+[bwa_index] Construct SA from BWT and Occ... 0.62 sec
+[main] Version: 0.7.12-r1039
+[main] CMD: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa index -a is /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta
+[main] Real time: 4.473 sec; CPU: 2.086 sec
+  0:00:13.314     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 149)   Running bwa mem ...:/cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa mem  -v 1 -t 7 /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq  > /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/tmp/corrector_zxf2v17j/lib0_RtFAet/tmp.sam
+[main] Version: 0.7.12-r1039
+[main] CMD: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa mem -v 1 -t 7 /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_contigs.fasta /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+[main] Real time: 145.249 sec; CPU: 561.203 sec
+  0:02:38.599     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 209)   Adding samfile /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/tmp/corrector_zxf2v17j/lib0_RtFAet/tmp.sam
+  0:03:04.842    44M / 44M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 1000000reads, flushing
+  0:03:20.687    48M / 48M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 2000000reads, flushing
+  0:03:36.683    52M / 52M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 3000000reads, flushing
+  0:03:52.850    52M / 52M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 4000000reads, flushing
+  0:04:08.832    56M / 56M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 5000000reads, flushing
+  0:04:25.138    60M / 60M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 6000000reads, flushing
+  0:04:41.350    60M / 64M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 7000000reads, flushing
+  0:04:57.311    56M / 64M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 8000000reads, flushing
+  0:05:04.392    28M / 64M   INFO   DatasetProcessor         (dataset_processor.cpp     : 235)   Processing contigs
+  0:05:42.518   236M / 236M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_6_length_165671_cov_95.717056 processed with 0 changes in thread 1
+  0:05:48.443   236M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_7_length_159616_cov_122.766403 processed with 0 changes in thread 6
+  0:05:49.303   236M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_5_length_176512_cov_107.252390 processed with 0 changes in thread 2
+  0:05:52.217   228M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_4_length_220242_cov_94.622108 processed with 0 changes in thread 3
+  0:05:55.763   220M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_3_length_222014_cov_100.738961 processed with 0 changes in thread 5
+  0:05:59.177   208M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_1_length_243898_cov_99.830924 processed with 1 changes in thread 4
+  0:06:16.730   188M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_2_length_231893_cov_129.212131 processed with 2 changes in thread 0
+  0:06:22.146   172M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_9_length_154027_cov_97.944094 processed with 1 changes in thread 6
+  0:06:25.382   160M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_13_length_105355_cov_109.407369 processed with 0 changes in thread 4
+  0:06:28.609   152M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_12_length_122315_cov_115.318804 processed with 2 changes in thread 5
+  0:06:31.115   144M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_10_length_153364_cov_117.135224 processed with 0 changes in thread 2
+  0:06:34.664   132M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_8_length_155441_cov_129.417869 processed with 0 changes in thread 1
+  0:06:40.469   112M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_11_length_149504_cov_141.693601 processed with 0 changes in thread 3
+  0:06:40.570    96M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_16_length_53281_cov_119.700353 processed with 0 changes in thread 4
+  0:06:41.407    88M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_17_length_49655_cov_108.710121 processed with 0 changes in thread 5
+  0:06:42.541    84M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_18_length_38003_cov_124.331348 processed with 1 changes in thread 2
+  0:06:44.961    84M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_19_length_34664_cov_130.359733 processed with 0 changes in thread 1
+  0:06:45.120    80M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_15_length_88672_cov_117.834998 processed with 0 changes in thread 6
+  0:06:48.081    68M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_21_length_33188_cov_106.522380 processed with 0 changes in thread 4
+  0:06:48.531    64M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_14_length_92476_cov_130.384999 processed with 0 changes in thread 0
+  0:06:49.169    56M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_20_length_34413_cov_120.405524 processed with 0 changes in thread 3
+  0:06:50.045    52M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_24_length_21209_cov_96.848208 processed with 0 changes in thread 1
+  0:06:50.460    52M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_25_length_20080_cov_112.339326 processed with 0 changes in thread 6
+  0:06:54.037    48M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_22_length_25532_cov_209.040059 processed with 0 changes in thread 5
+  0:07:09.599    48M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_23_length_21807_cov_251.011539 processed with 0 changes in thread 2
+  0:07:09.605    48M / 240M  INFO   DatasetProcessor         (dataset_processor.cpp     : 255)   Gluing processed contigs
+  0:07:10.415    28M / 240M  INFO    General                 (main.cpp                  :  72)   Correcting time: 0 hours 7 minutes 10 seconds
+
+== Processing of scaffolds
+
+
+== Running contig polishing tool: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-corrector-core /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/scaffolds/configs/corrector.info /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta
+
+
+== Dataset description file was created: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/scaffolds/configs/corrector.info
+
+/pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/mismatch_corrector/scaffolds/configs/log.properties  0:00:00.000     4M / 4M    INFO    General                 (main.cpp                  :  58)   Starting MismatchCorrector, built from N/A, git revision N/A
+  0:00:00.001     4M / 4M    INFO    General                 (main.cpp                  :  59)   Maximum # of threads to use (adjusted due to OMP capabilities): 7
+  0:00:00.002     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 195)   Splitting assembly...
+  0:00:00.002     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 196)   Assembly file: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta
+  0:00:25.424     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 203)   Processing paired sublib of number 0
+  0:00:25.424     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 206)   /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+  0:00:25.425     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 140)   Running bwa index ...: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa index -a is /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta
+[bwa_index] Pack FASTA... 0.06 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 1.14 seconds elapse.
+[bwa_index] Update BWT... 0.05 sec
+[bwa_index] Pack forward-only FASTA... 0.03 sec
+[bwa_index] Construct SA from BWT and Occ... 0.64 sec
+[main] Version: 0.7.12-r1039
+[main] CMD: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa index -a is /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta
+[main] Real time: 6.008 sec; CPU: 1.927 sec
+  0:00:31.456     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 149)   Running bwa mem ...:/cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa mem  -v 1 -t 7 /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq  > /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/tmp/corrector_fsei02_o/lib0_x4YlKT/tmp.sam
+[main] Version: 0.7.12-r1039
+[main] CMD: /cvmfs/main.galaxyproject.org/deps/_conda/pkgs/spades-3.12.0-1/share/spades-3.12.0-1/bin/spades-bwa mem -v 1 -t 7 /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/misc/assembled_scaffolds.fasta /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_1.fastq /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/split_input/dataset_41142245_2.fastq
+[main] Real time: 146.149 sec; CPU: 567.526 sec
+  0:02:57.647     4M / 4M    INFO   DatasetProcessor         (dataset_processor.cpp     : 209)   Adding samfile /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/tmp/corrector_fsei02_o/lib0_x4YlKT/tmp.sam
+  0:03:22.996    44M / 44M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 1000000reads, flushing
+  0:03:39.830    48M / 48M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 2000000reads, flushing
+  0:03:56.585    52M / 52M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 3000000reads, flushing
+  0:04:12.962    52M / 52M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 4000000reads, flushing
+  0:04:29.587    56M / 56M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 5000000reads, flushing
+  0:04:45.863    60M / 60M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 6000000reads, flushing
+  0:05:02.256    60M / 60M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 7000000reads, flushing
+  0:05:18.660    56M / 60M   INFO   DatasetProcessor         (dataset_processor.cpp     : 105)   processed 8000000reads, flushing
+  0:05:26.163    24M / 60M   INFO   DatasetProcessor         (dataset_processor.cpp     : 235)   Processing contigs
+  0:06:04.569   260M / 260M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_7_length_165671_cov_95.717056 processed with 0 changes in thread 1
+  0:06:11.684   264M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_6_length_176512_cov_107.252390 processed with 0 changes in thread 2
+  0:06:13.844   256M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_5_length_220242_cov_94.622108 processed with 0 changes in thread 3
+  0:06:18.190   248M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_4_length_222014_cov_100.738961 processed with 0 changes in thread 6
+  0:06:21.168   236M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_2_length_243898_cov_99.830924 processed with 1 changes in thread 5
+  0:06:32.454   216M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_3_length_242088_cov_117.339652 processed with 6 changes in thread 4
+  0:06:47.925   200M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_12_length_105355_cov_109.407369 processed with 0 changes in thread 5
+  0:06:49.440   192M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_10_length_154027_cov_97.944094 processed with 1 changes in thread 3
+  0:06:49.727   180M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_11_length_122315_cov_115.318804 processed with 2 changes in thread 6
+  0:06:53.582   172M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_8_length_159616_cov_122.766403 processed with 0 changes in thread 1
+  0:07:00.488   156M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_16_length_38003_cov_124.331348 processed with 1 changes in thread 6
+  0:07:00.665   160M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_9_length_155441_cov_129.417869 processed with 0 changes in thread 2
+  0:07:02.013   136M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_13_length_92476_cov_130.384999 processed with 0 changes in thread 4
+  0:07:02.865   124M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_15_length_49655_cov_108.710121 processed with 0 changes in thread 3
+  0:07:03.466   116M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_14_length_53281_cov_119.700353 processed with 0 changes in thread 5
+  0:07:04.912   108M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_17_length_34664_cov_130.359733 processed with 0 changes in thread 1
+  0:07:08.527   108M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_22_length_21209_cov_96.848208 processed with 0 changes in thread 5
+  0:07:09.637   108M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_19_length_33188_cov_106.522380 processed with 0 changes in thread 2
+  0:07:10.289   104M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_23_length_20080_cov_112.339326 processed with 0 changes in thread 1
+  0:07:10.326   104M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_18_length_34413_cov_120.405524 processed with 0 changes in thread 6
+  0:07:15.761   100M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_20_length_25532_cov_209.040059 processed with 0 changes in thread 4
+  0:07:18.566   100M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_21_length_21807_cov_251.011539 processed with 0 changes in thread 3
+  0:07:42.564   104M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 251)   Contig NODE_1_length_381458_cov_134.063573 processed with 5 changes in thread 0
+  0:07:42.610    48M / 264M  INFO   DatasetProcessor         (dataset_processor.cpp     : 255)   Gluing processed contigs
+  0:07:43.363    28M / 264M  INFO    General                 (main.cpp                  :  72)   Correcting time: 0 hours 7 minutes 43 seconds
+
+===== Mismatch correction finished.
+
+ * Corrected reads are in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/corrected/
+ * Assembled contigs are in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/contigs.fasta
+ * Assembled scaffolds are in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/scaffolds.fasta
+ * Assembly graph is in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/assembly_graph.fastg
+ * Assembly graph in GFA format is in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/assembly_graph_with_scaffolds.gfa
+ * Paths in the assembly graph corresponding to the contigs are in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/contigs.paths
+ * Paths in the assembly graph corresponding to the scaffolds are in /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/scaffolds.paths
+
+======= SPAdes pipeline finished.
+
+SPAdes log can be found here: /pylon5/mc48nsp/xcgalaxy/main/staging/28627037/working/spades.log
+
+Thank you for using SPAdes!
