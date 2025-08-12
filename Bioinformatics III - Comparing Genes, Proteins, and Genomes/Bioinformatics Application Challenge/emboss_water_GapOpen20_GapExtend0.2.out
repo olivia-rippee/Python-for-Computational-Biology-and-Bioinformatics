@@ -1,0 +1,51 @@
+########################################
+# Program: water
+# Rundate: Tue 12 Aug 2025 18:51:17
+# Commandline: water
+#    -auto
+#    -stdout
+#    -asequence emboss_water-I20250812-185107-0664-39023909-p1m.asequence
+#    -bsequence emboss_water-I20250812-185107-0664-39023909-p1m.bsequence
+#    -datafile EPAM150
+#    -gapopen 20.0
+#    -gapextend 0.2
+#    -aformat3 pair
+#    -sprotein1
+#    -sprotein2
+# Align_format: pair
+# Report_file: stdout
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: gramicidin_S_synthetase_1
+# 2: firefly_luciferase
+# Matrix: EPAM150
+# Gap_penalty: 20.0
+# Extend_penalty: 0.2
+#
+# Length: 103
+# Identity:      30/103 (29.1%)
+# Similarity:    48/103 (46.6%)
+# Gaps:          24/103 (23.3%)
+# Score: 91.6
+# 
+#
+#=======================================
+
+gramicidin_S_    368 SVGEAGELCIGGEGLARGYWKRPELTSQKFVDNPFVPGEKLYKTGDQARW    417
+                     :|.:.||||:.|..:..||.:.||.|:...               |...|
+firefly_lucif    383 GVNQRGELCVRGPMIMSGYVNNPEATNALI---------------DKDGW    417
+
+gramicidin_S_    418 LPDGNIEY---------LGRIDNQVKIRGHRVELEEVESILLKHMYISET    458
+                     |..|:|.|         :.|:.:.:|.:|.:|...|:|||||.|..|.::
+firefly_lucif    418 LHSGDIAYWDEDEHFFIVDRLKSLIKYKGYQVAPAELESILLQHPNIFDA    467
+
+gramicidin_S_    459 AVS    461
+                     :|:
+firefly_lucif    468 GVA    470
+
+
+#---------------------------------------
+#---------------------------------------

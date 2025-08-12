@@ -1,0 +1,651 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+Ite       ------------------------------------------------------------	0
+Yp5       ---------------------------------------MAKLALSAAQHGIWLGQQLDP	21
+Abw       ----------------------------MTAADYPQATDTRCFPPSPAQAGLWFASTYGT	32
+Dhv       ------------------------------------------------------------	0
+Yp0       MSTDGTRDLTARRRELLRRRMADENLLHTSDPEPETAAPAGERPLSPGQQRMWSIQQLDP	60
+Np7       ---------------------------------MAKSGLEDILPLSPLQEGMLFHNLFDE	27
+Vsq       -----------------MS-------------QFSKDQVQDMYYLSPMQEGMLFHAILNP	30
+PheA      ------------------------------------------------------------	0
+Aap       ------------------------------------------------------------	0
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       SS-PLYNTAEYVALRGAVELTNLTAAIKQAFAEAATLHLRFGLEHDQP-------YALVE	73
+Abw       DP-TAYNQPLVLRLGTLVDHTLLHRALRLVHREHCALRTTFDMDADGE------LRQIVH	85
+Dhv       ------------------------------------------------------------	0
+Yp0       LT-VGYNVTIALDVSGELDADLLGQALELVVARHDILRTVYRLTDDGTGDGQSRVVQVVQ	119
+Np7       EELDAYNVQVFIDLEGGTDPERLRRAGQALLERHANLRAAFRH------EGLKRPVQLIP	81
+Vsq       GQ-SFYLEQITMKVKGSLNIKCLEESMNVIMDRYDVFRTVFIH------EKVKRPVQVVL	83
+PheA      ------------------------------------------------------------	0
+Aap       -----------------------------------ILRTSVHW------EGLETPVQVVW	19
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       P-QPINLTVHDLRDLP--DAEVRAIAWMQHDLGNVVDLATGPLFNTAILQL-ADDQVWWY	129
+Abw       GELE---PIVDVRVHAGGDSEAWVAEQVEQVAATVFDLRRGPLARVRHLRLVAEGRSLLV	142
+Dhv       ------------------------------------------------------------	0
+Yp0       DQFTAPYDVCDVRDLDEAARAARVGELARAVAGQPFDLATDPPLRVRLIRT-GEASSTLV	178
+Np7       RRVVLPWGEEDLSGVAEPEREAAAERVAERDRWTRFDLSRPPLIRFTLVRL-GPARHRLL	140
+Vsq       KKRQFHIEEIDLTHLTGSEQTAKINEYKEQDKIRGFDLTRDIPMRAAIFKK-AEESFEWV	142
+PheA      ------------------------------------------------------------	0
+Aap       RRADLQVATLPA-----SDPQRGMLDLTQAP---LIRLXREAP-------E-ADGALSAT	63
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       LRAHHIALDGYSFALLTKRVAEIYSALQTKATLSPSFGELVPVIAEDHAYQV-SIQATLD	188
+Abw       FNIHHTVFDGLSWKPYLSRLEAVYTALARGQEP-PRKPRRQAVEAY-ARWSE-RWADSGS	199
+Dhv       ------------------------------------------------------------	0
+Yp0       VVAHHIVWDDGTSAVFFGQLMDDYRRLLSGERV-VARRSPRQYADVALGSHGAAGVDDSA	237
+Np7       LTLHHILADGWSMPILLRELMTLYTVHGDG--T--ALPRVRPYRDY-LGWLG-GRDRDAA	194
+Vsq       WSYHHIILDGWCFGIVVQDLFKVYNALREQKPY--SLPPVKPYKDY-IKWLE-KQDKQAS	198
+PheA      ------------------------------------------------------------	0
+Aap       LQFHHIAMDHSALEVVRHELIAFLAGEGE------RLGTPVPFRNY-VAQAVLGISEAEH	116
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       REFWVNRFADNPQVVSLTQQTAL--SQPRSIRLSTALANDLIERLTAIAKPSRSTWPDAL	246
+Abw       LSHWLDKLADAPAAAPVGL-PGE--GPARHVTHKAVLDDRLSAQVKTFCATEGITTGMFF	256
+Dhv       ------------------------------------------------------------	0
+Yp0       LAHWRDELTPLPELLDLPGISGG--AGGAGQERSHPMREGTGRRVREIARREGASTFMVL	295
+Np7       RQAWTEAFAGLDAPSIVAPGRGA--LTAAPERIDFSEDEAASAALTRFARSNGLTVNTVI	252
+Vsq       LRYWREYLEGFEGQTTFAEQRKKQKDGYEPKELLFSPSEAETKAFTELAKSQHTTLSTAL	258
+PheA      ------------------------------------------------------------	0
+Aap       EAFFRDMLEGIDESTLAYGIQDVQGVGXVHNEHSLDXPLAMCQQLRTLARSLGVSVASVF	176
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       MAVVAAYLARWNNSESVVLGMPLMSRLGSV--ALRVPCMAMNIVPLCLNVAAEHDLAQLT	304
+Abw       AALAFVLLHRHTGQDDILLGVPVTVRG---SGDAEVVGHLTNTVVLRHRLAPGATARDVL	313
+Dhv       ------------------------------------------------------------	0
+Yp0       FAAVSALLHRYTGAREFLVGAPVVNR--DFPGAEDVVGYLGNTIPLRAEVDPSDDFRTLL	353
+Np7       QGCWGLVLSHLTGRDDVVFGVTVSGRPPELPGIDTMVGLFMNTLPLRVRLRPAETLTGFL	312
+Vsq       QAVWSVLISRYQQSGDLAFGTVVSGRPAEIKGVEHMVGLFINVVPRRVKLSEGITFNGLL	318
+PheA      ------------------------------------------------------------	0
+Aap       HLAWGRVLGGLTGREQVVFGTVLMGRLQGAEATDRALGIFINTLPVRVDLGSEDLATAIR	236
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       AVVAAERNAFRKHGRYRYEQLRRDLGFVGAGRRLFGPVVNIMPFDHPLNFGDCQAQST--	362
+Abw       HAVKRDMLDALRHRHVPLEAVVGELRALGGGKDGVGDLFNAMLTVMPASARRLDLREW--	371
+Dhv       ------------------------------------------------------------	0
+Yp0       ARSRATCVDAYAHQHVELDDIAKAADA--QRFRGDAGLFNVVLSLRSPVLEPFRAAGLQ-	410
+Np7       RRLQGEQARLIDHQWVGLAEIQRWAG--------SGELFDTAMVFENYPLNSSRGRPPGA	364
+Vsq       KRLQEQSLQSEPHQYVPLYDIQ--S-Q-----ADQPKLIDHIIVFENYPLQDAKNEESSE	370
+PheA      ------------------------------------------------------------	0
+Aap       ATHQRLS-ALMRHEHAPLALAQRCSGV-----AAPAPLFNALLNYRHSAVDTTQPRRAAL	290
+                                                                      
+
+Ite       ------------------------------------------------------------	0
+Yp5       --------TL----TAGPVEDLAFNVILRGNQLYLTLE-ANPACYSQAALEYHFAAIQHL	409
+Abw       -G----VETW-EHVSGGAKYELAVVVDETPGRYTLVVEHTSASAGAGSLAAYLARRLETL	425
+Dhv       ------------------------------------------------------------	0
+Yp0       VGRR-------HVPGTDARFDLTLAVETDGDELAVEAN-YPARHDADDQVRGLLEHLDRL	462
+Np7       APDADLPTVLGVRSKDQMHYPLGLLALP-RETLRFSLG-YLPQVFDPARVEAVIAAFRRA	422
+Vsq       NG----FDMVDVHVFEKSNYDLNLMASP-GDEMLIKLA-YNENVFDEAFILRLKSQLLTA	424
+PheA      ------------------------------------------------------------	0
+Aap       AG----IDIVES--AEATNYPLTLSVDDLGEGFRLTLL-ASAEVP----AQRVCGYLQQV	339
+                                                                      
+
+Ite       -----------GSGAVSI-----------ASSK-VSAQYTSTVPPSHYIETWAKTHPEWK	37
+Yp5       LNGWLANPSIP-VAEQQVLPAPL---VL----DGG-ELRLPLTSVIERILHNARQQPHAL	460
+Abw       VRSVMADPDTD-VRRLRWVSAEEERAVTGLCARRQDAPELGTEVTADLFAEAAAAAAADP	484
+Dhv       ------------------------------------------AKLLEQIEKWAAETPDQT	18
+Yp0       LDAALADPATP-VGELELLAPGERERLLHECNDT--ATRTDERLLPERFKAQVALTPDAL	519
+Np7       LRTVLDAPDTR-VGAVALLDPEVRGTVLEKWSGS--DDVRPAERFTDLFEEQVARTPGKT	479
+Vsq       IQQLIQNPDQP-VSTINLVDDRE-REFLLTGLNPP-AQAHETKPLTYWFKEAVNANPDAP	481
+PheA      ---MVNSSKSILIHAQNKNGTHEEEQYLFAVNNTK-AEYPRDKTIHQLFEEQVSKRPNNV	56
+Aap       LEGLVQAPQAA-VTALAMLPDSERQELLETFNDYP-ASYERQLALHQRIAQLAEQYPDHV	397
+                                                          :   .       
+
+Ite       AVEVATGFLGSQKIVTEDWTYKKLNETANQVANLIIHA-SLHGRAIAVSLDRSLIAFAII	96
+Yp5       ALVT------DT----EQLSYAELASHVHAWAGQLVQRGVTAGSVVGVALPRSREAIVAI	510
+Abw       AVVA------DG----VVTSYAELARQADAVAADLAARGVRDGRPVAVLMRPGLDLVATV	534
+Dhv       AFVW------RD----AKITYKQLKEDSDALAHWISSEYPDDRSPIMVYGHMQPEMIINF	68
+Yp0       AVTA------PGEEAGTELTYAELNARANRLARELVGRGIGPEHVVALAVPRSPAMMVAA	573
+Np7       ALIA------PD----GRLTYAELDAAANRLARRLVELGVGPERHVAVAVGRRTELVVGM	529
+Vsq       ALTY------SG----QTLSYRELDEEANRIARRLQKHGAGKGSVVALYTKRSLELVIGI	531
+PheA      AIVC------EN----EQLTYHELNVKANQLARIFIEKGIGKDTLVGIMMEKSIDLFIGI	106
+Aap       AATC------AG----ACLTYAALNRQANALAQHLISLGVRPDDRVAVVARRSLETLVGL	447
+          *                  :*  *    .  *  :          : :        .   
+
+Ite       VGIXKSGNTYVPIEAGLPNDRKSFLLRDSRAAXAFVCDN-NFDGVELP--PETKVLDTKN	153
+Yp5       LATLCCGAAYLPLDPQWPQSRLASVVAQAQPVLVLAQQAFDLPNLL--------LVEQLS	562
+Abw       VGILRAGGSYVVLDADQPRERLSFALADSGAKILLHDPDADLAGVRLPDG--------MQ	586
+Dhv       LGCVKAGHAYIPVDLSIPADRVQRIAENSGAKLLLSATAVTVTDLPVR------IVSEDN	122
+Yp0       LAVLKAGAAYVPVDPSYPAERVRLMLADSSPALLLATCTVAAELPDGGV--RRLLLDDPE	631
+Np7       LAVLKAGGAYVPVDPEYPPDRIRHMIQDADPALVLTTSDVDDRIGEECCGPLTFVMDDPN	589
+Vsq       LGVLKAGAAYLPVDPKLPEDRISYMLADSAAACLLTHQEMKEQAAELPYTGTTLFIDDQT	591
+PheA      LAVLKAGGAYVPIDIEYPKERIQYILDDSQARMLLTQKHLVHLIHNIQFNGQVEIFEEDT	166
+Aap       LAVLKAGAGYVPVDPAHPDERVHYLLSDSGPVVVLTQQALQARLGPVEVP--VLLLDQPG	505
+          :.   .*  *: ::   * .*      ::     :                         
+
+Ite       QSFI---ENLSTQDTSDILNNYPENLDAYLLYTSGSTGTPKGVRVSRHNLSSFSDAWGKL	210
+Yp5       KA------------NAWFEARVDLAQPAYIMYTSGSTGEPKGVVISHQALAGFVQAAAER	610
+Abw       TATMPGTEGGVV---LEPGRRKSPDDQVYVVYTSGSTGRPKGVVLLEPTLTNLVRNQAVL	643
+Dhv       LKDIFFTHKG---NTPNPEHAVKGDENFYIIYTSGSTGNPKGVQITYNCLVSFTKWAVED	179
+Yp0       VAEQVAALPGTDLADSDRNAPLLPGHPAYVIYTSGSTGTPKGVVVAHRALSNHLDWAVRR	691
+Np7       TGTSLGRHSGTALTDADRAAPLLPGHPAYVIYTSGTTGRPKGVVVEHRALSAFVRH-CRS	648
+Vsq       RFEE---------QASDPATAIDPNDPAYIMYTSGTTGKPKGNITTHANIQGLVKH-VDY	641
+PheA      IKIR---------EGTNLHVPSKSTDLAYVIYTSGTTGNPKGTMLEHKGISNLKVFFENS	217
+Aap       WPAC---------DSNPLVPGLDASNLAYVIYTSGSTGQPKGVMVEHRTVNNLVDWHCRA	556
+                                      *::****:** ***       :          
+
+Ite       IGNVAPKSLELGGVGKFLCLASRAFDVHIGEXFLAWRFGLCAVTGERLSXLD---DLPRT	267
+Yp5       YA-------ISAA-DRVLQFAPLAFDASVEEIFVTLCQGATLVLRNDAMLESL-QRFVAA	661
+Abw       SS---------HRRMRTLQYMPPAFDVFTLEVFGTLCTGGTLVVPPPHARTDF-EALAAL	693
+Dhv       FN-------LQTG-QVFLNQAPFSFDLSVMDIYPSLVTGGTLWAIDKDMIARPKDLFAS-	230
+Yp0       FA-------GL--GGRTLLHSSMSFDFSVTPMYGPLLCGGVLELCEDSPDAIA-------	735
+Np7       SQ-------APDISGLSVMQASASFDQSVGSLHAPLISGGCVRLTDLRALAETAGSEPGF	701
+Vsq       MA-------FSDQ-DTFLSVSNYAFDAFTFDFYASMLNAARLIIADEHTLLDT-ERLTDL	692
+PheA      LN-------VTEK-DRIGQFASISFDASVWEMFMALLTGASLYIILKDTINDF-VKFEQY	268
+Aap       FD-------LCPG-RHTSSLAGFGFDAMAWEVWPALCAGATLHLAPASQGNEDLDAMLAW	608
+                                 .**            .                     
+
+Ite       FRELGVTHAGIVPSLLDQT----GLV-PEDAPHLVYLGVGGEKXTPRTQQIW--SSSDRV	320
+Yp5       CQAHAISVLDLPTAFWHELADSVAQGAVQLPECLRVVIIGGEAALPERVQGWLNVVAPNV	721
+Abw       LAEQRIERAYFPYVALRELAAVLRSSGT-RLPDLREVYVTGERLVVTEDLREMFRRHPGA	752
+Dhv       LEQSDIQVWTSTPSFAEMCLMEASFSES-MLPNMKTFLFCGEVLPNEVARKL-IERFPKA	288
+Yp0       NATGPATFLKITPSHLPLL---PSVR-F-AAEGPRTLVIAGESLHGESLVDRQPPEGEGL	790
+Np7       HRA---TFMKGTPSHLALL---ATM-PP-EVAPSGTLTLGGEELRGEILAPW-REAAGDV	752
+Vsq       ILQENVNVMFATTALFNLL---TDAGED-WMKGLRCILFGGERASVPHVRKA-LRIMGPG	747
+PheA      INQKEITVITLPPTYVVHL---DPERI----LSIQTLITAGSATSPSLVNK----WKEKV	317
+Aap       WQAQPLDVSFLPT-PVAEY---AFNHQL-EHPTLRTLLIGGDRLR---QFN----RTQRF	656
+                                              .   *.                  
+
+Ite       ALVNVYGPTEVTIGCSAGRILPDSDTRCIGHPLG----DSVAHVLAPGSNEHVKKGXAGE	376
+Yp5       RLFNTYGPTEATVVATVA----ELSDPNQPITIGRPLAGVQAAILGS-DQRPIFAGDVGD	776
+Abw       RLINAYGPSEAH-LVSAEWLPADPDTWPAVPPIGRVVAGLDARVLLE-GDEPAPFGVEGE	810
+Dhv       TIMNTYGPTEATVAVTGIHVTEEVLDQYKSLPVGYCKSDCRLLIMKE-DGTIAPDGEKGE	347
+Yp0       DVINEYGPTETTVGCTLHDIPFADGAPAGPVPIGRPVANTRCHVLDQ-ALRPVPAGVPGE	849
+Np7       TVVNVYGPTEATGHCLEHWIAPDRTVEPGPVPIGTPHEGVRVYVLDS-ALRPVAPGLDGE	811
+Vsq       KLINCYGPTEGT-VFATAHVVHDLPDSISSLPIGKPISNASVYILNE-QSQLQPFGAVGE	805
+PheA      TYINAYGPTETT-ICATTWVATK-ETIGHSVPIGAPIQNTQIYIVDE-NLQLKSVGEAGE	374
+Aap       AVVNNYGPTETT-VVASSGVL----EPGAALHIGRPVDNARLYVLDA-HQQPVALGVPGE	710
+            .* ***:*                      :*    .    ::          *  *:
+
+Ite       LVIEGSLVANGYLNRPDAK-------GFCDINGRKXYRTGDIVRXDADSSILFLGRKDEQ	429
+Yp5       LYLLGNGLATGYYQRPDLDALNFGQLSQLP-HAPRAYRTGDRVRL-FAGQLQFVGRSDDE	834
+Abw       LCVAGPVVSPGYIGLPEKTRQAMVPDPFVP--GQLMYRTGDVVVLDPDGRLHYRGRADDQ	868
+Dhv       IVIVGPSVSVGYLGSPELTEKAFT-----MIDGERAYKTGDA-GYVENGLLFYNGRLDFQ	401
+Yp0       LYIGGSQLARGYLGRPGLTASRFVADPFAG-TGERLYRTGDRVRRRADGALEFVGRVDEQ	908
+Np7       VYLAGVQLARGYLGRGGLTAERFTADPFGA-PGSRMYRTGDVAHWNEAGELVFAGRADRQ	870
+Vsq       LCISGMGVSKGYVNRADLTKEKFIENPFKP--GETLYRTGDLARWLPDGTIEYAGRIDDQ	863
+PheA      LCIGGEGLARGYWKRPELTSQKFVDNPFVP--GEKLYKTGDQARWLSDGNIEYLGRIDNQ	432
+Aap       LYIGGAGVARGYLNRPALTAERFLDDPFVATAGGRMYRTGDLVRWLPDGTLDYLGRNDDQ	770
+          : : *  :: **                    .   *:***       . : : ** * :
+
+Ite       VKVRGQRLELGEVSEVIRSLSPTDIDVVTLLLNHPGTSKQFLVSFVASSGAAVRGELRWI	489
+Yp5       FKISGQRVTPAEIESVFLRHTAVREVAVI--GQQLGNASKRLFAAVVVSDASL-------	885
+Abw       IKIRGYRVEPGEVEAALERVLHVEAAAVI--AVPAGHD-RALHAFVRSG---Q-------	915
+Dhv       IKLHGYRMELEEIEHHLRACSYVEGAVIV--PIKKGEKYDYLLAVVVPGEHSFEKE----	455
+Yp0       VKIRGHRVEPGEVEAVLLRHPAVAQAVVV--GRSDGPSGTYLAAYVVLNDSGQS------	960
+Np7       VKLRGYRIELGEIEAAVAGGPGVRQAAVV--LREDRPGDQRLVAYVVPD-PGH-------	920
+Vsq       VKIRGHRIELEEIEKQLQEYPGVKDAVVV--ADRHESGDASINAYLVNR-TQL-------	913
+PheA      VKIRGHRVELEEVESILLKHMYISETAVS--VHKDHQEQPYLCAYFVSE-KHI-------	482
+Aap       VKIRGVRIELGEIESRLSALAGIDEAVVL--AREDQPGQPRLVAYFTAQ-ADVK------	821
+          .*: * *:   *:.  .         .:             : : .              
+
+Ite       NENYKEINNSLRQACEQTLPAYXVPDFIIPISFIPLRDTSAKTDAKALEHXFHTLSLGEL	549
+Yp5       ------SVAELRNHASQHLPAAVIPAAITIVERLPRSS-AGKIDRKAVAALAPAPVM---	935
+Abw       -----EPPSNWRSRLGTVLPGYMIPRGITRVDAIPVTP-NGKTDRRALEARLADRAGTEP	969
+Dhv       ----FKLTSAIKKELNERLPNYMIPRKFMYQSSIPMTP-NGKVDRKKLLSEVTALEH---	507
+Yp0       ----VVDGAALREQVAAQLPEHMVPGVVVVLGELPLSP-SGKADRRALPAPEFTPD----	1011
+Np7       -----WDEAAARARLALSLPDFMMPSAFVALDALPLSP-NGKLDRAALPAPTYTG-----	969
+Vsq       ------SAEDVKAHLKKQLPAYMVPQTFTFLDELPLTT-NGKVNKRLLPKPDQDQL----	962
+PheA      ------PLEQLRQFSSEELPTYMIPSYFIQLDKMPLTS-NGKIDRKQLPEPDLTFGM---	532
+Aap       ----PLTPEGLRAQLQAHLPEYMVPVAFVALQALPLTA-NGKLDRRALPQPDRSALF---	873
+                     :      **   :*  .     :*     .* :   :            
+
+Ite       FGESSSLVNKPTT-----------------------------------------------	562
+Yp5       -------VNAAINDTPALIRQVWAEVLGQTEFNDEADFFGLGGQSLQTIQVANRLGMALG	988
+Abw       AG----GGGMDWTDCERAIADLWTEVLGHGPATPDDDFFELGGHSLLAARLHRLVRQRLD	1025
+Dhv       HH----HHH---------------------------------------------------	512
+Yp0       AP----TSREPSNEVERTLVRLFSEVLHRDDVGVTDSFHALGGDSIVTIQLVARARK-AG	1066
+Np7       RT----AGRAPRTPAEEILCDLYAEVLSLPGVTVDDDFFDLGGHSLLATRLVSRVRTTLG	1025
+Vsq       AE----EWIGPRNEMEETIAQIWSEVLGRKQIGIHDDFFALGGHALKAMTAASRIKKELG	1018
+PheA      RV----DYEAPRNEIEETLVTIWQDVLGSHHHHHH-------------------------	563
+Aap       EQ----GYEAPEGELEQALAHVWAELLQVERVGRRDHFFSLGGHSLLAMRMVSQVRVRLG	929
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       REVTAALIFRYPTIAGLSQALDPEFEQAPEAAPQFLSDANLPEQIVPKQLNAQPRPIQTV	1048
+Abw       SDVPLSVLLGTPTVRGMAGSLAGRGASGTVDLREEARLHDLV----V--GERREPADGAV	1079
+Dhv       ------------------------------------------------------------	512
+Yp0       LRIRPRDVFEHRTAEALAAALPEADAAQTE---AAPDDDPVG----P--VEPTP----IV	1113
+Np7       AELSIRQFFEAPTPAALAVVLAGAGRAR-AALTARPRPERLP----L--SYAQQ----RL	1074
+Vsq       IDLPVKLLFEAPTIAGISAYLKNGGSDGLQDVTIMNQDQEQ-----------------II	1061
+PheA      ------------------------------------------------------------	563
+Aap       VELSLSELFANPELAAVADVLAKAVRSELPAICPVPRDAPLP----M--SFAQQ----RL	979
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       LLTGATGFVGAHLLAELL---------STTTTNVICVVRAGSNAAA--FERLQASLQH--	1095
+Abw       LLTGATGFLGSHLL----------DELQRAGRRVCCLVRAGSVEEAR--GRLRAAFEK--	1125
+Dhv       ------------------------------------------------------------	512
+Yp0       RSFAERGPLGDRHR---MSVLLDVPALERGSLVRAVQAVLDTHDALRARS------SAGT	1164
+Np7       WFLH--LLEGPSPTYNIPTVLRLSGPLRPDALRAALLDVVGRHESLR------TTFTEDE	1126
+Vsq       FAFP--PVLGYGLMYQNL-----SSRLP--SYKLCAFDFIEEEDRLDRYADLIQKLQPEG	1112
+PheA      ------------------------------------------------------------	563
+Aap       WFLA--QMDGGNQAYNVPMALVLRGPLDADALETALLRIIERHE------TLRSRFVPRD	1031
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ----------------YEL--------------------PSEQLAEQVEAWQGDLAQPQF	1119
+Abw       ----------------FALDPSRLDRAEIWL---------------------GDLARPRL	1148
+Dhv       ------------------------------------------------------------	512
+Yp0       PG--------------LEVRPRGAVQ-ADSVVRVVAA--PRGATPEEV-EHEIESAAARL	1206
+Np7       RGARQVVHPADGVRPVFETAES---------------------TEADYEADLARAARHAF	1165
+Vsq       PL--TLFGYSAGCSLAFEAAKKLEEQ-GRIVQRIIMVDSYKKQGVSDLDGRTVESDV---	1166
+PheA      ------------------------------------------------------------	563
+Aap       ASAEVVFAATAGGE---------------WFQRE-------DIGADALPARLHEXASAPF	1069
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       GLDDQQWQS-LIERCDLIYHNAAMVSVVREYSSLRAVNVNATSEILRLAAVHCTPVHYVS	1178
+Abw       GLGDGFAARA--HEVGEVYHAAAHINFAVPYHTVKRTNVDGLRRVLDFCGVNRTPLRLIS	1206
+Dhv       ------------------------------------------------------------	512
+Yp0       DPRSGVMVQVVWFDAGEQRP---GRLL----LVVHHSVVDGV------------------	1241
+Np7       DLGAEIPVRARLLRLS-ERE---HVLL----LLVHHIASDAW------------------	1199
+Vsq       ---------EALMNVN-RDN---EALN----S---EAVKH--------------------	1186
+PheA      ------------------------------------------------------------	563
+Aap       DLAHGPLLRACLLRLG-AEH---HVLA----LTVHHIVADGW------------------	1103
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       TLAVSPPQSVMHR---VPEDFVAA-HAGL--RDGYSQSKWVAERLLEQAATRGLPVAVYR	1232
+Abw       TLGVFPPDSAPG---VIGEDTVPGDPASL--GIGYSQSKWVAEHLALQARQAGLPVTVYR	1261
+Dhv       ------------------------------------------------------------	512
+Yp0       SLRILTEDLATAWRAVDA-GTDPALPAVGTS---------LRSWSRGLVRQA--------	1283
+Np7       SRGPLAQDLTAAYTARCA-GDAPAWQPLPVQ--YADYALWQQEILGDDTDPD--------	1248
+Vsq       GLKQKTHAFYSYYVNLISTGQVKADIDLLTSGADFDIPEWLASWEE--------------	1232
+PheA      ------------------------------------------------------------	563
+Aap       SLGVLTHELSALYTAIC-QGRDEPLPALAIQ--YGDYAVWQRRWLSGA------------	1148
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       LGRVVGPNQSNFVNQDDLFWRIVQAGVPRGL-----LPSLPVEEIWNPVDFAAQTIVQFS	1287
+Abw       VGRIAGHSRTGACRHDDFFWL-QMKGFALLGRCPDDIADAPAVDLLPV-DYVARAIV---	1316
+Dhv       ------------------------------------------------------------	512
+Yp0       ---------P-ARAHELSHWRSVLAEDS----APGERGVDPARDTWATVRTVTVELDDAT	1329
+Np7       ---------T-LAGRQLAYWKQQLAGLPERLDLPTDRPR-PATADHTG-DRVEFALPA-D	1295
+Vsq       ----------------------ATTGVYRMKRGFGTH-----AEMLQG-ETLDRNAE---	1261
+PheA      ------------------------------------------------------------	563
+Aap       -----------QLQRQADYWRQALDGVPSLLKLPSDRPR-PERQDFAG-ASLPLQLEP-R	1194
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       HNHR---------GVRVYNLAPNEPISFAQLLGWVGEYGYAVQLCRVEQWYQALRNADDA	1338
+Abw       ---RLAE---GKPDDANWHLYHPQGLAWSVILETIRAEGYAVSPATRSAWLAALERQAGT	1370
+Dhv       ------------------------------------------------------------	512
+Yp0       TDAVLTTVPQAFFGAVDDVLLAGFGL-------------------AVAAWRR---DRGED	1367
+Np7       LHTRLTE----LARATDTTLYMV----------------------LQAALATLLTRHGAG	1329
+Vsq       ---ILLE----FLNTQTVTVSKG----------------------EFEAYVEQKLISEED	1292
+PheA      ------------------------------------------------------------	563
+Aap       LAAGLCT----LAQRHGVTLYMA----------------------VLSAWAGVLSRLSGQ	1228
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       MSQATLTFFER------QADGGELPSAIGTIENKR-----------------------LL	1369
+Abw       -------EAQ----------GQGLGPLVPLMR-EGAMRLGSHSFDNGRTM----------	1402
+Dhv       ------------------------------------------------------------	512
+Yp0       ARSPLV-LVEGHGREESAVPGADLSRTVGWFTSQYPVRLGLADIDPDEALAGGPAAGTAV	1426
+Np7       EDIPIGTPVAGRT-------DDATDHLVGFFVNTLVLRTDTSG---------NPTFRDLL	1373
+Vsq       LNSAVDHHHHHH------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       AEVVIGCPVAGRG-------RAELEPLVGLFVNTLAVRIDTAT---------APTAHALL	1272
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       QTLAAHGIAVPVID---RERFFGYLERCIRTG--LLPAPDLRQT----------------	1408
+Abw       RAVADVGCPCPPADTEWIRRMFEYFRAIGSVP----------------------------	1434
+Dhv       ------------------------------------------------------------	512
+Yp0       KRVKETLRSVPD-HGIGYG-MLRYLDPASSGELAAMPEPEFGF--NYL---GRMDTGSGD	1479
+Np7       TRVRDTDLTAYTHQDLPFERLVEALNPTRSLT--H--HPLFQVVLSLRSTAPRRADGEGA	1429
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       EQVRARVLDAQAHQDLPFEQVVEIVRPLRSLG--H--TPLFQATLNWQATEGAAL-----	1323
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ----SIGIR---------------------------------------------------	1413
+Abw       ---PPDGVTLGG--------------------------------HVA-------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       WSIAPGGVSAAY-----DPDMPVAVPLVVNAVTEVGPGGPRLTAHWMYAGNLLADAEVRD	1534
+Np7       -PALPGGLRVSGTGGAAATAAKVDLGFSVTERRAADHTPDGVAGVLDFRTDLFDRGTAQG	1488
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       --QLP-GLQLEAVAQ-AGQVAKFDLTLNL------GEHGDNLRGSLDYATSLFDEATVRR	1373
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       LARRWSEALDALVRHAAGPGAGGRTPSDLSLVSLDQAQLDALEAKWKKP-----------	1583
+Np7       LVDRLVRVLADAAAHPDRPLSR------IDV--LGPRERHRVVEEWNATAKGLAP-ATLP	1539
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       YVGYFETLMWAMIDNDQQPLAQ------VQL--VGDAERQALLNGFNATQRDYPRECAVQ	1425
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ELFERHVRERPGAEAVVAGDTSLSYAELNARANRLARLLVARGAGPERLVALALPRSAEL	1599
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RLFEQRVARHPLALAAVHGDQAVDYATLNERANRLAYYLMGTGVAPGACVAVLLPRSLQL	1485
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       PVAVLAVAKAGAAYLPLDPAHPAERIAGTLDDAAPVALLTTAAVAAGL--PDTDVPRLLL	1657
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       LVAQLAVLKCGAVYVPLDIHAPADRQAFVVEDCQAAAVLTLAATPVDLVVRRVNLDQLSL	1545
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       DEEPAAGGGEDAADLTDADRLAPLLPGHPAYVIYTSGTTGRPKGVTVTHSGLPALLDIFT	1717
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       DDQPGHNPG------------LAQDAGSTAYVMYTSGTTGKPKGVCVTHRGIARLV-LND	1592
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       SQLDVVPGSRVLHHLSPAFDGGFWELAMGLLTGAALVVVEPGTVPGPALAALA-VRHRVT	1776
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       SFAELTAGDRIAFASNPAFDASTLEVWGALLNGGQVRVIDHHTLVDPQRFAAALVDQGIT	1652
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ----HAAITPAVLQLIPEGALPAGTTLVVAAETCPP---ELVARWSAGRLMRNSYGPTET	1829
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       VLFLTTALFNQYVQLIPEALALLR-VLISGGERAEPAAFRTLLQKAPGLRLVNGYGPTET	1711
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       TVCATMSA---PLAGAAVPPIGRPIADTAGYVLDDALQPVPPGVPGELYVRGPGLARGYL	1886
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       TTFAVTFRSAELAPNAPQVPIGRPIGNTQVYVLDAWQQPVPQGVVGELYIGGDGVALGYL	1771
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       GRPSLTAGRFVACPFGPA-GGVMYRTGDLVRHRADGDLEYLGRTDTQVKLRGMRVEPAEI	1945
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       NRPELTAQRFIDDPFSQQPGARLYRTGDLVRWQPDGQLECLGRNDDQVKIRGYRIELGEI	1831
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       EAVTAGLPGVAQAAVLVREDTPGDRRLVGYVVPDAGASVDPGALRQALRGSLPEYMVPAA	2005
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       EQQLALAPGVGEVVVMAVPGEQGPLRLVAWFTR-LEAALQATELRAFLRGRLPEYMVPSA	1890
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       LVVLDALPLTTNGKLDHRALPAPEYRTVE---GRSPRTPREEALCRLFAEVLGLELVGLD	2062
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       FVALPRMPLNNNGXVDRQALPAPGPQDLALTAYEAPEGEREQALATLWGELLQLQXVGRX	1950
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       DGFFDLGGHSLLAIRLVERVRAELGEELGVRDLFAAPTVADLAVRLAARGGREPMERLLP	2122
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       DRFFKLGGHSLLAMRMVAQVRQRLGLELALGDLFADDSLAAVAARLAHDGNALPAIQPGP	2010
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       LRAAGTARPVFCVHPGSGMSWCYSGLV-----RHLPPGIPVYGLQAAGLDGDGPLPATLQ	2177
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RQ--G----ALPLSFAQQRLWFLAQMEEASAAYHIPLALRLQGRLD-----CAALERALR	2059
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       EMAAEYA----DLVR-QTQP------EGPYRLLGWSLGGNVA---------------FAM	2211
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RLVERHESLRSHFVKRDGEPQVVLASGSDGFQLGWEICNGLDELALAALIREEAGRPFAL	2119
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ARELRARGQEVELLAFLDAYPRRAGAGPEAPLAEVFAHNLRDAGFDVAEEELTGGRFPTA	2271
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       ARDLPVRARMLQ-----------LRPGPPCAVADLAXSGGRRLV-AGRVGTXVGGAVPGF	2167
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       RYRAFLNAAGDPMGRLDEAELAAVLEVFMNNAALMRGHTPGTYDGDVLVLAAERADGDKL	2331
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RQRW-----RXPVXSLXCA-----XHXLCPVAAALAERRCAAPAGRLLGRPVGRGTGADQ	2217
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ARRGAESWRPHVRGRIERVGVDADHLGLVQSD-------AALAVIGRALAGRLDPATGHA	2384
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       PALGPPTGRAPAVCRWQRRGVPGAALEPXPESAVPAPWCDALHAVHGGLGGAVEPACRPG	2277
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       A--------SAAVPETEGVTAMNPSP-------------------------EPAPSPESL	2411
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       QVVIGSPVANRRQAEVDGLVGMFVNAMALRVQTSDAPDVAHVAGQGQGRGAGRAGAPETC	2337
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       DSTEVA------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RSSRWSELLRPRRSLAHTPLYQATLDWDASPERQALQLADLAVSAVGGPACIAKFDLSLS	2397
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       LGEAGEGFAGGIVYATALFERATIXRYAGYFEQLLWTFVESDRAIPAHTGLPDADERKRL	2457
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       LQGFNDTAVAYNLEQTLHGLIEAQVVRTPDAVAVLAEEGSLSYRELNEQANRLAHXLIAL	2517
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       GVKPDDRVAICVERGLSMVVGLLAILKAGGAYVPVDPDYPTERVRHMLSDSAPVAVLVHS	2577
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       ATRHVPEAAQLIDLDRPTWNAQPSSNPVVPTLTPRHLAYVIYTSGSTGLPKGVMNEHAGV	2637
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       VNRLLWMQDAYNLGAEDVVLQKTPFSFDVSVWEFLWPLQTGACLVMARPGGHRDPEYLRQ	2697
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       VIRSEGVTTLHFVPSMLDVFLAHGDASADALKRVLCSGEALPGSLVRRFHAQLPTVELHE	2757
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       XGDRPDRSGGGRQRLALRDGAGQHPDRQAHRQHHAVRARYAGPAGTARRRWRAVHRRRAS	2817
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       RPWLPQPRRTDRRTLHRRPVQHSPRARLYRTGDLARHLSDGNIEYLGRNDDQVKIHGLRI	2877
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       ELGEIQAGLTRIEGXQGSRGDRPRTAAARVLHGPIPSSGSAALVVAQAPADVHGSRAVHT	2937
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       PGGATAKPQRQARPQGLAAARRRSPAIPRIPSPRRRHRDPAGRDLGRTAGRGAGRAPRQL	2997
+                                                                      
+
+Ite       ------------------------------------------------------------	562
+Yp5       ------------------------------------------------------------	1413
+Abw       ------------------------------------------------------------	1446
+Dhv       ------------------------------------------------------------	512
+Yp0       ------------------------------------------------------------	1583
+Np7       ------------------------------------------------------------	2417
+Vsq       ------------------------------------------------------------	1304
+PheA      ------------------------------------------------------------	563
+Aap       LRTRRPFPGRDPAGRQDHQGGFASGHQRCVPAAQRRLAGGAAGQPGCRAAWCDHGAGQRY	3057
+                                                                      
+
+Ite       ---------	562
+Yp5       ---------	1413
+Abw       ---------	1446
+Dhv       ---------	512
+Yp0       ---------	1583
+Np7       ---------	2417
+Vsq       ---------	1304
+PheA      ---------	563
+Aap       ADTAVPGSR	3066
+                   
