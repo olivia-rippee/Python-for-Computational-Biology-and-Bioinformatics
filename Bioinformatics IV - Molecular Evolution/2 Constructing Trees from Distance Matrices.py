@@ -38,8 +38,55 @@ D = [[0, 3, 4, 3],
      [4, 4, 0, 2],
      [3, 5, 2, 0]]
 
-result = Discrepancy(T, D)
-# Output: 163
+print(Discrepancy(T, D)) # Output: 163
+
+
+
+
+D = [[0, 20, 9, 11],
+     [20, 0, 17, 11],
+     [9, 17, 0, 8],
+     [11, 11, 8, 0]]	
+
+T = [[0,  20,   8,  12],
+     [20,  0,  18,  12],
+     [8,  18,   0,  10],
+     [12, 12,  10,   0]]
+
+print(Discrepancy(T, D)) # Output: 8
+
+
+
+# -----------------------------------------------
+# Distance Between Clusters
+# -----------------------------------------------
+
+def ClusterDistance(D, C1, C2):
+    '''Compute the linkage distance between two clusters.
+
+    Input:
+    - D: array, symmetric distance matrix.
+    - C1: list of int, indices of elements in cluster 1.
+    - C2: list of int, indices of elements in cluster 2.
+
+    Output: the average inter-cluster distance
+    '''
+    distances = [D[i][j] for i in C1 for j in C2]
+    return sum(distances) / len(distances)
+
+
+
+# Below is a distance matrix D. If C1 is the cluster containing i and j, 
+# and C2 is the cluster containing k and l, compute D(C1, C2).
+# ----------------------------------------------------------------------
+D = [[0, 20, 9, 11],
+     [20, 0, 17, 11],
+     [9, 17, 0, 8],
+     [11, 11, 8, 0]]
+C1 = [0, 1]  # i, j
+C2 = [2, 3]  # k, l
+
+print(ClusterDistance(D, C1, C2)) # Output: 12
 
 
 
@@ -345,3 +392,55 @@ with open("output.txt", "w") as file:
 # 8->9:163.7 9->Civet:488.8 9->8:163.7 9->10:22.531 10->Human:463.719 10->9:22.531
 # 10->11:249.771 11->Dog:252.979 11->10:249.771 11->13:86.406 12->Pig:146.219 
 # 12->Horse:148.781 12->13:10.344 13->Mouse:149.156 13->11:86.406 13->12:10.344
+
+
+
+# Below is a distance matrix D. Compute D*k, l where D* is the neighbor-joining matrix of D.
+# -------------------------------------------------------------------------------------------
+D = [[0, 13, 16, 10],  # i
+     [13, 0, 21, 15],  # j
+     [16, 21, 0, 18],  # k
+     [10, 15, 18, 0]]  # l
+
+D_star = NeighborJoiningMatrix(D)
+print(D_star[2][3]) # k, l
+# Output: -62
+
+
+
+# -----------------------------------------------
+# Limb Length Post-Neighbor Joining
+# -----------------------------------------------
+
+def LimbLength(D, leaf1, leaf2, leaf3):
+    '''Compute the limb length of leaf2 assuming leaf1 and leaf2 are neighbors.
+
+    Parameters:
+    - D: array, symmetric distance matrix.
+    - leaf1: int, index of the first leaf (neighbor).
+    - leaf2: int, index of the leaf whose limb length is to be computed.
+    - leaf3: int, index of a third leaf (reference).
+
+    Returns: the limb length of leaf3.
+    '''
+    
+    d12 = D[leaf1][leaf2]
+    d23 = D[leaf2][leaf3]
+    d13 = D[leaf1][leaf3]
+    
+    limb_length = 0.5 * (d12 + d23 - d13)
+    return limb_length
+
+
+
+# Below is a distance matrix D. After the neighbor-joining algorithm 
+# decides that j and l are neighbors, compute LimbLength(l).
+# -------------------------------------------------------------------
+D = [[0, 20, 9, 11],   # i
+     [20, 0, 17, 11],  # j
+     [9, 17, 0, 8],    # k
+     [11, 11, 8, 0]]    # l
+
+leaf1, leaf2, leaf3 = 1, 3, 0    # j=1, l=3, i=0 or k=2
+print(LimbLength(D, leaf1, leaf2, leaf3)) 
+# Output: 1
