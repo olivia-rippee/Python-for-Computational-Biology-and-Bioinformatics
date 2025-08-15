@@ -3,6 +3,30 @@ os.chdir("C:/Users/olivi/OneDrive/Python/Bioinformatics IV - Molecular Evolution
 
 
 # -----------------------------------------------
+# Expected Number of Peptide Matches
+# -----------------------------------------------
+
+def ExpectedPeptideMatches(probability, proteome_length):
+    '''Calculate the expected number of peptide matches in a decoy proteome.
+    E = N * p
+    
+    Input: Probability of a peptide matching (0 < p < 1) and length of the decoy proteome.
+    Output: Expected number of peptide matches.
+    '''
+    expected_matches = probability * proteome_length
+    return expected_matches
+
+
+# Say that the probability of a collection of peptides Dictionary is equal to 
+# 0.00012. What is the expected approximate number of peptide matches from 
+# Dictionary that we expect to find in a decoy proteome of length 500,000?
+# ------------------------------------------------------------------------
+probability, proteome_length = 0.00012, 500000
+print(ExpectedPeptideMatches(probability, proteome_length))  # Output: 60
+
+
+
+# -----------------------------------------------
 # Top Score Peptide from Proteome
 # -----------------------------------------------
 
