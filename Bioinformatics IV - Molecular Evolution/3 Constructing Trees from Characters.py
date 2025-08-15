@@ -175,219 +175,173 @@ with open("output.txt", "w") as file:
 # -----------------------------------------------
 # Small Parsimony for Unrooted Trees
 # -----------------------------------------------
+import sys
+import queue
+import numpy as np
 
-from collections import defaultdict
-
-def SmallParsimonyUnrooted(n, edges):
-    adj = defaultdict(list)
-    labels = {}
-    node_id = 0
-    node_map = {}
-
-    # Step 1: Convert all nodes and labels to integer nodes
-    for line in edges:
-        u, v = line.split("->")
-
-        # Map u
-        try:
-            u_int = int(u)
-        except ValueError:
-            if u not in node_map:
-                node_map[u] = node_id
-                labels[node_id] = u
-                node_id += 1
-            u_int = node_map[u]
-
-        # Map v
-        try:
-            v_int = int(v)
-        except ValueError:
-            if v not in node_map:
-                node_map[v] = node_id
-                labels[node_id] = v
-                node_id += 1
-            v_int = node_map[v]
-
-        adj[u_int].append(v_int)
-        adj[v_int].append(u_int)
-
-    # Step 2: Pick arbitrary edge to root the tree
-    found = False
-    for node in adj:
-        for neighbor in adj[node]:
-            u, v = node, neighbor
-            found = True
-            break
-        if found:
-            break
-
-    # Step 3: Insert a new root node
-    new_root = max(adj.keys()) + 1
-    adj[new_root] = [u, v]
-    adj[u].remove(v)
-    adj[v].remove(u)
-    adj[u].append(new_root)
-    adj[v].append(new_root)
-
-    # Step 4: Build edge list for rooted tree
-    def BuildEdges(start_node):
-        result = []
-        visited = set()
-        stack = [(start_node, None)]
-
-        while stack:
-            node, parent = stack.pop()
-            visited.add(node)
-
-            for neighbor in adj[node]:
-                if neighbor == parent:
-                    continue
-                if neighbor in labels:
-                    result.append(f"{node}->{labels[neighbor]}")
-                else:
-                    result.append(f"{node}->{neighbor}")
-                stack.append((neighbor, node))
-        return result
-
-    rooted_edges = BuildEdges(new_root)
-
-    # Step 5: Call rooted version
-    score, full_edges = SmallParsimonyRooted(new_root + 1, rooted_edges)
-
-    # Step 6: Remove artificial root from output
-    filtered_edges = []
-    for line in full_edges:
-        u, rest = line.split("->")
-        v, dist = rest.split(":")
-        if u == str(new_root) or v == str(new_root):
-            continue
-        filtered_edges.append(line)
-
-    return score, filtered_edges
-
-
-def SmallParsimonyRooted(n, edges):
+class SmallParsimony: # unrooted
     '''Find the most parsimonious labeling of the internal nodes in a rooted tree.
     
     Input: An integer n followed by an adjacency list for an unrooted binary tree with n leaves labeled by DNA strings.
     Output: The minimum parsimony score of this tree, followed by the adjacency list of the tree corresponding to labeling 
     internal nodes by DNA strings in order to minimize the parsimony score of the tree.'''
 
-    children = defaultdict(list)
-    parent = {}
-    label = {}
+    def __init__(self):
+        n, adj, nodes, lastEdge = self._input()
+        s = self.runSmallParsimony(n, adj, nodes, lastEdge)
+        self.printResults(s, adj, nodes)
+        
 
-    next_leaf_node = 1000000
+    def _input(self):
+        with open("dataset_30291_11.txt", "r") as file:
+            data = [line.strip() for line in file if line.strip()]
+        
+        n = int(data[0])
+        adj = [dict() for _ in range(n)]
+        nodes = ['' for _ in range(n)]
+        currNode = 0
+        for d in data[1:]:
+            d = d.split('->')
+            try:
+                p = int(d[0])
+            except:
+                p = currNode
+                nodes[p] = d[0]
+                currNode += 1
+            try:
+                c = int(d[1])
+            except:
+                continue
+            if p > len(adj)-1 or c > len(adj)-1:
+                adj.extend([dict() for _ in range(max([p,c])-len(adj)+1)])
+            adj[p][c] = 0
+            adj[c][p] = 0
+        nodes.extend(['' for _ in range(len(adj)-n+1)])
+        lastEdge = [int(i) for i in data[-1].split('->')]
+        return n, adj, nodes, lastEdge
+    
+    def printResults(self, s, adj, nodes):
+        print(s)
+        for i, d in enumerate(adj):
+            for j, w in d.items():
+                print(nodes[i]+'->'+nodes[j]+':'+str(w))
+    
+    def charIndConversion(self):
+        char2ind = {'A':0, 'C':1, 'G':2, 'T':3}
+        ind2char = {0:'A', 1:'C', 2:'G', 3:'T'}
+        return char2ind, ind2char
+    
+    def singleSmallParsimony(self, n, adjC, adjP, adj, nodes, char2ind, ind2char, charInd):
+        s = [[np.inf]*4 for _ in range(len(adjC))]
+        backtrack = [[(-1, -1) for _ in range(4)] for __ in range(len(adjC))]
+        processed = [0 for _ in range(len(adjC))]
+        ripe = set()
+        for i in range(n):
+            s[i][char2ind[nodes[i][charInd]]] = 0
+            processed[i] = 1
+            if len(adjP[i]) > 0:
+                ripe.add(adjP[i][0])
+        
+        while len(ripe) > 0:
+            v = ripe.pop()
+            for k in range(4):
+                l = [s[adjC[v][0]][i] + (0 if k == i else 1) for i in range(4)]
+                r = [s[adjC[v][1]][i] + (0 if k == i else 1) for i in range(4)]
+                largmin = np.argmin(l)
+                rargmin = np.argmin(r)
+                backtrack[v][k] = (largmin, rargmin)
+                s[v][k] = l[largmin] + r[rargmin]
+            processed[v] = 1
+            if len(adjP[v]) > 0 and all([processed[u] for u in adjC[adjP[v][0]]]):
+                ripe.add(adjP[v][0])
+        
+        ind = np.argmin(s[v])
+        nodes[v] += ind2char[ind]
+        smin = s[v][ind]
 
-    for line in edges:
-        u, v = line.split("->")
-        u = int(u)
-        if all(ch in "ACGT" for ch in v):
-            leaf_node = next_leaf_node
-            next_leaf_node += 1
-            label[leaf_node] = v
-            children[u].append(leaf_node)
-            parent[leaf_node] = u
-        else:
-            v = int(v)
-            children[u].append(v)
-            parent[v] = u
+        q = queue.Queue()
+        q.put((v, ind))
+        while not q.empty():
+            v, k = q.get()
+            if len(adjC[v]) > 0:
+                u, w = adjC[v]
+                l, r = backtrack[v][k]
+                
+                if k != l:
+                    adj[v][u] += 1
+                    adj[u][v] += 1
+                if k != r:
+                    adj[v][w] += 1
+                    adj[w][v] += 1
+                if len(adjC[u]) > 0:
+                    nodes[u] += ind2char[l]
+                    nodes[w] += ind2char[r]
+                    q.put((u, l))
+                    q.put((w, r))        
+        return smin
+    
+    def runSmallParsimony(self, n, adj, nodes, lastEdge):
+        def dist(v, w):
+            d = 0
+            l = len(v)
+            for i in range(l):
+                if v[i] != w[i]:
+                    d += 1
+            return d
 
-    all_nodes = set(children.keys()) | set(parent.keys()) | set(label.keys())
-
-    root = None
-    for node in all_nodes:
-        if node not in parent:
-            root = node
-            break
-
-    leaves = [node for node in label]
-    length = len(label[leaves[0]])
-    Bases = ['A', 'C', 'G', 'T']
-
-    final_labels = {node: [''] * length for node in all_nodes}
-    total_score = 0
-
-    for pos in range(length):
-        S = {node: [float('inf')] * 4 for node in all_nodes}
-        Tag = {node: 0 for node in all_nodes}
-
-        for leaf in leaves:
-            Tag[leaf] = 1
-            for i, b in enumerate(Bases):
-                S[leaf][i] = 0 if label[leaf][pos] == b else float('inf')
-
-        while True:
-            ripe_nodes = []
-            for node in all_nodes:
-                if Tag[node] == 0:
-                    if all(Tag[child] == 1 for child in children[node]):
-                        ripe_nodes.append(node)
-            if not ripe_nodes:
-                break
-
-            for v in ripe_nodes:
-                for k in range(4):
-                    cost_sum = 0
-                    for c in children[v]:
-                        costs = [S[c][i] + (0 if i == k else 1) for i in range(4)]
-                        cost_sum += min(costs)
-                    S[v][k] = cost_sum
-                Tag[v] = 1
-
-        min_score = min(S[root])
-        total_score += min_score
-
-        assigned = {}
-
-        def AssignChar(node, chosen_char_idx):
-            assigned[node] = chosen_char_idx
-            final_labels[node][pos] = Bases[chosen_char_idx]
-            for c in children[node]:
-                costs = [S[c][i] + (0 if i == chosen_char_idx else 1) for i in range(4)]
-                min_i = costs.index(min(costs))
-                AssignChar(c, min_i)
-
-        root_char_idx = S[root].index(min_score)
-        AssignChar(root, root_char_idx)
-
-    for node in final_labels:
-        final_labels[node] = ''.join(final_labels[node])
-
-    def HammingDistance(s1, s2):
-        return sum(c1 != c2 for c1, c2 in zip(s1, s2))
-
-    edges_out = []
-    for u in children:
-        for v in children[u]:
-            dist = HammingDistance(final_labels[u], final_labels[v])
-            edges_out.append((final_labels[u], final_labels[v], dist))
-
-    seen = set()
-    unique_edges = []
-    for u_label, v_label, dist in edges_out:
-        edge_key = (u_label, v_label)
-        if edge_key not in seen:
-            seen.add(edge_key)
-            unique_edges.append(f"{u_label}->{v_label}:{dist}")
-            unique_edges.append(f"{v_label}->{u_label}:{dist}")
-
-    unique_edges.sort()
-
-    return total_score, unique_edges
+        char2ind, ind2char = self.charIndConversion()
+        root = len(adj)
+        del adj[lastEdge[0]][lastEdge[1]]
+        del adj[lastEdge[1]][lastEdge[0]]
+        adj.append(dict())
+        adj[root][lastEdge[0]] = 0
+        adj[lastEdge[0]][root] = 0
+        adj[root][lastEdge[1]] = 0
+        adj[lastEdge[1]][root] = 0
+        adjC = [[] for _ in range(len(adj))]
+        adjP = [[] for _ in range(len(adj))]
+        for p in range(n, len(adj)):
+            c = sorted(list(adj[p].keys()))
+            adjC[p].append(c[0])
+            adjC[p].append(c[1])
+            adjP[c[0]].append(p)
+            adjP[c[1]].append(p)
+        s = 0
+        for i in range(len(nodes[0])):
+            s += self.singleSmallParsimony(n, adjC, adjP, adj, nodes, char2ind, ind2char, i)
+        d = dist(nodes[lastEdge[0]], nodes[lastEdge[1]])
+        del adj[root]
+        del adj[lastEdge[0]][root]
+        del adj[lastEdge[1]][root]
+        adj[lastEdge[0]][lastEdge[1]] = d
+        adj[lastEdge[1]][lastEdge[0]] = d
+        return s
 
 
 
-# Example
+# Example 1
 # -----------
-n = 4
-edges = ["TCGGCCAA->4", "4->TCGGCCAA", "CCTGGCTG->4", "4->CCTGGCTG",
-        "CACAGGAT->5", "5->CACAGGAT", "TGAGTACC->5", "5->TGAGTACC", "4->5", "5->4"]
+data = ["4", "TCGGCCAA->4", "4->TCGGCCAA", "CCTGGCTG->4", "4->CCTGGCTG",
+    "CACAGGAT->5", "5->CACAGGAT", "TGAGTACC->5", "5->TGAGTACC", "4->5", "5->4"]
+SmallParsimony() 
+# Output: 17
+    # TCGGCCAA->CCAGGCAA:3 CCTGGCTG->CCAGGCAA:3 CACAGGAT->CAAGGAAA:4
+    # TGAGTACC->CAAGGAAA:5 CCAGGCAA->TCGGCCAA:3 CCAGGCAA->CCTGGCTG:3
+    # CCAGGCAA->CAAGGAAA:2 CAAGGAAA->CACAGGAT:4 CAAGGAAA->TGAGTACC:5
+    # CAAGGAAA->CCAGGCAA:2
 
-score, edges = SmallParsimonyUnrooted(n, edges)
-print(score)
-for line in edges:
-    print(line)
+
+# Example 2
+# -----------
+with open("dataset_30291_11.txt", "r") as file:
+    data = [line.strip() for line in file if line.strip()]
+SmallParsimony() 
+# Output: 515
+    # ATCCCTCACATGCAGGCAAGCGACTGCACG->ATCCCCCCCATGCACACAACCCACTCCAAT:9
+    # ACTCTCCCATGGTCCAGTTCTCAGGCTTAT->ATCCCCCCCATGCACACAACCCACTCCAAT:16
+    # TTGTATTTGGTTCTTGATGGCCAGCGTACC->TTTCCATAGGTTCACTAAAGCCACTCCACA:15
+    # TCTCCACAACTCGAGTGCTGCTTCTCCCCA->TTTCCATAGGTTCACTAAAGCCACTCCACA:13
+    # CTAACGTCTGAATGACAAGTTCCTTCAATT->ATTCCCTCGGTTCGCTAAACACACTCAAAT:16
 
 
 
@@ -517,216 +471,320 @@ WriteOutputToFile("output.txt", neighbor1, neighbor2)
 # -----------------------------------------------
 # Nearest Neighbors Interchange for Large Parsimony
 # -----------------------------------------------
-from collections import defaultdict, deque
-import copy
+import sys
+import queue
+import numpy as np
+from copy import deepcopy
 
-def HammingDistance(s1, s2):
-    return sum(ch1 != ch2 for ch1, ch2 in zip(s1, s2))
+class LargeParsimony:
+    '''Implement the nearest neighbor interchange heuristic for the Large Parsimony Problem.
 
-def ReadInputFromFile(filename):
-    with open(filename, "r") as f:
-        lines = [line.strip() for line in f if line.strip()]
-    n = int(lines[0])
-    adj_lines = lines[1:]
-    return n, adj_lines
+    Input: An integer n, followed by an adjacency list for an unrooted binary tree whose n leaves are labeled by DNA strings and
+    whose internal nodes are labeled by integers.
+    Output: The parsimony score and unrooted labeled tree obtained after every step of the nearest neighbor interchange heuristic.
+    Each step should be separated by a blank line.
+    '''
 
-def WriteOutputToFile(filename, output_lines):
-    with open(filename, "w") as f:
-        f.write('\n'.join(output_lines))
-
-def ParseInput(n, lines):
-    adj = defaultdict(list)
-    labels = {}
-    for line in lines:
-        left, right = line.split('->')
-        if left.isdigit():
-            u = int(left)
+    def __init__(self, input_data=None, filename=None):
+        if input_data:
+            n, adj, nodes, lastEdge = self.ParseInput(input_data)
+        elif filename:
+            n, adj, nodes, lastEdge = self.ReadFromFile(filename)
         else:
-            u = left
-        if right.isdigit():
-            v = int(right)
+            raise ValueError("Provide either input_data (list) or filename (string)")
+    
+        trees = self.RunNearestNeighborInterchange(n, adj, nodes, lastEdge)
+        if filename:
+            self.SaveTrees(trees)  # save to file if input from file
         else:
-            v = right
-        adj[u].append(v)
-        adj[v].append(u)
-        if not str(u).isdigit():
-            labels[u] = u
-        if not str(v).isdigit():
-            labels[v] = v
-    return adj, labels
+            self.PrintTrees(trees)  # print if manual input
 
-def SmallParsimony(adj, labels):
-    nodes = list(adj.keys())
-    n = len(next(iter(labels.values())))
-    S = {v: [set() for _ in range(n)] for v in nodes}
-
-    # Find a root: pick an internal node (integer) if any, else any node
-    root = None
-    for v in nodes:
-        if isinstance(v, int):
-            root = v
-            break
-    if root is None:
-        root = nodes[0]
-
-    parent = {root: None}
-    order = []
-    queue = deque([root])
-    visited = set([root])  # Track visited nodes to prevent cycles
-
-    while queue:
-        u = queue.popleft()
-        order.append(u)
-        for w in adj[u]:
-            if w not in visited:
-                parent[w] = u
-                visited.add(w)
-                queue.append(w)
-
-    # Initialize S for leaves and internal nodes
-    for v in nodes:
-        if v in labels:  # Leaf labeled by DNA string
-            for i, ch in enumerate(labels[v]):
-                S[v][i] = {ch}
-        else:  # Internal node: initially all possible nucleotides at each position
-            for i in range(n):
-                S[v][i] = {'A', 'C', 'G', 'T'}
-
-    # Bottom-up phase: postorder traversal
-    for v in reversed(order):
-        if v in labels:
-            continue  # Leaf already assigned
-        children = [w for w in adj[v] if w != parent[v]]
-        for i in range(n):
-            intersect = S[children[0]][i].intersection(S[children[1]][i])
-            if intersect:
-                S[v][i] = intersect
-            else:
-                S[v][i] = S[children[0]][i].union(S[children[1]][i])
-
-    # Top-down phase: assign sequences starting from root
-    seq = {}
-    seq[root] = ''.join(sorted(S[root][i])[0] for i in range(n))
-    queue = deque([root])
-    while queue:
-        v = queue.popleft()
-        for w in adj[v]:
-            if w == parent.get(v):
+    def _Input(self):
+        data = sys.stdin.read().strip().split('\n')
+        n = int(data[0])
+        adj = [dict() for _ in range(n)]
+        nodes = ['' for _ in range(n)]
+        currNode = 0
+        for d in data[1:]:
+            d = d.split('->')
+            try:
+                p = int(d[0])
+            except:
+                p = currNode
+                nodes[p] = d[0]
+                currNode += 1
+            try:
+                c = int(d[1])
+            except:
                 continue
-            chars = []
-            for i in range(n):
-                if seq[v][i] in S[w][i]:
-                    chars.append(seq[v][i])
-                else:
-                    chars.append(sorted(S[w][i])[0])
-            seq[w] = ''.join(chars)
-            queue.append(w)
+            if p > len(adj)-1 or c > len(adj)-1:
+                adj.extend([dict() for _ in range(max([p, c])-len(adj)+1)])
+            adj[p][c] = 0
+            adj[c][p] = 0
+        nodes.extend(['' for _ in range(len(adj)-n+1)])
+        lastEdge = [int(i) for i in data[-1].split('->')]
+        return n, adj, nodes, lastEdge
 
-    # Compute total parsimony score
-    total_score = 0
-    counted = set()
-    for v in adj:
-        for w in adj[v]:
-            if (v, w) not in counted and (w, v) not in counted:
-                total_score += sum(ch1 != ch2 for ch1, ch2 in zip(seq[v], seq[w]))
-                counted.add((v, w))
+    def ParseInput(self, data):
+        data = [line.strip() for line in data if line.strip()]
+        n = int(data[0])
+        adj = [dict() for _ in range(n)]
+        nodes = ['' for _ in range(n)]
+        currNode = 0
+        for d in data[1:]:
+            d = d.split('->')
+            try:
+                p = int(d[0])
+            except:
+                p = currNode
+                nodes[p] = d[0]
+                currNode += 1
+            try:
+                c = int(d[1])
+            except:
+                continue
+            if p > len(adj) - 1 or c > len(adj) - 1:
+                adj.extend([dict() for _ in range(max([p, c]) - len(adj) + 1)])
+            adj[p][c] = 0
+            adj[c][p] = 0
+        nodes.extend(['' for _ in range(len(adj) - n + 1)])
+        lastEdge = [int(i) for i in data[-1].split('->')]
+        return n, adj, nodes, lastEdge
 
-    # Create adjacency with sequences as labels for output
-    new_adj = {}
-    for v in adj:
-        v_label = seq[v] if isinstance(v, int) else v
-        new_adj[v_label] = []
-        for w in adj[v]:
-            w_label = seq[w] if isinstance(w, int) else w
-            new_adj[v_label].append(w_label)
+    def ReadFromFile(self, filename):
+        with open(filename, "r") as file:
+            data = [line.strip() for line in file if line.strip()]
+        return self.ParseInput(data)
 
-    return total_score, new_adj, seq
+    def PrintResults(self, s, adj, nodes):
+        print(s)
+        for i, d in enumerate(adj):
+            for j, w in d.items():
+                print(nodes[i] + '->' + nodes[j] + ':' + str(w))
 
-def FindInternalEdges(adj):
-    internal_edges = []
-    for v in adj:
-        for w in adj[v]:
-            # Check both are integers before comparing
-            if isinstance(v, int) and isinstance(w, int):
-                if v < w:
-                    internal_edges.append((v, w))
-    return internal_edges
+    def PrintTrees(self, trees):
+        for s, adj, nodes in trees:
+            print(s)
+            for i, d in enumerate(adj):
+                for j, w in d.items():
+                    print(nodes[i] + '->' + nodes[j] + ':' + str(w))
+            print('')
 
-def SwapSubtrees(adj, a, b, swap_a, swap_b):
-    new_adj = copy.deepcopy(adj)
-    new_adj[a].remove(swap_a)
-    new_adj[swap_a].remove(a)
-    new_adj[b].remove(swap_b)
-    new_adj[swap_b].remove(b)
-    new_adj[a].append(swap_b)
-    new_adj[swap_b].append(a)
-    new_adj[b].append(swap_a)
-    new_adj[swap_a].append(b)
-    return new_adj
+    def SaveTrees(self, trees):
+        with open("output.txt", "w") as file:
+            for s, adj, nodes in trees:
+                file.write(str(s) + '\n')
+                for i, d in enumerate(adj):
+                    for j, w in d.items():
+                        file.write(nodes[i] + '->' + nodes[j] + ':' + str(w) + '\n')
+                file.write('\n')
 
-def GenerateNNINeighbors(adj, edge):
-    a, b = edge
-    a_neighbors = [x for x in adj[a] if x != b]
-    b_neighbors = [x for x in adj[b] if x != a]
-    neighbors = []
-    neighbors.append(SwapSubtrees(adj, a, b, a_neighbors[0], b_neighbors[0]))
-    neighbors.append(SwapSubtrees(adj, a, b, a_neighbors[0], b_neighbors[1]))
-    neighbors.append(SwapSubtrees(adj, a, b, a_neighbors[1], b_neighbors[0]))
-    neighbors.append(SwapSubtrees(adj, a, b, a_neighbors[1], b_neighbors[1]))
-    return neighbors
+    def CharIndConversion(self):
+        char2ind = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+        ind2char = {0: 'A', 1: 'C', 2: 'G', 3: 'T'}
+        return char2ind, ind2char
 
-def FormatSolution(score, adj):
-    lines = [str(score)]
-    edges_printed = set()
-    for v in sorted(adj.keys()):
-        for w in sorted(adj[v]):
-            if (v,w) not in edges_printed and (w,v) not in edges_printed:
-                dist = HammingDistance(v, w)
-                lines.append(f"{v}->{w}:{dist}")
-                edges_printed.add((v,w))
-    lines.append("")  # blank line to separate steps
-    return lines
+    def SingleSmallParsimony(self, n, adjC, adjP, adj, nodes, char2ind, ind2char, charInd):
+        s = [[np.inf] * 4 for _ in range(len(adjC))]
+        backtrack = [[(-1, -1) for _ in range(4)] for __ in range(len(adjC))]
+        processed = [0 for _ in range(len(adjC))]
+        ripe = set()
+        for i in range(n):
+            s[i][char2ind[nodes[i][charInd]]] = 0
+            processed[i] = 1
+            if len(adjP[i]) > 0:
+                ripe.add(adjP[i][0])
 
-def RunNNI(adj, labels):
-    output_lines = []
-    improved = True
-    current_adj = adj
-    current_labels = labels
-    score, labeled_adj, seq = SmallParsimony(current_adj, current_labels)
-    output_lines.extend(FormatSolution(score, labeled_adj))
-    while improved:
-        improved = False
-        internal_edges = FindInternalEdges(current_adj)
-        best_score = score
-        best_adj = current_adj
-        for edge in internal_edges:
-            neighbors = GenerateNNINeighbors(current_adj, edge)
-            for neighbor_adj in neighbors:
-                neighbor_score, labeled_neighbor_adj, _ = SmallParsimony(neighbor_adj, current_labels)
-                if neighbor_score < best_score:
-                    best_score = neighbor_score
-                    best_adj = neighbor_adj
-                    improved = True
-        if improved:
-            current_adj = best_adj
-            score, labeled_adj, seq = SmallParsimony(current_adj, current_labels)
-            output_lines.extend(FormatSolution(score, labeled_adj))
-    return output_lines
+        while len(ripe) > 0:
+            v = ripe.pop()
+            for k in range(4):
+                l = [s[adjC[v][0]][i] + (0 if k == i else 1) for i in range(4)]
+                r = [s[adjC[v][1]][i] + (0 if k == i else 1) for i in range(4)]
+                largmin = np.argmin(l)
+                rargmin = np.argmin(r)
+                backtrack[v][k] = (largmin, rargmin)
+                s[v][k] = l[largmin] + r[rargmin]
+            processed[v] = 1
+            if len(adjP[v]) > 0 and all([processed[u] for u in adjC[adjP[v][0]]]):
+                ripe.add(adjP[v][0])
+
+        ind = np.argmin(s[v])
+        nodes[v] += ind2char[ind]
+        smin = s[v][ind]
+
+        q = queue.Queue()
+        q.put((v, ind))
+        while not q.empty():
+            v, k = q.get()
+            if len(adjC[v]) > 0:
+                u, w = adjC[v]
+                l, r = backtrack[v][k]
+
+                if k != l:
+                    adj[v][u] += 1
+                    adj[u][v] += 1
+                if k != r:
+                    adj[v][w] += 1
+                    adj[w][v] += 1
+
+                if len(adjC[u]) > 0:
+                    nodes[u] += ind2char[l]
+                    q.put((u, l))
+                if len(adjC[w]) > 0:
+                    nodes[w] += ind2char[r]
+                    q.put((w, r))
+
+        return smin
+
+    def RunSmallParsimony(self, n, adj, nodes, lastEdge):
+        def Dist(v, w):
+            return sum(1 for i in range(len(v)) if v[i] != w[i])
+
+        char2ind, ind2char = self.CharIndConversion()
+        root = len(adj)
+        del adj[lastEdge[0]][lastEdge[1]]
+        del adj[lastEdge[1]][lastEdge[0]]
+        adj.append(dict())
+        adj[root][lastEdge[0]] = 0
+        adj[lastEdge[0]][root] = 0
+        adj[root][lastEdge[1]] = 0
+        adj[lastEdge[1]][root] = 0
+        adjC = [[] for _ in range(len(adj))]
+        adjP = [[] for _ in range(len(adj))]
+        q = queue.Queue()
+        q.put(root)
+        visited = [False for _ in range(len(adj))]
+        visited[root] = True
+        while not q.empty():
+            curr = q.get()
+            for v in adj[curr].keys():
+                if not visited[v]:
+                    adjP[v].append(curr)
+                    visited[v] = True
+                    q.put(v)
+        for u, d in enumerate(adjP):
+            for v in d:
+                adjC[v].append(u)
+        s = 0
+        for i in range(len(nodes[0])):
+            s += self.SingleSmallParsimony(n, adjC, adjP, adj, nodes, char2ind, ind2char, i)
+        d = Dist(nodes[lastEdge[0]], nodes[lastEdge[1]])
+        del adj[root]
+        del adj[lastEdge[0]][root]
+        del adj[lastEdge[1]][root]
+        adj[lastEdge[0]][lastEdge[1]] = d
+        adj[lastEdge[1]][lastEdge[0]] = d
+        return s, adj, nodes
+
+    def FindNearestNeighbors(self, edge, adj):
+        adj1 = deepcopy(adj)
+        adj2 = deepcopy(adj)
+
+        del adj1[edge[0]][edge[1]]
+        del adj1[edge[1]][edge[0]]
+        e0 = list(adj1[edge[0]].keys())
+        e1 = list(adj1[edge[1]].keys())
+        adj1[edge[0]][e1[0]] = 0
+        adj1[edge[1]][e0[0]] = 0
+        adj1[e1[0]][edge[0]] = 0
+        adj1[e0[0]][edge[1]] = 0
+        del adj1[e1[0]][edge[1]]
+        del adj1[e0[0]][edge[0]]
+        del adj1[edge[0]][e0[0]]
+        del adj1[edge[1]][e1[0]]
+        adj1[edge[0]][edge[1]] = 0
+        adj1[edge[1]][edge[0]] = 0
+
+        adj2[edge[0]][e1[1]] = 0
+        adj2[edge[1]][e0[0]] = 0
+        adj2[e1[1]][edge[0]] = 0
+        adj2[e0[0]][edge[1]] = 0
+        del adj2[e1[1]][edge[1]]
+        del adj2[e0[0]][edge[0]]
+        del adj2[edge[0]][e0[0]]
+        del adj2[edge[1]][e1[1]]
+        return adj1, adj2
+
+    def RunNearestNeighborInterchange(self, n, adj, nodes, lastEdge):
+        trees = []
+        score = np.inf
+        newScore, newAdj, newNodes = self.RunSmallParsimony(n, adj, deepcopy(nodes), lastEdge)
+        while newScore < score:
+            score = newScore
+            adj = newAdj
+            visited = set()
+            for v in range(n, len(adj)):
+                for u in adj[v].keys():
+                    if u >= n and not (v, u) in visited:
+                        adj1, adj2 = self.FindNearestNeighbors([v, u], adj)
+                        for i, a in enumerate(adj1):
+                            adj1[i] = dict.fromkeys(a, 0)
+                        for i, a in enumerate(adj2):
+                            adj2[i] = dict.fromkeys(a, 0)
+                        neighborScore, neighborAdj, neighborNodes = self.RunSmallParsimony(n, adj1, deepcopy(nodes), [v, u])
+                        if neighborScore < newScore:
+                            newScore = neighborScore
+                            newAdj = neighborAdj
+                            newNodes = neighborNodes
+                        neighborScore, neighborAdj, neighborNodes = self.RunSmallParsimony(n, adj2, deepcopy(nodes), [v, u])
+                        if neighborScore < newScore:
+                            newScore = neighborScore
+                            newAdj = neighborAdj
+                            newNodes = neighborNodes
+                        visited.add((v, u))
+                        visited.add((u, v))
+            if newScore < score:
+                trees.append((newScore, newAdj, newNodes))
+        return trees
 
 
 # Example 1
 # ----------
-n = 5
-adj = ["GCAGGGTA->5", "TTTACGCG->5", "CGACCTGA->6", "GATTCCAC->6", "5->TTTACGCG",
+input_data = ["5", "GCAGGGTA->5", "TTTACGCG->5", "CGACCTGA->6", "GATTCCAC->6", "5->TTTACGCG",
     "5->GCAGGGTA", "5->7", "TCCGTAGT->7", "7->5", "7->6", "7->TCCGTAGT",
     "6->GATTCCAC", "6->CGACCTGA", "6->7"]
-RunNNI(n, adj)
+LargeParsimony(input_data)
 
+# Output: 22
+    # GCAGGGTA->GCAGCGGA:2 TTTACGCG->TCAGCGGA:5 CGACCTGA->GAACCCGA:3 GATTCCAC->GAACCCGA:4
+    # TCCGTAGT->TCAGCGGA:4 TCAGCGGA->TTTACGCG:5 TCAGCGGA->TCCGTAGT:4 TCAGCGGA->GCAGCGGA:1
+    # GAACCCGA->CGACCTGA:3 GAACCCGA->GATTCCAC:4 GAACCCGA->GCAGCGGA:3 GCAGCGGA->GAACCCGA:3
+    # GCAGCGGA->GCAGGGTA:2 GCAGCGGA->TCAGCGGA:1
+
+    # 21
+    # GCAGGGTA->GCAGCGGA:2 TTTACGCG->TCTGCGGA:4 CGACCTGA->GCAGCGGA:4 GATTCCAC->GCTGCGGA:5
+    # TCCGTAGT->TCTGCGGA:4 TCTGCGGA->TTTACGCG:4 TCTGCGGA->TCCGTAGT:4 TCTGCGGA->GCTGCGGA:1
+    # GCTGCGGA->GATTCCAC:5 GCTGCGGA->TCTGCGGA:1 GCTGCGGA->GCAGCGGA:1 GCAGCGGA->GCAGGGTA:2
+    # GCAGCGGA->CGACCTGA:4 GCAGCGGA->GCTGCGGA:1
 
 
 # Example 2
 # ----------
-n, adj_lines = ReadInputFromFile("dataset_30292_8.txt")
-adj, labels = ParseInput(n, adj_lines)
-output_lines = RunNNI(adj, labels)
-WriteOutputToFile("output.txt", output_lines)
+lp = LargeParsimony(filename = "dataset_30292_8.txt")
+
+# Output: 157
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACACCCAGGCTCTCAAAGGTAGGCTTGGACATGACGTCCG:17
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTAGGAGCTAAACGGCAGTCTAGTCCATAACGTCCG:9
+    # AAATTCTTGAACTTACTTCTGATTTCTCTCAGCATGGATG->ACACGTATCAACTAACCACGAGTTTATTCCATCAAGGCAG:19 ...
+
+    # 156
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACACCCAAACTAACAAAGGTAGGCTTAGACAAGACGTCCG:14
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTAGGAGATAAACCGCAGACTAGTCCATCACGTCCG:12 ...
+
+
+    # 155
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACACCCATACTAACAAAGATAGGCGTAGACAAGACGACCG:12
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTATGAAATAAACTCGCGTCTAGTCCATCACGTCCG:13
+
+    # 153
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACACCCATTCTAACAAAGATAGGCGTAGAGACGACGACCG:13
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTATCAGATAGACTCGCGTCTAGTCCATCACGTCCG:12
+
+    # 150
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACACCCCTTCTAAAAAAGATAGGCGTAGAGACGACGACCG:13
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTAGGAGATAGACTCTCGTCTAGTCCATCACGTCCG:10
+
+    # 149
+    # GCTTAGCTACTCACAAAGATAGGCTTAGAGAAGCTCACCG->ACTAAACTTCTATAGAAGTTAGACGTGGAGACGATGACCG:15
+    # ATCCCTGGGGGCTAGACTGCCCTCTAGTCCCTAACGTCCG->ACACCTAAGAGATAGACTCTCGTCTAGTCCATCACGTCCG:11
+

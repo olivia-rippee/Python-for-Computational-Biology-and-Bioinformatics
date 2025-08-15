@@ -224,167 +224,326 @@ for peptide in psms:
 # Size of Spectral Dictionary
 # -----------------------------------------------
 
-massTable = {}
-with open("amino_acid_integer_mass_table.txt", "r") as file:
-    for line in file:
-        aa, mass = line.strip().split()
-        massTable[int(mass)] = aa
-
-def SpectralDictionarySize(spectrum, threshold, max_score):
-    '''Computes the number of peptides whose score against the spectral vector
-    is at least `threshold` and at most `max_score`.
+class SpectralDictSize:
+    '''Find the size of the spectral dictionary for a given spectral vector and score threshold.
     
     Input: A spectral vector Spectrum', an integer threshold, and an integer max_score.
-    Output: The size of the dictionary Dictionarythreshold(Spectrum').
-    '''
-    n = len(spectrum)
-    masses = list(massTable.keys())
+    Output: The size of the dictionary Dictionary_threshold(Spectrum').'''
+    
+    def __init__(self, input_data=None, filename=None):
+        massList = self.AminoAcidMassList()
+        if input_data is not None:
+            sVector, threshold, maxScore = self.ReadFromString(input_data)
+        elif filename is not None:
+            sVector, threshold, maxScore = self.ReadFromFile(filename)
+        else:
+            raise ValueError("Either input_data or filename must be provided")
+        
+        s = self.DictSize(sVector, threshold, maxScore, massList)
+        print(s)
+        
+    def AminoAcidMassList(self):
+        massTable = '''
+        G 57
+        A 71
+        S 87
+        P 97
+        V 99
+        T 101
+        C 103
+        I 113
+        L 113
+        N 114
+        D 115
+        K 128
+        Q 128
+        E 129
+        M 131
+        H 137
+        F 147
+        R 156
+        Y 163
+        W 186'''
+        mass = massTable.split()
+        return [int(mass[i+1]) for i in range(0, len(mass), 2)]
 
-    # Initialize DP table: dp[i][s] = number of peptides ending at position i with score s
-    dp = [ [0]*(max_score+1) for _ in range(n+1) ]
-    dp[0][0] = 1  # base case: empty peptide
+    def ReadFromFile(self, filename):
+        with open(filename, 'r') as f:
+            data = [line.strip().split() for line in f if line.strip()]
+        sVector = [0] + list(map(int, data[0]))
+        threshold = int(data[1][0])
+        maxScore = int(data[2][0])
+        return sVector, threshold, maxScore
 
-    for i in range(1, n+1):
-        for mass in masses:
-            if i - mass >= 0:
-                for s in range(max_score+1):
-                    prev_score = s - spectrum[i-1]
-                    if 0 <= prev_score <= max_score:
-                        dp[i][s] += dp[i - mass][prev_score]
+    def ReadFromString(self, input_data):
+        lines = [line.strip().split() for line in input_data.strip().split('\n') if line.strip()]
+        sVector = [0] + list(map(int, lines[0]))
+        threshold = int(lines[1][0])
+        maxScore = int(lines[2][0])
+        return sVector, threshold, maxScore
 
-    # Count peptides with score >= threshold and <= max_score
-    total = sum(dp[n][threshold:max_score+1])
-    return total
+    def DictSize(self, sVector, threshold, maxScore, massList):
+        size = dict()
+        size[(0, 0)] = 1
+        s = sum([self.GetSize(len(sVector)-1, t, sVector, massList, size) for t in range(threshold, maxScore+1)])
+        return s
 
+    def GetSize(self, i, t, sVector, massList, size):
+        if (i, t) in size:
+            return size[(i, t)]
+        if i < 0 or t < 0:
+            size[(i, t)] = 0
+            return 0
+        s = sum([self.GetSize(i - m, t - sVector[i], sVector, massList, size) for m in massList])
+        size[(i, t)] = s
+        return s
 
 
 # Example 1
 # -----------
-spectrum = "4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3"
-spectrum = [4, -3, -2, 3, 3, -4, 5, -3, -1, -1, 3, 4, 1, 3]
-threshold, max_score = 1, 8
-
-print(SpectralDictionarySize(spectrum, threshold, max_score)) # Output: 0
-
-
+SpectralDictSize(input_data = """4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3
+                 1
+                 8""")
+# Output: 0
+    
+    
 
 # Example 2
 # -----------
-with open("dataset_30266_3.txt", "r") as file:
-    lines = file.read().strip().splitlines()
-spectrum = list(map(int, lines[0].split()))
-threshold = int(lines[1])
-max_score = int(lines[2])
+SpectralDictSize(filename = "dataset_30266_3.txt")
+# Output: 1286
 
-print(SpectralDictionarySize(spectrum, threshold, max_score)) # Output: 
+
 
 
 # -----------------------------------------------
 # Probability of Spectral Dictionary
 # -----------------------------------------------
 
-def ProbabilitySpectralDictionary(SpectrumStr, Threshold, MaxScore):
-    # Parse input
-    Spectrum = list(map(int, SpectrumStr.strip().split()))
-    AminoAcids = [57, 71, 87, 97, 99, 101, 103, 113, 114, 115,
-                  128, 129, 131, 137, 147, 156, 163, 186]
-
-    m = len(Spectrum)
+class SpectralDictProbability:
+    '''Compute the probability of a spectral dictionary.
     
-    # Initialize DP table: dp[i][t] = probability of mass i with score t
-    dp = [ [0.0]*(MaxScore+1) for _ in range(m+1) ]
-    dp[0][0] = 1.0  # base case: mass 0, score 0
+    Input: A spectral vector Spectrum', an integer threshold, and an integer max_score.
+    Output: The probability of the dictionary Dictionarythreshold(Spectrum').'''
+                                                                  
+    def __init__(self, input_data=None, filename=None):
+        massList = self.AminoAcidMassList()
+        if input_data is not None:
+            sVector, threshold, maxScore = self.ReadFromString(input_data)
+        elif filename is not None:
+            sVector, threshold, maxScore = self.ReadFromFile(filename)
+        else:
+            raise ValueError("Either input_data or filename must be provided")
+        
+        p = self.DictProb(sVector, threshold, maxScore, massList)
+        print(p)
+        with open('result.txt', 'w') as f:
+            f.write(str(p))
+        
+    def AminoAcidMassList(self):
+        massTable = '''
+            G 57
+            A 71
+            S 87
+            P 97
+            V 99
+            T 101
+            C 103
+            I 113
+            L 113
+            N 114
+            D 115
+            K 128
+            Q 128
+            E 129
+            M 131
+            H 137
+            F 147
+            R 156
+            Y 163
+            W 186'''
+        mass = massTable.split()
+        return [int(mass[i+1]) for i in range(0, len(mass), 2)]
 
-    for i in range(m+1):
-        for t in range(MaxScore+1):
-            if dp[i][t] > 0:
-                for aa in AminoAcids:
-                    next_i = i + 1  # Each amino acid adds 1 position in the spectrum
-                    if next_i <= m:
-                        s_i = Spectrum[i]  # Score contribution of this position
-                        next_t = t + s_i
-                        if 0 <= next_t <= MaxScore:
-                            dp[next_i][next_t] += dp[i][t] / 20.0  # divide by 20 for uniform probability
+    def ReadFromFile(self, filename):
+        with open(filename, 'r') as f:
+            data = [line.strip().split() for line in f if line.strip()]
+        sVector = [0] + list(map(int, data[0]))
+        threshold = int(data[1][0])
+        maxScore = int(data[2][0])
+        return sVector, threshold, maxScore
 
-    # Sum probabilities for sequences that reach mass m with score >= Threshold
-    final_prob = sum(dp[m][Threshold:])
-    return final_prob
+    def ReadFromString(self, input_data):
+        lines = [line.strip().split() for line in input_data.strip().split('\n') if line.strip()]
+        sVector = [0] + list(map(int, lines[0]))
+        threshold = int(lines[1][0])
+        maxScore = int(lines[2][0])
+        return sVector, threshold, maxScore
+
+    def DictProb(self, sVector, threshold, maxScore, massList):
+        prob = dict()
+        prob[(0, 0)] = 1
+        p = sum([self.GetProb(len(sVector) - 1, t, sVector, massList, prob) for t in range(threshold, maxScore + 1)])
+        return p
+
+    def GetProb(self, i, t, sVector, massList, prob):
+        if (i, t) in prob:
+            return prob[(i, t)]
+        if i < 0 or t < 0:
+            prob[(i, t)] = 0
+            return 0
+        p = sum([self.GetProb(i - m, t - sVector[i], sVector, massList, prob) / 20 for m in massList])
+        prob[(i, t)] = p
+        return p
 
 
 
 # Example 1
 # ------------
-spectrum_input = "4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3"
-threshold, max_score = 1, 8
+SpectralDictProbability(input_data = """4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3
+                        1
+                        8""")
+# Output: 0.0
 
-result = ProbabilitySpectralDictionary(spectrum_input, threshold)
-print(f"{result:.3f}")
 
-
+# Example 2
+# ------------
+SpectralDictProbability(filename = "dataset_30266_8.txt")
+# Output: 0.0008019419531250001
 
 
 # -----------------------------------------------
 # Spectral Alignment
 # -----------------------------------------------
+import numpy as np
 
-def SpectralAlignment(peptide, spectrum, k):
-    n = len(peptide)
-    # DP table: dp[i][j] = max score for first i amino acids using j modifications
-    dp = [[-float('inf')] * (k + 1) for _ in range(n + 1)]
-    back = [[None] * (k + 1) for _ in range(n + 1)]
+class SpectralAlignment:
+    '''Given a peptide and a spectral vector, find a modified variant of this peptide that maximizes the 
+    peptide-spectrum score, among all variants of the peptide with up to k modifications.
 
-    dp[0][0] = 0
+    Input: An amino acid string Peptide, a spectral vector Spectrum', and an integer k.
+    Output: A peptide of maximum score against Spectrum' among all peptides in Variantsk(Peptide).'''
 
-    for i in range(1, n + 1):
-        for j in range(k + 1):
-            # Case 1: no modification
-            score_no_mod = dp[i-1][j] + spectrum[i-1]
-            if score_no_mod > dp[i][j]:
-                dp[i][j] = score_no_mod
-                back[i][j] = (i-1, j, 0)
-
-            # Case 2: apply a modification if j > 0
-            if j > 0:
-                # Try reasonable delta modifications
-                for delta in range(-10, 11):  # You can adjust range for larger spectra
-                    score_mod = dp[i-1][j-1] + spectrum[i-1] + delta
-                    if score_mod > dp[i][j]:
-                        dp[i][j] = score_mod
-                        back[i][j] = (i-1, j-1, delta)
-
-    # Backtracking
-    res = []
-    i, j = n, k
-    while i > 0:
-        prev_i, prev_j, delta = back[i][j]
-        if delta == 0:
-            res.append(peptide[i-1])
+    def __init__(self, input_data=None, filename=None):
+        massDict, aaDict = self.AminoAcidMassDict()
+        if input_data is not None:
+            peptide, sVector, k = self.ReadFromString(input_data)
+        elif filename is not None:
+            peptide, sVector, k = self.ReadFromFile(filename)
         else:
-            res.append(f"{peptide[i-1]}({delta:+})")
-        i, j = prev_i, prev_j
+            raise ValueError("Either input_data or filename must be provided")
+        
+        mPeptide = self.ConstructAlignment(peptide, sVector, k, aaDict)
+        print(mPeptide)
+        with open('result.txt', 'w') as f:
+            f.write(mPeptide)
+    
+    def AminoAcidMassDict(self):
+        massTable = '''
+                X 4
+                Z 5
+                G 57
+                A 71
+                S 87
+                P 97
+                V 99
+                T 101
+                C 103
+                I 113
+                L 113
+                N 114
+                D 115
+                K 128
+                Q 128
+                E 129
+                M 131
+                H 137
+                F 147
+                R 156
+                Y 163
+                W 186'''
+        mass = massTable.split()
+        return {int(mass[i+1]):mass[i] for i in range(0, len(mass), 2)}, {mass[i]:int(mass[i+1]) for i in range(0, len(mass), 2)}
+    
+    def ReadFromFile(self, filename):
+        with open(filename, 'r') as f:
+            data = [line.strip().split() for line in f if line.strip()]
+        peptide = data[0][0]
+        sVector = [0] + list(map(int, data[1]))
+        k = int(data[2][0])
+        return peptide, sVector, k
+    
+    def ReadFromString(self, input_data):
+        lines = [line.strip().split() for line in input_data.strip().split('\n') if line.strip()]
+        peptide = lines[0][0]
+        sVector = [0] + list(map(int, lines[1]))
+        k = int(lines[2][0])
+        return peptide, sVector, k
+    
+    def GetScore(self, node, score):
+        if node in score:
+            return score[node]
+        else:
+            score[node] = -np.inf
+            return -np.inf
 
-    return ''.join(res[::-1])
-
+    def ConstructAlignment(self, peptide, sVector, k, aaDict):
+        prefixMasses = [0] + [sum([aaDict[aa] for aa in peptide[:i+1]]) for i in range(len(peptide))]
+        diff = {prefixMasses[i+1]:(prefixMasses[i+1]-prefixMasses[i]) for i in range(len(peptide))}
+        score = dict()
+        score[(0,0,0)] = 0
+        backtrack = dict()
+        
+        for i in prefixMasses[1:]:
+            if i < len(sVector):
+                score[(i,i,0)] = sVector[i] + score[(i - diff[i], i - diff[i], 0)]
+                backtrack[(i,i,0)] = (i - diff[i], i - diff[i], 0)
+            else:
+                break
+        
+        for t in range(1, k + 1):
+            for i in prefixMasses[1:]:
+                for j in range(1, len(sVector)):
+                    prevList = [(i - diff[i], j - diff[i], t)] + [(i - diff[i], j1, t - 1) for j1 in range(j)]
+                    prevIndex = np.argmax([sVector[j] + self.GetScore(node, score) for node in prevList])
+                    score[(i, j, t)] = sVector[j] + self.GetScore(prevList[prevIndex], score)
+                    backtrack[(i, j, t)] = prevList[prevIndex]
+        
+        lastNodes = [(prefixMasses[-1], len(sVector) - 1, t) for t in range(k + 1)]
+        t = np.argmax([self.GetScore(node, score) for node in lastNodes])
+        prevNode = lastNodes[t]
+        mPeptide = ''
+        pList = [peptide[i] for i in range(len(peptide))]
+        
+        while (0,0,0) != prevNode:
+            node = backtrack[prevNode]
+            if node[2] == prevNode[2]:
+                mPeptide = pList.pop() + mPeptide
+                prevNode = node
+            else:
+                indel = prevNode[1] - node[1] - diff[prevNode[0]]
+                if indel > 0:
+                    mPeptide = '(+' + str(indel) + ')' + mPeptide
+                else:
+                    mPeptide = '(' + str(indel) + ')' + mPeptide 
+                mPeptide = pList.pop() + mPeptide
+                prevNode = node
+        
+        return mPeptide
 
 
 
 # Example 1
 # -----------
-peptide = "XXZ"
-spectrum = [4, -3, -2, 3, 3, -4, 5, -3, -1, -1, 3, 4, 1, -1]
-k = 2
-
-print(SpectralAlignment(peptide, spectrum, k))
-# Output: X(+10)X(+10)Z
+input_data = """XXZ
+                4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 -1
+                2"""
+SpectralAlignment(input_data)
+# Output: XX(-1)Z(+2)
 
 
 # Example 2
 # -----------
-with open("dataset_30269_3.txt", "r") as file:
-    peptide = file.readline().strip()
-    spectrum = list(map(int, file.readline().strip().split()))
-    k = int(file.readline().strip())
-            
-result = SpectralAlignment(peptide, spectrum, k)
-print(result) # Output: M(+10)A(+10)D(+10)SSR
+SpectralAlignment(filename = "dataset_30269_3.txt")
+# Output: V(+140)AEQ(-125)GL(-15)
 
