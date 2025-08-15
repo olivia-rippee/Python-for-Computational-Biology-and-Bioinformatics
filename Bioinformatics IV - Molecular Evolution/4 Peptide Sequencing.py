@@ -54,7 +54,7 @@ for edge in edges:
     print(edge)
 
 # Output: 0->57:G  0->71:A  57->154:P  57->185:Q  71->185:N  154->301:F 185->332:F  
-        # 301->415:N  301->429:Q  332->429:P  415->486:A  429->486:G
+    # 301->415:N  301->429:Q  332->429:P  415->486:A  429->486:G
         
         
 
@@ -63,8 +63,7 @@ edges = ConstructSpectrumGraph(spectrum)
 WriteGraphToFile(edges, "output.txt")
         
 # Output: 0->101:T  0->114:N  101->214:L  114->227:L  214->285:A  227->390:Y
-# 285->384:V  384->513:E  390->546:R  513->610:P  546->674:Q  610->707:P ...
-
+    # 285->384:V  384->513:E  390->546:R  513->610:P  546->674:Q  610->707:P ...
 
 
 
@@ -72,11 +71,11 @@ WriteGraphToFile(edges, "output.txt")
 # Decode Ideal Spectrum
 # -----------------------------------------------
 
-AA_mass_table = {}
+massTable = {}
 with open("amino_acid_integer_mass_table.txt", "r") as file:
     for line in file:
         aa, mass = line.strip().split()
-        AA_mass_table[int(mass)] = aa
+        massTable[int(mass)] = aa
 
 def ConstructSpectrumGraph(spectrum):
     spectrum = sorted([0] + spectrum)
@@ -85,8 +84,8 @@ def ConstructSpectrumGraph(spectrum):
     for i in range(len(spectrum)):
         for j in range(i + 1, len(spectrum)):
             diff = spectrum[j] - spectrum[i]
-            if diff in AA_mass_table:
-                aa = AA_mass_table[diff]
+            if diff in massTable:
+                aa = massTable[diff]
                 u = spectrum[i]
                 v = spectrum[j]
                 if u not in graph:
@@ -135,7 +134,7 @@ def ReadSpectrumFromFile(filename):
 
 
 
-# Examples
+# Example 1
 # ----------
 spectrum_str = "57 71 154 185 301 332 415 429 486"
 spectrum = list(map(int, spectrum_str.split()))
@@ -143,7 +142,8 @@ print(DecodeIdealSpectrum(spectrum))
 # Output: GPFNA
 
 
-
+# Example 2
+# ----------
 spectrum = ReadSpectrumFromFile("dataset_30262_8.txt")
 peptide = DecodeIdealSpectrum(spectrum)
 print(peptide)
@@ -155,13 +155,7 @@ print(peptide)
 # Convert Peptide to Peptide Vector
 # -----------------------------------------------
 
-# Do not include 113:I and 128:K because of conflicts with L and Q respectively
-mass_by_amino_acid = {"X":4, "Z":5, "G":57, "A":71, "S":87, "P":97, "V":99, "T":101, 
-                      "C":103, "L":113, "N":114, "D":115, "Q":128, "E":129, "M":131, 
-                      "H":137, "F":147, "R":156, "Y":163, "W":186, "I":113, "K":128}
-
-
-def ConvertPeptideToVector(Peptide):
+def ConvertPeptideToVector(Peptide, massTable):
     ''' Convert a peptide into a peptide vector.
 
     Input: An amino acid string P.
@@ -171,7 +165,7 @@ def ConvertPeptideToVector(Peptide):
     prefix_masses = []
     current_mass = 0
     for amino_acid in Peptide:
-        current_mass += mass_by_amino_acid[amino_acid]
+        current_mass += massTable[amino_acid]
         prefix_masses.append(current_mass)
     
     total_mass = prefix_masses[-1]
@@ -186,39 +180,42 @@ def ConvertPeptideToVector(Peptide):
     return ' '.join(map(str, peptide_vector))
 
 
-# Example
-# ---------
+# Example 1
+# -----------
+massTable = {"X":4, "Z":5}
+
 peptide = "XZZXX"
-vector = ConvertPeptideToVector(peptide)
+vector = ConvertPeptideToVector(peptide, massTable)
 print(vector)  # Output: 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1
 
 
 
+# Example 2
+# -----------
+massTable = {"G":57, "A":71, "S":87, "P":97, "V":99, "T":101, "C":103, 
+             "I":113, "L":113, "N":114, "D":115, "K":128, "Q":128, "E":129, 
+             "M":131, "H":137, "F":147, "R":156, "Y":163, "W":186}
+
 with open("dataset_30264_5.txt", "r") as file:
     peptide = file.readline().strip()
-vector = ConvertPeptideToVector(peptide)
+vector = ConvertPeptideToVector(peptide, massTable)
 
 with open("output.txt", "w") as file:
     file.write(vector)
 
 # Output: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-# 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-# 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-# 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-# 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
-
+    # 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+    # 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+    # 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+    # 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ...
+    
 
 
 # -----------------------------------------------
 # Convert Peptide Vector to Peptide
 # -----------------------------------------------
 
-amino_acid_by_mass = {4:"X", 5:"Z", 57:"G", 71:"A", 87:"S", 97:"P", 99:"V", 101:"T", 
-                      103:"C", 113:"L", 114:"N", 115:"D", 128:"Q", 129:"E", 131:"M", 
-                      137:"H", 147:"F", 156:"R", 163:"Y", 186:"W"}
-
-
-def ConvertVectorToPeptide(Vector):
+def ConvertVectorToPeptide(Vector, massTable):
     '''Convert a peptide vector into a peptide.
     
     Input: A space-delimited binary vector P.
@@ -238,25 +235,32 @@ def ConvertVectorToPeptide(Vector):
     # Step 4: Convert masses to amino acids
     peptide = ""
     for mass in peptide_masses:
-        if mass not in amino_acid_by_mass:
+        if mass not in massTable:
             raise ValueError(f"No amino acid with mass {mass}")
-        peptide += amino_acid_by_mass[mass][0]  # Pick the first valid amino acid
+        peptide += massTable[mass][0]  # Pick the first valid amino acid
     
     return peptide
 
 
-
-# Examples
+# Example 1
 # ----------
+massTable = {4:"X", 5:"Z"}
 Vector = "0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1"
-peptide = ConvertVectorToPeptide(Vector)
+peptide = ConvertVectorToPeptide(Vector, massTable)
 print(peptide)  # Output: XZZXX
 
 
 
+# Example 2
+# ----------
+massTable = {57:"G", 71:"A", 87:"S", 97:"P", 99:"V", 101:"T", 103:"C", 
+             113:"L", 114:"N", 115:"D", 128:"Q", 129:"E", 131:"M", 
+             137:"H", 147:"F", 156:"R", 163:"Y", 186:"W"}
+
 with open("dataset_30264_6.txt", "r") as file:
     Vector = file.readline().strip()
-peptide = ConvertVectorToPeptide(Vector)
+    
+peptide = ConvertVectorToPeptide(Vector, massTable)
 print(peptide)  #Output: HQPCRWNDRSVSLLEAWRYVGMPQDNALDFVVC
 
 
@@ -266,7 +270,7 @@ print(peptide)  #Output: HQPCRWNDRSVSLLEAWRYVGMPQDNALDFVVC
 # Peptide Sequencing
 # -----------------------------------------------
 
-def PeptideSequencing(SpectralVector, amino_acid_by_mass):
+def PeptideSequencing(SpectralVector, massTable):
     '''Given a spectral vector Spectrum' = s1 ... sm, the goal is to find a peptide whose binary peptide vector 
        maximizes the dot product with Spectrum'. The peptide vector must have the same length as Spectrum', and 
        the peptide's mass must match the length of the spectrum. We model this as a weighted DAG path problem 
@@ -289,13 +293,13 @@ def PeptideSequencing(SpectralVector, amino_acid_by_mass):
 
     # Dynamic programming over all nodes
     for i in range(1, n):
-        for mass in amino_acid_by_mass:
+        for mass in massTable:
             j = i - mass
             if j >= 0:
                 score = dp[j] + spectrum[i]
                 if score > dp[i]:
                     dp[i] = score
-                    backtrack[i] = (j, amino_acid_by_mass[mass][0])  # pick any valid amino acid
+                    backtrack[i] = (j, massTable[mass][0])  # pick any valid amino acid
 
     # Reconstruct peptide from backtrack
     peptide = []
@@ -308,26 +312,23 @@ def PeptideSequencing(SpectralVector, amino_acid_by_mass):
     return ''.join(reversed(peptide))
 
 
-# Examples
-# ---------
-amino_acid_by_mass_example = {4:"X", 5:"Z", 57:"G", 71:"A", 87:"S", 97:"P", 99:"V", 101:"T", 
-                              103:"C", 113:"L", 114:"N", 115:"D", 128:"Q", 129:"E", 131:"M", 
-                              137:"H", 147:"F", 156:"R", 163:"Y", 186:"W"}
+# Example 1
+# ----------
+massTable = {4:"X", 5:"Z"}
 SpectralVector = "0 0 0 4 -2 -3 -1 -7 6 5 3 2 1 9 3 -8 0 3 1 2 1 8"
-peptide = PeptideSequencing(SpectralVector, amino_acid_by_mass_example)
+peptide = PeptideSequencing(SpectralVector, massTable)
 print(peptide)  # Output: XZZXX
 
 
 
-
+# Example 2
+# ----------
+massTable = {57:"G", 71:"A", 87:"S", 97:"P", 99:"V", 101:"T", 103:"C", 
+             113:"L", 114:"N", 115:"D", 128:"Q", 129:"E", 131:"M", 
+             137:"H", 147:"F", 156:"R", 163:"Y", 186:"W"}
 
 with open("dataset_30264_13.txt", "r") as file:
     SpectralVector = file.readline().strip()
-    
-amino_acid_by_mass = {57:"G", 71:"A", 87:"S", 97:"P", 99:"V", 101:"T", 103:"C", 
-                      113:"L", 114:"N", 115:"D", 128:"Q", 129:"E", 131:"M", 
-                      137:"H", 147:"F", 156:"R", 163:"Y", 186:"W"}
 
-peptide = PeptideSequencing(SpectralVector, amino_acid_by_mass)
+peptide = PeptideSequencing(SpectralVector, massTable)
 print(peptide)  # Output: SGSVGGSGDAP
-

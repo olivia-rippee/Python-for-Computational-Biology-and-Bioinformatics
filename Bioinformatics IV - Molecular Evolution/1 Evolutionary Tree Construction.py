@@ -60,8 +60,8 @@ def WriteOutputToFile(filePath, matrix):
 
 
 
-# Examples
-# ----------
+# Example 1
+# -----------
 inputData = ["0->4:11", "1->4:2", "2->5:6", "3->5:7", "4->0:11", 
              "4->1:2", "4->5:4", "5->4:4", "5->3:7", "5->2:6"]
 
@@ -70,23 +70,24 @@ matrix = ComputeLeafDistances(n, inputData)
 PrintDistanceMatrix(matrix)
 
 # Output:    
-# 0	    13	21	22
-# 13	0	12	13
-# 21	12	0	13
-# 22	13	13	0
+    # 0	    13	21	22
+    # 13	0	12	13
+    # 21	12	0	13
+    # 22	13	13	0
 
 
+# Example 2
+# -----------
 n, inputLines = ReadInputFromFile("dataset_30284_12.txt")
 matrix = ComputeLeafDistances(n, inputLines)
 WriteOutputToFile("output.txt", matrix)
 
 # Output: 
-# 0	31 52 100 29 208 89	67	37	54	124	103	66	76	104	169	178	85	214	150	
-    # 95 129 31	68	203	108	187	187	50	51	139	145
-# 31 0 45 93 32	211	92	70	40	57	127	106	59	79	97	172	181	78	217	
-    # 153 88 132 24	61	206	111	190	190	53	54	142	148
-# ...
-
+    # 0	31 52 100 29 208 89	67	37	54	124	103	66	76	104	169	178	85	214	150	
+        # 95 129 31	68	203	108	187	187	50	51	139	145
+    # 31 0 45 93 32	211	92	70	40	57	127	106	59	79	97	172	181	78	217 153 
+        # 88 132 24	61	206	111	190	190	53	54	142	148
+    # ...
 
 
 # -----------------------------------------------
@@ -127,8 +128,8 @@ def WriteToFile(filePath, value):
         file.write(str(value) + '\n')
         
         
-# Examples
-# -------------
+# Example 1
+# -----------
 n, j = 4, 1
 D = [[0, 13, 21, 22],
      [13, 0, 12, 13],
@@ -138,12 +139,16 @@ print(LimbLength(n, j, D))
 # Output: 2
 
 
+
+# Example 2
+# -----------
 n, j, D = ReadFromFile("dataset_30285_11.txt")
 print(LimbLength(n, j, D))
 # Output: 259
 
 
-
+# Example 3
+# -----------
 D = [[0, 20, 9, 11],
      [20, 0, 17, 11],
      [9, 17, 0, 8],
@@ -154,7 +159,8 @@ print(LimbLength(n, k, D))
 # Output: 3
 
 
-
+# Example 4
+# -----------
 D = [[0, 14, 17, 17],  # i
      [14, 0, 7, 13],   # j
      [17, 7, 0, 16],   # k
@@ -165,7 +171,8 @@ print(LimbLength(n, k, D))
 # Output: 5
 
 
-
+# Example 5
+# -----------
 D = [[0, 13, 16, 10],  # i
      [13, 0, 21, 15],   # j
      [16, 21, 0, 18],   # k
@@ -174,7 +181,6 @@ n = len(D)
 i = 0
 print(LimbLength(n, i, D))
 # Output: 4
-
 
 
 
@@ -241,7 +247,7 @@ def AdditivePhylogeny(D, n, nextNode):
     # Recursively build tree for n-1 leaves
     tree, nextNode = AdditivePhylogeny(Dprime, n - 1, nextNode)
 
-    # Now add back leaf n-1 by inserting it at distance x along path i-k
+    # Add back leaf n-1 by inserting it at distance x along path i-k
 
     # Find path from i to k in current tree
     path = FindPath(tree, i, k)
@@ -258,7 +264,7 @@ def AdditivePhylogeny(D, n, nextNode):
             nextNode += 1
             break
         elif distFromI + w > x:
-            # Need to split edge (u,v) to insert internal node at distance x
+            # Split edge (u,v) to insert internal node at distance x
             distToSplit = x - distFromI
             # Insert new internal node
             newNode = nextNode
@@ -374,8 +380,8 @@ def WriteOutputToFile(filename, tree):
                 file.write(f"{u}->{v}:{length}\n")
 
 
-# Examples
-# ----------
+# Example 1
+# -----------
 n = 4
 D = [[0, 13, 21, 22],
     [13, 0, 12, 13],
@@ -393,6 +399,8 @@ for u in sorted(tree.keys()):
     # 4->1:2   4->5:4    5->2:6    5->3:0    5->4:4
 
 
+# Example 2
+# -----------
 n, D = ReadInputFromFile("dataset_30286_6.txt")
 tree, _ = AdditivePhylogeny(D, n, nextNode=n)
 WriteOutputToFile("output.txt", tree)
@@ -402,7 +410,8 @@ WriteOutputToFile("output.txt", tree)
     # 7->34:134 8->35:427 9->36:342 10->37:722 11->38:275 12->39:423 ...
 
 
-
+# Example 3
+# -----------
 D = ReadNamedMatrix("coronavirus_distance_matrix_additive.txt")
 n = len(D)
 tree, _ = AdditivePhylogeny(D, n, nextNode=n)
@@ -410,7 +419,6 @@ WriteOutputToFile("output.txt", tree)
 
 # Output:
     # 0->29:465 1->51:66 2->49:154 3->30:539 4->31:987 ...
-
 
 
 # ----------------------------------------------- 
@@ -446,17 +454,19 @@ def IsAdditiveMatrix(matrix):
     return True
 
 
-# Examples
-# ----------
+# Example 1
+# -----------
 matrix1 = [[1, 2, 3],
            [2, 3, 4],
            [3, 4, 5]]
 print(IsAdditiveMatrix(matrix1))  # True
 
+
+# Example 2
+# -----------
 matrix2 = [[1, 2],
            [3, 5]]
 print(IsAdditiveMatrix(matrix2))  # False
-
 
 
 # ----------------------------------------------- 
@@ -517,9 +527,8 @@ def FindMatchingMatrixForTree(edges, leaves, matrices):
     return None
 
 
-
 # Example 1
-# ----------
+# -----------
 edges = [('i', 'center1', 2),
          ('j', 'center1', 4),
          ('center1', 'center2', 6),

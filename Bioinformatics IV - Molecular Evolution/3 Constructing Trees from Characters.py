@@ -128,7 +128,7 @@ def SmallParsimonyRooted(n, edges):
     return total_score, unique_edges
 
 
-# Examples
+# Example 1
 # -----------
 n = 4
 edges = ["4->CAAATCCC", "4->ATTGCGAC", "5->CTGCGCTG", "5->ATGGACGA", "6->4", "6->5"]
@@ -139,12 +139,13 @@ for e in out_edges:
     print(e)
     
 # Output: 16
-# ATAGACAA->ATAGACAC:1  ATAGACAA->ATGGACAA:1A  TAGACAC->ATAGACAA:1  ATAGACAC->ATTGCGAC:3
-# ATAGACAC->CAAATCCC:5  ATGGACAA->ATAGACAA:1  ATGGACAA->ATGGACGA:1  ATGGACAA->CTGCGCTG:5
-# ATGGACGA->ATGGACAA:1  ATTGCGAC->ATAGACAC:3  CAAATCCC->ATAGACAC:5  CTGCGCTG->ATGGACAA:5
-    
+    # ATAGACAA->ATAGACAC:1  ATAGACAA->ATGGACAA:1A  TAGACAC->ATAGACAA:1  ATAGACAC->ATTGCGAC:3
+    # ATAGACAC->CAAATCCC:5  ATGGACAA->ATAGACAA:1  ATGGACAA->ATGGACGA:1  ATGGACAA->CTGCGCTG:5
+    # ATGGACGA->ATGGACAA:1  ATTGCGAC->ATAGACAC:3  CAAATCCC->ATAGACAC:5  CTGCGCTG->ATGGACAA:5
+        
 
-
+# Example 2
+# -----------
 with open("dataset_30291_9.txt", "r") as file:
     lines = [line.strip() for line in file if line.strip()]
     n = int(lines[0])
@@ -158,16 +159,16 @@ with open("output.txt", "w") as file:
         file.write(edge + '\n')
 
 # Output: 11831
-# AAAACCAACCAAGCAGTAAGATTCCACTCGCAACAATGCGGGGGTATCAGTCGGACTATGGGGAAAATAACAAACAT
-# ACAATACTCCCTGGGATTTATGAAAAAGACGGCCGTGAAAAAAACGATGAGATGAATCGCTCGGAAGCAGCTCTAAC
-# TGGATGCTACACCAA->AAGACCAGACCAGCAGTAAGATTCCACTCGCAACAGTGCAGAGCCATCAGTCGGACTATG
-# GGGATAATAAAATACACACAATACACCCTGGTGTTTATGAAAAAGACGGCCGAGAAAAAAAGGCTAAGATGAATCGC
-# TCGGAAGCAGCTCTAACTGGATGCTACAGCAA:21
-# AAAACCAACCAAGCAGTAAGATTCCACTCGCAACAATGCGGGGGTATCAGTCGGACTATGGGGAAAATAACAAACAT
-# ACAATACTCCCTGGGATTTATGAAAAAGACGGCCGTGAAAAAAACGATGAGATGAATCGCTCGGAAGCAGCTCTAAC
-# TGGATGCTACACCAA->CCCGGTCACAAAGCATGAACGTTCTACTCGCCAGGATGCGGGGGTTCACTTGTCAGTAAT
-# TGGCCCCGAACTAATTTCCAATAGTCTGCGGGATAGTTTAGGCTTGCGAGCCTGTAAACAACTTTGAGCCGCGTCAC
-# TCGCAAGCGGCTCCAAGCCGATGCTAGGCCGA:72 ...
+    # AAAACCAACCAAGCAGTAAGATTCCACTCGCAACAATGCGGGGGTATCAGTCGGACTATGGGGAAAATAACAAACAT
+    # ACAATACTCCCTGGGATTTATGAAAAAGACGGCCGTGAAAAAAACGATGAGATGAATCGCTCGGAAGCAGCTCTAAC
+    # TGGATGCTACACCAA->AAGACCAGACCAGCAGTAAGATTCCACTCGCAACAGTGCAGAGCCATCAGTCGGACTATG
+    # GGGATAATAAAATACACACAATACACCCTGGTGTTTATGAAAAAGACGGCCGAGAAAAAAAGGCTAAGATGAATCGC
+    # TCGGAAGCAGCTCTAACTGGATGCTACAGCAA:21
+    # AAAACCAACCAAGCAGTAAGATTCCACTCGCAACAATGCGGGGGTATCAGTCGGACTATGGGGAAAATAACAAACAT
+    # ACAATACTCCCTGGGATTTATGAAAAAGACGGCCGTGAAAAAAACGATGAGATGAATCGCTCGGAAGCAGCTCTAAC
+    # TGGATGCTACACCAA->CCCGGTCACAAAGCATGAACGTTCTACTCGCCAGGATGCGGGGGTTCACTTGTCAGTAAT
+    # TGGCCCCGAACTAATTTCCAATAGTCTGCGGGATAGTTTAGGCTTGCGAGCCTGTAAACAACTTTGAGCCGCGTCAC
+    # TCGCAAGCGGCTCCAAGCCGATGCTAGGCCGA:72 ...
 
 
 
@@ -377,8 +378,8 @@ def SmallParsimonyRooted(n, edges):
 
 
 
-# Examples
-# ---------
+# Example
+# -----------
 n = 4
 edges = ["TCGGCCAA->4", "4->TCGGCCAA", "CCTGGCTG->4", "4->CCTGGCTG",
         "CACAGGAT->5", "5->CACAGGAT", "TGAGTACC->5", "5->TGAGTACC", "4->5", "5->4"]
@@ -387,10 +388,6 @@ score, edges = SmallParsimonyUnrooted(n, edges)
 print(score)
 for line in edges:
     print(line)
-
-
-
-
 
 
 
@@ -487,7 +484,7 @@ def WriteOutputToFile(filename, neighbor1, neighbor2):
         WriteAdj(neighbor2)
 
 
-# Examples
+# Example 1
 # -----------
 manual_input = ["5 4", "0->4", "4->0", "1->4", "4->1", "2->5", 
                 "5->2", "3->5", "5->3", "4->5", "5->4"]
@@ -499,25 +496,22 @@ print()
 PrintAdj(neighbor2)
 
 # Output: 0->5 1->4 2->5 3->4 4->1 4->3 4->5 5->0 5->2 5->4
-#         0->4 1->5 2->5 3->4 4->0 4->3 4->5 5->1 5->2 5->4
+        # 0->4 1->5 2->5 3->4 4->0 4->3 4->5 5->1 5->2 5->4
 
 
 
-
-input_filename = "dataset_30292_6.txt"
-output_filename = "output.txt"
-a, b, adj = ParseInputFromFile(input_filename)
+# Example 2
+# -----------
+a, b, adj = ParseInputFromFile("dataset_30292_6.txt")
 neighbor1, neighbor2 = NearestNeighborInterchangesNeighbors(a, b, adj)
-WriteOutputToFile(output_filename, neighbor1, neighbor2)
+WriteOutputToFile("output.txt", neighbor1, neighbor2)
 
 # Output: 0->32 1->32 2->33 3->33 4->34 5->34 6->35 7->35 8->36 9->36 10->37
-# 11->37 12->38 13->38 14->39 15->39 16->40 17->40 18->41 19->41 20->42 21->42
-# ... 61->60
-# 
-# 0->321->32 2->33 3->33 4->34 5->34 6->35 7->35 8->36 9->36 10->37 11->37
-# 12->38 13->38 14->39 15->39 16->40 17->40 18->41 19->4 20->42 ... 61->60
-
-
+    # 11->37 12->38 13->38 14->39 15->39 16->40 17->40 18->41 19->41 20->42 21->42
+    # ... 61->60
+    # 
+    # 0->321->32 2->33 3->33 4->34 5->34 6->35 7->35 8->36 9->36 10->37 11->37
+    # 12->38 13->38 14->39 15->39 16->40 17->40 18->41 19->4 20->42 ... 61->60
 
 
 # -----------------------------------------------
@@ -720,7 +714,7 @@ def RunNNI(adj, labels):
     return output_lines
 
 
-# Examples
+# Example 1
 # ----------
 n = 5
 adj = ["GCAGGGTA->5", "TTTACGCG->5", "CGACCTGA->6", "GATTCCAC->6", "5->TTTACGCG",
@@ -730,10 +724,9 @@ RunNNI(n, adj)
 
 
 
-
+# Example 2
+# ----------
 n, adj_lines = ReadInputFromFile("dataset_30292_8.txt")
 adj, labels = ParseInput(n, adj_lines)
 output_lines = RunNNI(adj, labels)
 WriteOutputToFile("output.txt", output_lines)
-
-

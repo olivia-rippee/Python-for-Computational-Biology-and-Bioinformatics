@@ -26,8 +26,8 @@ def Discrepancy(T, D):
     return discrepancy
 
 
-# Example 
-# ---------
+# Example 1
+# -----------
 T = [[0, 7, 9, 10],
      [7, 0, 10, 11],
      [9, 10, 0, 3],
@@ -42,7 +42,8 @@ print(Discrepancy(T, D)) # Output: 163
 
 
 
-
+# Example 2
+# -----------
 D = [[0, 20, 9, 11],
      [20, 0, 17, 11],
      [9, 17, 0, 8],
@@ -145,7 +146,7 @@ def UPGMA(D):
                 new_d = (size1 * d1 + size2 * d2) / (size1 + size2)
                 dist[frozenset({next_node, c_other})] = new_d
     
-        # Now remove old distances involving c1, c2
+        # Remove old distances involving c1, c2
         keys_to_remove = [k for k in dist if c1 in k or c2 in k]
         for k in keys_to_remove:
             dist.pop(k)
@@ -157,7 +158,7 @@ def UPGMA(D):
         next_node += 1
 
     # Output adjacency list
-    # We only output edges from each node to neighbors with weight rounded to 3 decimals
+    # Only output edges from each node to neighbors with weight rounded to 3 decimals
     # Sort output by node number, then neighbor number for consistent output
     for node in range(next_node):
         adj[node].sort(key=lambda x: x[0])
@@ -193,7 +194,7 @@ def ReadDistanceMatrixNamed(filename):
     return labels, D
 
 
-# Example
+# Example 1
 # ---------
 D = [[0, 20, 17, 11],
      [20, 0, 20, 13],
@@ -205,10 +206,11 @@ with open("output.txt", "w") as file:
         file.write(line + "\n")
 
 # Output: 0->5:7.000 1->6:8.833 2->4:5.000 3->4:5.000 4->2:5.000 4->3:5.000 
-# 4->5:2.000 5->0:7.000 5->4:2.000 5->6:1.833 6->1:8.833 6->5:1.833
+    # 4->5:2.000 5->0:7.000 5->4:2.000 5->6:1.833 6->1:8.833 6->5:1.833
 
 
-
+# Example 2
+# -----------
 D = ReadDistanceMatrix("dataset_30288_8.txt")
 tree = UPGMA(D)
 with open("output.txt", "w") as file:
@@ -216,10 +218,11 @@ with open("output.txt", "w") as file:
         file.write(line + "\n")
         
 # Output: 0->30:324.500 1->28:322.500 2->33:345.500 3->26:314.500 
-# 4->28:322.500 5->48:509.521 6->39:393.250 7->29:323.500 8->25:313.500
+    # 4->28:322.500 5->48:509.521 6->39:393.250 7->29:323.500 8->25:313.500
 
 
-
+# Example 3
+# -----------
 labels, D = ReadDistanceMatrixNamed("coronavirus_distance_matrix_nonadditive.txt")
 tree = UPGMA(D)
 with open("output.txt", "w") as file:
@@ -227,11 +230,11 @@ with open("output.txt", "w") as file:
         file.write(line + "\n")
         
 # Output: 0->10:147.500 1->10:147.500 2->11:153.500 3->12:247.167 4->13:409.000
-# 5->13:409.000 6->15:496.500 7->9:8.000 8->9:8.000 9->7:8.000 9->8:8.000
-# 9->14:470.625 10->0:147.500 10->1:147.500 10->11:6.000 11->2:153.500
-# 11->10:6.000 11->12:93.667 12->3:247.167 12->11:93.667 12->14:231.458
-# 13->4:409.000 13->5:409.000 13->16:129.857 14->9:470.625 14->12:231.458
-# 14->15:17.875 15->6:496.500 15->14:17.875 15->16:42.357 16->13:129.857 16->15:42.357
+    # 5->13:409.000 6->15:496.500 7->9:8.000 8->9:8.000 9->7:8.000 9->8:8.000
+    # 9->14:470.625 10->0:147.500 10->1:147.500 10->11:6.000 11->2:153.500
+    # 11->10:6.000 11->12:93.667 12->3:247.167 12->11:93.667 12->14:231.458
+    # 13->4:409.000 13->5:409.000 13->16:129.857 14->9:470.625 14->12:231.458
+    # 14->15:17.875 15->6:496.500 15->14:17.875 15->16:42.357 16->13:129.857 16->15:42.357
 
 
 
@@ -329,8 +332,8 @@ def NeighborJoining(D, labels=None, next_node=None):
 
 
 
-# Examples
-# ---------
+# Example 1
+# -----------
 n = 4
 D = [[0, 23, 27, 20],
      [23, 0, 30, 28],
@@ -341,11 +344,12 @@ for (a, b), length in sorted(T.items()):
     print(f"{a}->{b}:{length:.3f}".rstrip('0').rstrip('.'))
 
 # Output: 0->4:8 1->5:13.5 2->5:16.5 3->4:12 4->0:8 
-# 4->3:12 4->5:2 5->1:13.5 5->2:16.5 5->4:2
+    # 4->3:12 4->5:2 5->1:13.5 5->2:16.5 5->4:2
 
 
 
-
+# Example 2
+# -----------
 with open("dataset_30289_7.txt", "r") as file:
     n = int(file.readline())
     D = []
@@ -361,11 +365,12 @@ with open("output.txt", "w") as file:
         file.write(line + '\n')
         
 # Output: 0->38:537.115 1->37:547.94 2->39:528.261 3->37:501.06 4->43:557.132
-# 5->42:562.775 6->50:484.953 7->41:537.155 8->46:595.625 9->40:478.097 ...
+    # 5->42:562.775 6->50:484.953 7->41:537.155 8->46:595.625 9->40:478.097 ...
 
 
 
-
+# Example 3
+# -----------
 with open("coronavirus_distance_matrix_nonadditive.txt", "r") as file:
     header = file.readline().strip().split('\t')
     labels = header[1:]  # skip the empty first column header
@@ -388,11 +393,11 @@ with open("output.txt", "w") as file:
         file.write(line + '\n')
 
 # Output: Pig->12:146.219 Horse->12:148.781 Mouse->13:149.156 Dog->11:252.979 Cat->8:401.083
-# Turkey->8:416.917 Civet->9:488.8 Human->10:463.719 8->Cat:401.083 8->Turkey:416.917
-# 8->9:163.7 9->Civet:488.8 9->8:163.7 9->10:22.531 10->Human:463.719 10->9:22.531
-# 10->11:249.771 11->Dog:252.979 11->10:249.771 11->13:86.406 12->Pig:146.219 
-# 12->Horse:148.781 12->13:10.344 13->Mouse:149.156 13->11:86.406 13->12:10.344
-
+    # Turkey->8:416.917 Civet->9:488.8 Human->10:463.719 8->Cat:401.083 8->Turkey:416.917
+    # 8->9:163.7 9->Civet:488.8 9->8:163.7 9->10:22.531 10->Human:463.719 10->9:22.531
+    # 10->11:249.771 11->Dog:252.979 11->10:249.771 11->13:86.406 12->Pig:146.219 
+    # 12->Horse:148.781 12->13:10.344 13->Mouse:149.156 13->11:86.406 13->12:10.344
+    
 
 
 # Below is a distance matrix D. Compute D*k, l where D* is the neighbor-joining matrix of D.
