@@ -20,7 +20,7 @@ def ExpectedMitochondrialSurvival(generations):
 
 # Example
 # ---------
-ExpectedMitochondrialSurvival(generations = 6) # 0.178
+ExpectedMitochondrialSurvival(generations = 5) # 0.237, not correct
 
 
 
@@ -80,7 +80,6 @@ Diff(s,t) # Output: 0.5
 s = (0, 0, 1, 1, 0, 0, 1, 0) 
 t = (1, 1, 0, 0, 1, 1, 1, 1)
 Diff(s,t) # Output: 0.833
-
 
 
 # -----------------------------------------------
