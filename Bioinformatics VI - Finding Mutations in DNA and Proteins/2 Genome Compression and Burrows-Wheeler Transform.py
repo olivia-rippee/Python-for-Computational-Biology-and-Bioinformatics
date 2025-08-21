@@ -26,7 +26,7 @@ def SuffixArrayConstruction(text):
 # -----------
 text = "AACGATAGCGGTAGA$"
 suffix_array = SuffixArrayConstruction(text)
-print(" ".join(map(str, suffix_array)))
+print(*suffix_array)
 # Output: 15 14 0 1 12 6 4 2 8 13 3 7 9 10 11 5
 
 
@@ -39,6 +39,22 @@ suffix_array = SuffixArrayConstruction(text)
 with open("output.txt", "w") as file:
     file.write(" ".join(map(str, suffix_array)))
 # Output: 966 214 650 190 885 215 309 914 844 651 191 431 568 ... 144 326 143
+
+
+# Example 3
+# -----------
+text = "ananas$"
+suffix_array = SuffixArrayConstruction(text)
+print(*suffix_array)
+# Output: 6 0 2 4 1 3 5
+
+
+# Example 4
+# -----------
+text = "cocoon$"
+suffix_array = SuffixArrayConstruction(text)
+print(*suffix_array)
+# Output: 6 0 2 5 1 4 3
 
 
 
@@ -88,6 +104,21 @@ with open("output.txt", "w") as file:
     file.write(bwt)
 # Output: GGGGCAAACAT...GCCTTTTCAATC$AGAGCGA...AGGCTGTGA
 
+
+
+# Example 3
+# -----------
+text = "CGTTTGCTAT$"
+bwt = ConstructBWT(text)
+print(bwt) # Output: TT$GTCACTTG
+
+
+
+# Example 4
+# -----------
+text = "TCAGGGCTTG$"
+bwt = ConstructBWT(text)
+print(bwt) # Output: GCTGTGGA$TC
 
 
 # -----------------------------------------------
@@ -148,7 +179,7 @@ text = InverseBWT(bwt)
 print(text) # Output: TACATCACGT$
 
 
-# Example 3
+# Example 2
 # -----------
 with open("dataset_30225_10.txt", "r") as file:
     bwt = file.read().strip()
@@ -157,6 +188,20 @@ text = InverseBWT(bwt)
 with open("output.txt", "w") as file:
     file.write(text)
 # Output: TTTTCCAGTCTCTGGGGTATGCCAAT...AACAAAAGTGAA$
+
+
+# Example 3
+# -----------
+bwt = "TTACA$AAGTC"
+text = InverseBWT(bwt)
+print(text) # Output: CACTTAAAGT$
+
+
+# Example 4
+# -----------
+bwt = "AT$AAACTTCG"
+text = InverseBWT(bwt)
+print(text) # Output: AAACCTGTTA$
 
 
 
@@ -248,4 +293,3 @@ with open("output.txt", "w") as file:
     file.write(matches + '\n')
 
 # Output: 1 1 1 0 0 0 1 0 1 1 1 0 1 1 0 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 1 0 0 ...
-
