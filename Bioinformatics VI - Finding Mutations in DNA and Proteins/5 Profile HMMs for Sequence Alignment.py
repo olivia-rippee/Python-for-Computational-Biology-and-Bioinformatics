@@ -119,7 +119,7 @@ def PrintTransitionAndEmission(alphabet, states, fullTransition, emission):
     for i in range(emission.shape[0]):
         print('\t'.join([states[i]] + list(map(str, emission[i, :]))))
 
-def SaveTransitionAndEmission(alphabet, states, fullTransition, emission):
+def WriteTransitionAndEmission(alphabet, states, fullTransition, emission):
     with open("output.txt", "w") as file:
         file.write('\t' + '\t'.join(states) + '\n')
         for i in range(fullTransition.shape[0]):
@@ -169,7 +169,7 @@ PrintTransitionAndEmission(alphabet, states, transition_matrix, emission_matrix)
 # ----------
 theta, alphabet, alignment = ReadFromFile("dataset_30331_15.txt")
 states, transition_matrix, emission_matrix = ConstructProfileHMM(theta, alphabet, alignment)
-SaveTransitionAndEmission(alphabet, states, transition_matrix, emission_matrix)
+WriteTransitionAndEmission(alphabet, states, transition_matrix, emission_matrix)
 
 # Output: 
     # 	S	I0	M1	D1	I1	M2	D2	I2	M3	D3	I3	M4	D4	I4	M5	D5	I5	M6	D6	I6	M7	D7	I7	M8	D8	I8	E
@@ -203,7 +203,7 @@ padded_alignment = [seq.ljust(max_len, '-') for seq in alignment_strings]
 alignment = np.array([list(seq) for seq in padded_alignment])
 
 states, transition_matrix, emission_matrix = ConstructProfileHMM(theta, alphabet, alignment)
-SaveTransitionAndEmission(alphabet, states, transition_matrix, emission_matrix)
+WriteTransitionAndEmission(alphabet, states, transition_matrix, emission_matrix)
 # Output is saved as HIVProfileHMM.txt
 
 
@@ -345,7 +345,7 @@ def PrintTransitionAndEmission(alphabet, states, fullTransition, emission):
     for i in range(emission.shape[0]):
         print('\t'.join([states[i]] + list(map(str, emission[i, :]))))
 
-def SaveTransitionAndEmission(alphabet, states, fullTransition, emission):
+def WriteTransitionAndEmission(alphabet, states, fullTransition, emission):
     with open("output.txt", "w") as file:
         file.write('\t' + '\t'.join(states) + '\n')
         for i in range(fullTransition.shape[0]):
@@ -393,7 +393,7 @@ PrintTransitionAndEmission(alphabet, states, fullTransition, emission)
 # ----------
 theta, sigma, alphabet, alignment = ReadFromFilePseudocounts("dataset_30332_5.txt")
 states, fullTransition, emission = ConstructProfileHMMWithPseudocounts(theta, sigma, alphabet, alignment)
-SaveTransitionAndEmission(alphabet, states, fullTransition, emission)
+WriteTransitionAndEmission(alphabet, states, fullTransition, emission)
 
 # Output:
     # 	    S	I0	M1	D1	I1	M2	D2	I2	E
@@ -630,3 +630,50 @@ path = SequenceAlignmentProfileHMM(states, fullT, emit, alphabet, text)
 print(*path) # Output: M1 I1 M2 M3 M4 M5 D6 I6 I6 I6 I6 I6 M7 M8 M9 M10 M11 
     # I11 M12 M13 I13 I13 I13 I13 I13 M14 I14 M15 M16 I16 M17 I17 M18 M19 
     # M20 M21 M22 M23 I23 M24 M25 I25 M26 M27 M28 I28 M29 M30 I30 I30
+
+
+# -----------------------------------------------
+# Probability of Emission
+# -----------------------------------------------
+
+def ProbabilityEmission(alignment, match_position, amino_acid):
+    '''Computes the emission probability of a symbol from a given match state in an alignment.
+
+    Input: List of aligned sequences (strings of equal length), 1-based index of the match 
+    state (i.e., column in the alignment), and the one-letter amino acid whose emission
+    probability we want.
+    Output: The emission probability.'''
+    
+    if not alignment or not alignment[0]:
+        raise ValueError("Alignment must not be empty.")
+    
+    if match_position < 1 or match_position > len(alignment[0]):
+        raise ValueError("match_position out of range.")
+
+    column_index = match_position - 1
+    residues = [seq[column_index] for seq in alignment if seq[column_index] != '-']
+    
+    if not residues:
+        return 0.0
+
+    amino_acid_count = residues.count(amino_acid)
+    total_count = len(residues)
+    return round(amino_acid_count / total_count, 3)
+
+
+# What is the probability that serine (S) will be emitted from M(8), the 
+# 8th match state of the profile HMM corresponding to this alignment? 
+# -----------------------------------------------------------------------
+alignment = ["M--QKCASHLE-AR",
+             "MSNL-C-APD-LER",
+             "MSAPNCARKYDI-R",
+             "MS-SSCADED-IIR",
+             "M--TKC-SKLEIDR"]
+
+result = ProbabilityEmission(alignment, match_position=8, amino_acid='S')
+print(result)  # Output: 0.4
+
+
+
+
+

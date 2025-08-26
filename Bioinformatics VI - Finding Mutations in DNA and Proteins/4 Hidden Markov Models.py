@@ -2,6 +2,45 @@ import os
 os.chdir("C:/Users/olivi/OneDrive/Python/Bioinformatics VI - Finding Mutations in DNA and Proteins/Data")
 
 # -----------------------------------------------
+# Probability of an Outcome
+# -----------------------------------------------
+
+def ProbabilityObservation(pi, x, probs):
+    '''Compute the probability Pr(x | pi) that the observation sequence x
+    was generated given the coin types in pi and their head probabilities.
+
+    Input: A string of coin type labels (e.g., 'F', 'B'), a string of observed 
+    coin flips ('H' or 'T'), and a dictionary mapping coin labels to P(H), e.g., 
+    {'F': 0.5, 'B': 0.75}.
+    Output: The probability of the observed sequence.'''
+    
+    if len(pi) != len(x):
+        raise ValueError("Sequences pi and x must be of the same length.")
+
+    probability = 1.0
+
+    for coin, flip in zip(pi, x):
+        if coin not in probs:
+            raise ValueError(f"Coin type '{coin}' not defined in coin_probs.")
+
+        prob_head = probs[coin]
+        prob = prob_head if flip == 'H' else (1 - prob_head)
+        probability *= prob
+
+    return round(probability, 3)
+
+
+# Example
+# ---------
+pi = "BFBBF"
+x = "HTHHH"
+probs = {'F': 0.5, 'B': 0.75}
+
+result = ProbabilityObservation(pi, x, probs)
+print(result)  # Output: 0.105
+
+
+# -----------------------------------------------
 # Probability of a Hidden Path
 # -----------------------------------------------
 
@@ -69,6 +108,45 @@ print(probability) # Output: 0.0003849286917546758
 path, states, transition = ParseInputHiddenPath("dataset_30326_8.txt", from_file=True)
 probability = ProbabilityHiddenPath(path, states, transition)
 print(probability) # Output: 7.324774418398683e-18
+
+
+# -----------------------------------------------
+# Probability of an Outcome Given Emission
+# -----------------------------------------------
+
+def CompareCoinLikelihoods(sequence, prob1, prob2):
+    '''Compares the likelihood of a coin flip sequence being generated
+    by two coins with different probabilities of heads.
+
+    Input: A string of 'H' and 'T' representing coin flips, probability of heads 
+    for coin 1, probability of heads for coin 2.
+    Output: Indicates which coin is more likely to have generated the sequence.'''
+    
+    # Count occurrences
+    num_heads = sequence.count('H')
+    num_tails = sequence.count('T')
+
+    # Probabilities of tails for each coin
+    prob_tails_1 = 1 - prob1
+    prob_tails_2 = 1 - prob2
+
+    # Compute likelihoods
+    prob_coin_1 = (prob1 ** num_heads) * (prob_tails_1 ** num_tails)
+    prob_coin_2 = (prob2 ** num_heads) * (prob_tails_2 ** num_tails)
+
+    # Compare and return result
+    if prob_coin_1 > prob_coin_2:
+        return "Coin 1"
+    elif prob_coin_2 > prob_coin_1:
+        return "Coin 2"
+    else:
+        return "Both coins are equally likely."
+
+
+# Example
+# --------
+result = CompareCoinLikelihoods("HTTTH", 0.5, 0.75)
+print(result)  # Output: Coin 1 (Fair)
 
 
 # -----------------------------------------------
@@ -142,6 +220,30 @@ x, path, emission_matrix = ParseInputEmission("dataset_30326_10.txt", from_file=
 probability = ProbabilityOutcomeGivenPath(x, path, emission_matrix)
 print(probability) # Output: 3.665653574261883e-30
 
+
+# -----------------------------------------------
+# Edges in a Viterbi Graph
+# -----------------------------------------------
+
+def ComputeViterbiGraphEdges(num_states, sequence_length):
+    '''Computes the number of edges in a Viterbi graph for an HMM.
+
+    Input: Number of hidden states in the HMM and length of the emitted sequence.
+    Output: Total number of edges in the Viterbi graph.'''
+    
+    if num_states <= 0 or sequence_length <= 0:
+        raise ValueError("Number of states and sequence length must be positive integers.")
+
+    # Source to first layer: num_states edges
+    # Between layers: (sequence_length - 1) * num_states^2 edges
+    # Last layer to sink: num_states edges
+    total_edges = num_states + (sequence_length - 1) * (num_states ** 2) + num_states
+    return total_edges
+
+
+# Example
+# --------
+print(ComputeViterbiGraphEdges(num_states = 2, sequence_length = 4))  # Output: 16
 
 
 # -----------------------------------------------
