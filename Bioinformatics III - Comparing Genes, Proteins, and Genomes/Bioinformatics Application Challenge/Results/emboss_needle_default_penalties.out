@@ -1,0 +1,137 @@
+########################################
+# Program: needle
+# Rundate: Tue 12 Aug 2025 18:37:20
+# Commandline: needle
+#    -auto
+#    -stdout
+#    -asequence emboss_needle-I20250812-183711-0299-92370981-p1m.asequence
+#    -bsequence emboss_needle-I20250812-183711-0299-92370981-p1m.bsequence
+#    -datafile EPAM150
+#    -gapopen 10.0
+#    -gapextend 0.5
+#    -endopen 10.0
+#    -endextend 0.5
+#    -aformat3 pair
+#    -sprotein1
+#    -sprotein2
+# Align_format: pair
+# Report_file: stdout
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: gramicidin_S_synthetase_1
+# 2: firefly_luciferase
+# Matrix: EPAM150
+# Gap_penalty: 10.0
+# Extend_penalty: 0.5
+#
+# Length: 1179
+# Identity:     122/1179 (10.3%)
+# Similarity:   263/1179 (22.3%)
+# Gaps:         710/1179 (60.2%)
+# Score: 152.0
+# 
+#
+#=======================================
+
+gramicidin_S_      1 MLNSSKSILIHAQNKNGTHEEEQYLFAVNNTKAEYPRDKTIHQLFEEQVS     50
+                      ::.:|:|      |:|...    ::::::..|.....|::         
+firefly_lucif      1 -MEDAKNI------KKGPAP----FYPLEDGTAGEQLHKAM---------     30
+
+gramicidin_S_     51 KR----PNNVAIVCENEQLT-----YHELNVKANQLARIFIEKGIGKDTL     91
+                     ||    |..:|....:.::.     |.|::|:..:..:.:   |:..:..
+firefly_lucif     31 KRYALVPGTIAFTDAHIEVNITYAEYFEMSVRLAEAMKRY---GLNTNHR     77
+
+gramicidin_S_     92 VGIMMEKSIDLFIGILAVLKAGGAYVPIDIEYPKERIQYILDDSQARMLL    141
+                     :.:..|:|:::|:.:|:.|..|.|..|.:..|....:...::.||:.:::
+firefly_lucif     78 IVVCSENSLQFFMPVLGALFIGVAVAPANDIYNERELLNSMNISQPTVVF    127
+
+gramicidin_S_    142 TQKHLVHLIHNIQFNGQVEIFEEDTIKIREG-------------TNLHVP    178
+                     ..|..::.|.|:|  ..:.|.:  .|.|.::             ...|:|
+firefly_lucif    128 VSKKGLQKILNVQ--KKLPIIQ--KIIIMDSKTDYQGFQSMYTFVTSHLP    173
+
+gramicidin_S_    179 S-------------KSTDLAYVIYTSGTTGNPKGTMLEHKGISNLKVFFE    215
+                     :             :...:|.::.:||:||.|||..|.|:...   |.|.
+firefly_lucif    174 PGFNEYDFVPESFDRDKTIALIMNSSGSTGLPKGVALPHRTAC---VRFS    220
+
+gramicidin_S_    216 NSLNVTEKDRI----GQFASISFDASVWEMFMAL--LTGASLYIILKDTI    259
+                     ::.:....::|    :.::.::|..: ..||.:|  |. .::.::|....
+firefly_lucif    221 HARDPIFGNQIIPDTAILSVVPFHHG-FGMFTTLGYLI-CGFRVVLMYRF    268
+
+gramicidin_S_    260 ND--FVK-FEQYINQKEITVITLPPTYV--VHLDPERILSIQTLITAGSA    304
+                     ::  |:: :::|..|..:.|.||.:.:.  ..:|...:.:::.:.::|::
+firefly_lucif    269 EEELFLRSLQDYKIQSALLVPTLFSFFAKSTLIDKYDLSNLHEIASGGAP    318
+
+gramicidin_S_    305 TSPSL---VNKWKEKVTYINAYGPTETTICATTWVATKETTGHSVPIG--    349
+                     .|..:   |.|:........:||.||||   ::.:.|.|....:.::|  
+firefly_lucif    319 LSKEVGEAVAKRFHLPGIRQGYGLTETT---SAILITPEGDDKPGAVGKV    365
+
+gramicidin_S_    350 APIQNTQIYIVDENLQLKSVGEAGELCIGGEGLARGYWKRPELTSQKFVD    399
+                     .|..::.:..:|....| :|.:.||||:.|..:..||.:.||.|      
+firefly_lucif    366 VPFFEAKVVDLDTGKTL-GVNQRGELCVRGPMIMSGYVNNPEAT------    408
+
+gramicidin_S_    400 NPFVPGEKLYKTGDQARWLPDGNIEY---------LGRIDNQVKIRGHRV    440
+                     |:::         |...||..|:|.|         :.|:.:.:|.:|.:|
+firefly_lucif    409 NALI---------DKDGWLHSGDIAYWDEDEHFFIVDRLKSLIKYKGYQV    449
+
+gramicidin_S_    441 ELEEVESILLKHMYISETAVSVHKDHQEQPYLCAIFVSEKHIPLEQLRQF    490
+                     ...|:|||||.|..|.:::|:...|.:......|:.|      ||:.:..
+firefly_lucif    450 APAELESILLQHPNIFDAGVAGLPDDDAGELPAAVVV------LEHGKTM    493
+
+gramicidin_S_    491 SSEELPTYMIP-----------SYFIQLDKMPLTSNGKIDRKQLPE----    525
+                     :..|:..|:.:           ..|:  |.:|....||:|.:.:.|    
+firefly_lucif    494 TEKEIVDYVASQVTTAKKLRGGVVFV--DEVPKGLTGKLDARKIREILIK    541
+
+gramicidin_S_    526 ------PDLTFGMRVDYEAPRNEIEETLVTIWQDVLGIEKIGIKDNFYAL    569
+                           :.|                                         
+firefly_lucif    542 AKKGGKSKL-----------------------------------------    550
+
+gramicidin_S_    570 GGDSIKAIQVAARLHSYQLKLETKDLLKYPTIDQLVHYIKDSKRRSEQGI    619
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    620 VEGEIGLTPIQHWFFEQQFTNMHHWNQSYMLYRPNGFDKEILLRVFNKIV    669
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    670 EHHDALRMIYKHHNGKIVQINRGLEGTLFDFYTFDLTANDNEQQVICEES    719
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    720 ARLQNSINLEVGPLVKIALFHTQNGDHLFMAIHHLVVDGISWRILFEDLA    769
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    770 TAYEQAMHQQTIALPEKTDSFKDWSIELEKYANSELFLEEAEYWHHLNYY    819
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    820 TDNVQIKKDYVTMNNKQKNIRYVGMELTIEETEKLLKNVNKAYRTEINDI    869
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    870 LLTALGFALKEWADIDKIVINLEGHGREEILEQMNIARTVGWFTSQYPVV    919
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    920 LDMQKSDDLSYQIKLMKENLRRIPNKGIGYEIFKYLTTEYLRPVLPFTLK    969
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_    970 PEINFNYLGQFDTDVKTELFTRSPYSMGNSLGPDGKNNLSPEGESYFVLN   1019
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_   1020 INGFIEEGKLHITFSYNEQQYKEDTIQQLSRSYKQHLLAIIEHCVQKEDT   1069
+                                                                       
+firefly_lucif    551 --------------------------------------------------    550
+
+gramicidin_S_   1070 ELTPSDFSFKELELEEMDDIFDLLADSLT   1098
+                                                  
+firefly_lucif    551 -----------------------------    550
+
+
+#---------------------------------------
+#---------------------------------------

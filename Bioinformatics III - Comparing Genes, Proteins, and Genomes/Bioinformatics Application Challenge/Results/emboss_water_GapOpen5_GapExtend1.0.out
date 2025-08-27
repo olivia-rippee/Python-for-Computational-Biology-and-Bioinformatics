@@ -1,0 +1,87 @@
+########################################
+# Program: water
+# Rundate: Tue 12 Aug 2025 18:52:28
+# Commandline: water
+#    -auto
+#    -stdout
+#    -asequence emboss_water-I20250812-185218-0596-20243001-p1m.asequence
+#    -bsequence emboss_water-I20250812-185218-0596-20243001-p1m.bsequence
+#    -datafile EPAM150
+#    -gapopen 5.0
+#    -gapextend 1.0
+#    -aformat3 pair
+#    -sprotein1
+#    -sprotein2
+# Align_format: pair
+# Report_file: stdout
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: gramicidin_S_synthetase_1
+# 2: firefly_luciferase
+# Matrix: EPAM150
+# Gap_penalty: 5.0
+# Extend_penalty: 1.0
+#
+# Length: 595
+# Identity:     153/595 (25.7%)
+# Similarity:   273/595 (45.9%)
+# Gaps:         150/595 (25.2%)
+# Score: 309.0
+# 
+#
+#=======================================
+
+gramicidin_S_     35 YP-RDKTI-HQLFEEQVSKR----PNNVAIVCEN--E-QLT---YHELNV     72
+                     || .|.|. .||  ....||    |..:|.. :.  | .:|   |.|::|
+firefly_lucif     15 YPLEDGTAGEQL--HKAMKRYALVPGTIAFT-DAHIEVNITYAEYFEMSV     61
+
+gramicidin_S_     73 K-ANQLARIFIEKGIGKDTLVGIMMEKSIDLFIGILAVLKAGGAYVPI-D    120
+                     : |:.:.| :   |:..:..:.:..|:|:::|:.:|:.|..|.|..|. |
+firefly_lucif     62 RLAEAMKR-Y---GLNTNHRIVVCSENSLQFFMPVLGALFIGVAVAPAND    107
+
+gramicidin_S_    121 IEYPKER-------I-Q----YILDDSQARMLLTQKHLVHLIHNI-----    153
+                     | | :||       | |    ::...:..::|..||.| .:|::|     
+firefly_lucif    108 I-Y-NERELLNSMNISQPTVVFVSKKGLQKILNVQKKL-PIIQKIIIMDS    154
+
+gramicidin_S_    154 --QFNG-QVEIFEEDTIKIREGTNLH--VP---SKSTDLAYVIYTSGTTG    195
+                       ::.| | .::...|..:..|.|..  ||   .:...:|.::.:||:||
+firefly_lucif    155 KTDYQGFQ-SMYTFVTSHLPPGFNEYDFVPESFDRDKTIALIMNSSGSTG    203
+
+gramicidin_S_    196 NPKGTMLEHKG----ISNLK-VFFENSLNVTEKDRIGQFASISFDASVWE    240
+                     .|||..|.|:.    .|:.: ..|.|.: :.:.. |  ::.::|..: ..
+firefly_lucif    204 LPKGVALPHRTACVRFSHARDPIFGNQI-IPDTA-I--LSVVPFHHG-FG    248
+
+gramicidin_S_    241 MFMAL--LT-GASLY-IILKDTIND--FVK-FEQYINQKEITVITLPPTY    283
+                     ||.:|  |. |   : ::|....::  |:: :::|..|..:.|.||.:.:
+firefly_lucif    249 MFTTLGYLICG---FRVVLMYRFEEELFLRSLQDYKIQSALLVPTLFSFF    295
+
+gramicidin_S_    284 V-VHLDPERI-LSIQTL--ITAGSATSPSLVNKWKEKVT--Y----I-NA    322
+                     . ..| .::. ||  .|  |::|:|  | |.:...|.|:  :    | .:
+firefly_lucif    296 AKSTL-IDKYDLS--NLHEIASGGA--P-LSKEVGEAVAKRFHLPGIRQG    339
+
+gramicidin_S_    323 YGPTETTICATTWVATKETTGHSVPIG--APIQNTQIYIVDENLQLKSVG    370
+                     ||.|||| .|.  :.|.|....:.::|  .|..::.:..:|....| :|.
+firefly_lucif    340 YGLTETT-SAI--LITPEGDDKPGAVGKVVPFFEAKVVDLDTGKTL-GVN    385
+
+gramicidin_S_    371 EAGELCIGGEGLARGYWKRPELTSQKFVDNPFVPGEKLYKTGDQARWLPD    420
+                     :.||||:.|..:..||.:.||.|:. ::|          |.|    ||..
+firefly_lucif    386 QRGELCVRGPMIMSGYVNNPEATNA-LID----------KDG----WLHS    420
+
+gramicidin_S_    421 GNIEY---------LGRIDNQVKIRGHRVELEEVESILLKHMYISETAVS    461
+                     |:|.|         :.|:.:.:|.:|.:|...|:|||||.|..|.:::|:
+firefly_lucif    421 GDIAYWDEDEHFFIVDRLKSLIKYKGYQVAPAELESILLQHPNIFDAGVA    470
+
+gramicidin_S_    462 VHKDHQ--EQPYLCAIFVSEKHIPLEQLRQFSSEELPTYMIPSYFIQLDK    509
+                     ...|.:  |.|  .|:.|      ||:.:..:..|:..| ::|   |   
+firefly_lucif    471 GLPDDDAGELP--AAVVV------LEHGKTMTEKEIVDY-VAS---Q---    505
+
+gramicidin_S_    510 MPLTSNGKIDR------KQLPEPDLTFGMRVDYEAPRNEIEETLV    548
+                       :|:..|: |      .::|. .|| | ::|   :|: |.|.|:
+firefly_lucif    506 --VTTAKKL-RGGVVFVDEVPK-GLT-G-KLD---ARK-IREILI    540
+
+
+#---------------------------------------
+#---------------------------------------
