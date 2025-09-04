@@ -62,36 +62,36 @@ VII | In Progress | [Bioinformatics Capstone: Big Data in Biology](https://www.c
 
 ## III. Comparing Genes, Proteins, and Genomes
 
-- 1. Introduction to Sequence Alignment
-- 2. From Finding a Longest Path to Aligning DNA Strings
-- 3. Advanced Topics in Sequence Alignment
-- 4. Genome Rearrangements and Fragility
-- 5. Applying Genome Rearrangements Analysis to Find Genome Fragility
+- Introduction to Sequence Alignment
+- From Finding a Longest Path to Aligning DNA Strings
+- Advanced Topics in Sequence Alignment
+- Genome Rearrangements and Fragility
+- Applying Genome Rearrangements Analysis to Find Genome Fragility
 
 ---
 
 ## IV. Molecular Evolution
 
-- 1. Introduction to Evolutionary Tree Construction
-- 2. More Algorithms for Constructing Trees from Distance Matrices
-- 3. Constructing Evolutionary Trees from Characters
-- 4. Was T. rex Just a Big Chicken?
-- 5. Resolving the T. rex Peptides Mystery?
+- Introduction to Evolutionary Tree Construction
+- More Algorithms for Constructing Trees from Distance Matrices
+- Constructing Evolutionary Trees from Characters
+- Was T. rex Just a Big Chicken?
+- Resolving the T. rex Peptides Mystery?
 
 ---
 
 ## V. Genomic Data Science and Clustering
 
-- 1. Introduction to Clustering Algorithms
-- 2. Advanced Clustering Techniques
-- 3. Introductory Algorithms in Population Genetics
+- Introduction to Clustering Algorithms
+- Advanced Clustering Techniques
+- Introductory Algorithms in Population Genetics
 
 ---
 
 ## VI. Finding Mutations in DNA and Proteins
 
-- 1. Introduction to Read Mapping
-- 2. The Burrows-Wheeler Transform
-- 3. Speeding Up Burrows-Wheeler Read Mapping
-- 4. Introduction to Hidden Markov Models
-- 5. Profile HMMs for Sequence Alignment
+- Introduction to Read Mapping
+- The Burrows-Wheeler Transform
+- Speeding Up Burrows-Wheeler Read Mapping
+- Introduction to Hidden Markov Models
+- Profile HMMs for Sequence Alignment
