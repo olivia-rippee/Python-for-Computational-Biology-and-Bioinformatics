@@ -1,15 +1,3 @@
 *.html linguist-vendored
 *.css linguist-vendored
 *.js linguist-vendored
-Bioinformatics I - Hidden Messages in DNA/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics I - Hidden Messages in DNA/Data/* linguist-vendored
-Bioinformatics II - Genome Sequencing/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics II - Genome Sequencing/Data/* linguist-vendored
-Bioinformatics III - Comparing Genes, Proteins, and Genomes/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics III - Comparing Genes, Proteins, and Genomes/Data/* linguist-vendored
-Bioinformatics IV - Molecular Evolution/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics IV - Molecular Evolution/Data/* linguist-vendored
-Bioinformatics V - Genomic Data Science and Clustering/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics V - Genomic Data Science and Clustering/Data/* linguist-vendored
-Bioinformatics VI - Finding Mutations in DNA and Proteins/Bioinformatics Application Challenge/* linguist-vendored
-Bioinformatics VI - Finding Mutations in DNA and Proteins/Data/* linguist-vendored
