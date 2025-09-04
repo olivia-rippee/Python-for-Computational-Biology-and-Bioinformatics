@@ -1,3 +1,6 @@
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
 Bioinformatics I - Hidden Messages in DNA/Bioinformatics Application Challenge/* linguist-vendored
 Bioinformatics I - Hidden Messages in DNA/Data/* linguist-vendored
 Bioinformatics II - Genome Sequencing/Bioinformatics Application Challenge/* linguist-vendored
