@@ -2,7 +2,7 @@
 
 ---
 
-N°  | Status | Course |
+No. | Status | Course |
 --- | --- | --- |
 I   | Completed | [Finding Hidden Messages in DNA](https://www.coursera.org/learn/dna-analysis)
 II  | Completed | [Genome Sequencing](https://www.coursera.org/learn/genome-sequencing)
