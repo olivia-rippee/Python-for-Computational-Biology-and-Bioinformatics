@@ -10,7 +10,7 @@ III | Completed | [Comparing Genes, Proteins, and Genomes](https://www.coursera.
 IV  | Completed | [Molecular Evolution](https://www.coursera.org/learn/molecular-evolution) |
 V   | Completed | [Genomic Data Science and Clustering](https://www.coursera.org/learn/genomic-data) |
 VI  | Completed | [Finding Mutations in DNA and Proteins](https://www.coursera.org/learn/dna-mutations) |
-VII | In Progress | [Bioinformatics Capstone: Big Data in Biology](https://www.coursera.org/learn/bioinformatics-project) |
+VII | Completed | [Bioinformatics Capstone: Big Data in Biology](https://www.coursera.org/learn/bioinformatics-project) |
 
 ---
 
