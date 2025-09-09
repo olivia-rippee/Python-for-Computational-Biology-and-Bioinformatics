@@ -95,3 +95,10 @@ VII | Completed | [Bioinformatics Capstone: Big Data in Biology](https://www.cou
 - Speeding Up Burrows-Wheeler Read Mapping
 - Introduction to Hidden Markov Models
 - Profile HMMs for Sequence Alignment
+
+---
+
+## VII. Bioinformatics Capstone: Big Data in Biology
+- Genome Assembly and Annotation
+- Variant Detection and Classification
+- Protein Structure Analysis
