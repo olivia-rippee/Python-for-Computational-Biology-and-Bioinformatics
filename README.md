@@ -1,4 +1,4 @@
-# Bioinformatics Specialization - University of California San Diego (Coursera)
+# [Bioinformatics Specialization - University of California San Diego (Coursera)](https://www.coursera.org/specializations/bioinformatics)
 
 ---
 
